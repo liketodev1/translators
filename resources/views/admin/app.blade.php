@@ -50,21 +50,8 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2 ">
-                    <div class="col-sm-6">
-                        @include('admin.layouts.breadcrumb')
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item">
-                                <a href="{{ route('admin.options.create') }}" class="text-dark btn btn-default">
-                                    <i class="fas fa-plus-circle"></i>
-                                    Create
-                                </a>
-                            </li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                @yield('breadcrumb')
+
                 @include('admin.layouts.alert')
             </div><!-- /.container-fluid -->
         </div>

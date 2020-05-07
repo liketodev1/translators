@@ -1,5 +1,7 @@
 @php
-    $routeName = explode('.',Route::currentRouteName())
+    $routeName =Route::currentRouteName();
+    $route = Route::current();
+    $action = Route::currentRouteAction();
 @endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -11,15 +13,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ asset('bower_components/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Administrator</a>
-            </div>
-        </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -27,16 +20,7 @@
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                <li class="nav-item {{ $routeName=='admin.home'?'menu-open':'' }}">
-                    <a href="{{ route('admin.home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
+
                 <li class="nav-item {{ $routeName=='admin.users.index'?'menu-open':'' }}">
                     <a href="{{ route('admin.users.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -45,14 +29,42 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ $routeName=='admin.options.index'?'menu-open':'' }}">
-                    <a href="{{ route('admin.options.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-language"></i>
+                <li class="nav-item has-treeview {{ isset($type)?'menu-open':'' }}">
+                    <a href="#" class="nav-link {{ isset($type)?'active':'' }}">
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Languages
+                            Options
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.options.index',['type'=>1]) }}" class="nav-link  {{ isset($type) && $type==1?'active':'' }}">
+                                <i class="nav-icon fas fa-language"></i>
+                                <p>
+                                    Languages
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.options.index',['type'=>2]) }}" class="nav-link  {{ isset($type) && $type==2?'active':'' }}">
+                                <i class="nav-icon fas fa-language"></i>
+                                <p>
+                                    Specification
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.options.index',['type'=>3]) }}" class="nav-link  {{ isset($type) && $type==3?'active':'' }}">
+                                <i class="nav-icon fas fa-language"></i>
+                                <p>
+                                    Industry specialization
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
