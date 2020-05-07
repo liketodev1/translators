@@ -71,8 +71,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric'],
             'role' => ['required'],
+            'privacy' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -117,7 +118,7 @@ class RegisterController extends Controller
             $this->guard()->login($user);
             return view('auth.confirmed');
         }
-
+        flash(__('global.codeError'),'danger');
         return view('auth.confirmCode',compact("user"));
     }
 }
