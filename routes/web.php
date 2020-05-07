@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('users/{user}/confirm', 'Auth\RegisterController@confirmCode')->name('confirmCode');
+Route::post('users/{user}/confirm', 'Auth\RegisterController@confirm')->name('confirm');
+
