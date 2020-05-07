@@ -5,4 +5,7 @@
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 @stack('bottom_js')
