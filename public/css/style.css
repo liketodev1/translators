@@ -39,7 +39,7 @@
   *:before, *:after {
     box-sizing: border-box;
   }
-  
+
   body {
     font-size: 16px;
     font-family: MetropolisRegular, sans-serif;
@@ -100,12 +100,12 @@ header {
 .container {
     padding: 0 !important;
   }
-  
+
   .flex-container {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .btn {
     outline: none !important;
     box-shadow: none !important;
@@ -113,7 +113,7 @@ header {
   .btn i {
     color: #C5C6C7;
   }
-  
+
   .btn-continue {
     background: #F54838;
     border: none;
@@ -139,7 +139,7 @@ header {
   .btn-continue:hover, .btn-continue:active {
     background-color: #f32916;
   }
-  
+
   .input-row div {
     margin-bottom: 24px;
   }
@@ -153,7 +153,7 @@ header {
     color: #3F3B48;
     margin: 0 4px;
   }
-  
+
   .bootstrap-select .selectpicker {
     border: 1px solid #3F3B48;
     box-sizing: border-box;
@@ -168,7 +168,7 @@ header {
   .bootstrap-select > button.dropdown-toggle:focus {
     outline: none !important;
   }
-  
+
   .sign-up {
     margin-bottom: 140px;
   }
@@ -337,7 +337,7 @@ header {
     font-size: 16px;
     color: #3F3B48;
   }
-  
+
 /* information page end */
 
 .email_text {
@@ -366,9 +366,9 @@ header {
     font-weight: bold;
     font-size: 32px;
     line-height: 120%;
-    color: #FFFFFF; 
+    color: #FFFFFF;
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
     align-items: center;
 }
 .getStartedTitle{
@@ -389,7 +389,7 @@ header {
     align-self: center;
     margin: 0px 0px;
     cursor: pointer;
-} 
+}
 .findJobIconDivs{
     width: 64px;
     height: 64px;
@@ -455,7 +455,7 @@ header {
     font-size: 13px;
     line-height: 16px;
     color: #97959D;
-    
+
 }
 .findTranslatorDiv{
     background: #FFFFFF;
@@ -538,7 +538,7 @@ header {
     align-items: center;
 
 }
-.helpMianTitle{ 
+.helpMianTitle{
     font-size: 42px;
     line-height: 120%;
     color: #241F2D;
@@ -824,7 +824,7 @@ header {
     padding: 0 70px;
 }
 
-.Code_email_p input { 
+.Code_email_p input {
     margin-top: 4px;
     margin-bottom: 24px;
     width: 444px;
@@ -836,7 +836,7 @@ header {
     border-radius: 4px;
 }
 
-a.confirm_email {
+button.confirm_email {
     display: block;
     padding: 0 70px;
     font-family: Metropolis;
@@ -852,7 +852,7 @@ a.confirm_email {
     line-height: 44px;
     background: #F54838;
     border-radius: 4px;
-    
+
 }
 
 /* confirmation page end */
@@ -934,7 +934,7 @@ a.confirm_email {
 #confirmation {
     width: 584px;
     margin: 60px 0;
-    
+
 }
 
 #confirmation h3 {
@@ -998,7 +998,7 @@ a.confirm_email {
     padding: 0 70px;
 }
 
-.Code_email_p input { 
+.Code_email_p input {
     margin-top: 4px;
     margin-bottom: 24px;
     width: 444px;
@@ -1112,7 +1112,7 @@ a.Sign_account {
     background: #FFFFFF;
     border-radius: 100px;
     text-align: center;
-}  
+}
 
 .slackImg{
     margin-top: 19px;
@@ -1171,7 +1171,7 @@ a.Sign_account {
     font-weight: normal;
     font-size: 16px;
     line-height: 156%;
-    color: #3F3B48;   
+    color: #3F3B48;
     margin-bottom: 24px;
 
 }
@@ -1220,14 +1220,14 @@ footer {
 }
 
 .to-right {
-    margin-left: 9%; 
+    margin-left: 9%;
 }
 
 .footer_2_block {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-} 
+}
 
 .footer_2_block a {
     font-family: Metropolis;
@@ -1249,7 +1249,7 @@ footer {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
-    line-height: 28px; 
+    line-height: 28px;
     padding-right: 35%;
     color: #FFFFFF;
     margin: 27px 0;
