@@ -10,10 +10,7 @@
             <ul class="navbar-nav mr-auto" id="header2_navbar_ul">
                 @include('partials.includes.top_navbar')
             </ul>
-            <form class="form-inline my-2 my-lg-0" id="login_signup_block">
-                <a href="#" class="btn  my-2 my-sm-0 login">Log In</a>
-                <a href="#" class="btn my-2 my-sm-0 sign">Sign UP</a>
-            </form>
+            @include('partials.includes.authNav')
         </div>
     </nav>
     <div class="hedding_text_container">
