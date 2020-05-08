@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-12">
                             <p class="rede some-text">
-                                {{__('global.textRegisterBlade')}}
+                                {{__('global.textRegisterBlade1')}}
                             </p>
                         </div>
                         <div class="col-12 form-box">
@@ -101,8 +101,7 @@
                                 <div class="form-group">
                                     <label for="conf_pass">{{ __('auth.confirm_password') }}</label>
                                     <input type="password" class="form-control" id="conf_pass" name="password_confirmation" required autocomplete="new-password">
-                                    <div class="error">Your password must be at least 6 characters long and must contain
-                                        letters, numbers and special characters. Cannot contain whitespace.
+                                    <div class="error">{{__('global.textRegisterBlade2')}}
                                     </div>
                                 </div>
 
@@ -111,8 +110,8 @@
                                         <input class="form-check-input is-invalid" type="checkbox" {{--value=""--}}
                                                id="check" name="privacy">
                                         <label class="form-check-label" for="check">
-                                            I agree ot all the statements included in the <a href="#">Terms of Use</a> and
-                                            <br><a href="#">Privacy Policy</a>
+                                            {{__('global.textRegisterBlade3')}} <a target="_blank" href="{{route('terms')}}">{{__('global.terms')}}</a> {{__('global.and')}}
+                                            <br><a target="_blank" href="{{route('privacy_policy')}}">{{__('global.privacyPolicy')}}</a>
                                         </label>
                                         @error('privacy')
                                         <span class="invalid-feedback" role="alert">
@@ -122,7 +121,7 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary btn-continue" type="submit">Continue</button>
+                                <button class="btn btn-primary btn-continue" type="submit">{{__('global.continue')}}</button>
                             </form>
                         </div>
                     </div>

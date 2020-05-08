@@ -75,7 +75,12 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </nav>--}}
-        @include('partials.header')
+
+        @if(request()->route()->getName() == 'home' || request()->route()->getName() == 'about_us')
+            @include('partials.headerHome')
+        @else
+            @include('partials.header')
+        @endif
         <main class="py-4">
             @yield('content')
         </main>
