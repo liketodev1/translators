@@ -10,25 +10,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.findJob')}}<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.findTranslator')}}<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.howItWorks')}}<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.about')}}<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.blog')}}<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{__('global.help')}}<span class="sr-only">(current)</span></a>
-                    </li>
-
+                    @include('partials.includes.top_navbar')
                 </ul>
                 <!-- navbar-laravel-->
                 <nav class="navbar navbar-expand-md navbar-light">
