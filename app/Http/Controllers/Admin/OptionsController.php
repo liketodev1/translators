@@ -5,14 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Options;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OptionsController extends Controller
 {
-    const LANGUAGE = 1;
-    const SPECIFICATION = 2;
-    const INDUSTRY_SPECIALIZATION = 3;
 
     private $type;
     private $title;
@@ -21,10 +19,10 @@ class OptionsController extends Controller
     public function __construct(Request $request)
     {
         $this->type = $request->get('type');
-        if ((int)$this->type === self::LANGUAGE){
+        if ((int)$this->type ===Options::LANGUAGE){
             $this->title = 'Languages';
             $this->type_name = 'LANGUAGE';
-        }else if ((int)$this->type === self::INDUSTRY_SPECIALIZATION){
+        }else if ((int)$this->type ===Options::INDUSTRY_SPECIALIZATION){
             $this->title = 'Industry Specialization';
             $this->type_name = 'INDUSTRY_SPECIALIZATION';
         }else{
@@ -72,8 +70,8 @@ class OptionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -108,9 +106,9 @@ class OptionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -128,7 +126,7 @@ class OptionsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

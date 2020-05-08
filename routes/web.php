@@ -45,6 +45,11 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
 
 });
 
+Route::namespace('Translators')->group(function (){
+    Route::get('/profile','TranslatorsController@index')->name('translator_profile');
+    Route::post('/profile','TranslatorsController@profile')->name('save_translator_profile');
+});
+
 Route::get('users/{user}/confirm', 'Auth\RegisterController@confirmCode')->name('confirmCode');
 Route::post('users/{user}/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 

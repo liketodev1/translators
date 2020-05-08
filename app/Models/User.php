@@ -91,4 +91,29 @@ class User extends Authenticatable
         return false;
     }
 
+    public function profile()
+    {
+        return $this->hasOne(TranslatorProfile::class);
+    }
+
+    public function specializations()
+    {
+        return $this->belongsToMany(Options::class,'options_user')->withTimestamps();
+    }
+
+    public function specifications()
+    {
+        return $this->belongsToMany(Options::class,'specification_user','user_id','options_id')->withTimestamps();
+    }
+
+    public function certifications()
+    {
+        return $this->hasMany(Certification::class);
+    }
+
+    public function languages()
+    {
+       return $this->hasMany(LanguageUser::class);
+    }
+
 }

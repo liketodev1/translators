@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'MetropolisLight';
+  src: url('fonts/Metropolis/Metropolis-Light.woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetropolisMedium';
+  src: url('fonts/Metropolis/Metropolis-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetropolisSemiBold';
+  src: url('fonts/Metropolis/Metropolis-SemiBold.woff2');
+
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetropolisRegular';
+  src: url('fonts/Metropolis/Metropolis-Regular.woff2');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetropolisBold';
+  src: url('fonts/Metropolis/Metropolis-Bold.woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css");
