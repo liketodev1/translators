@@ -1472,7 +1472,7 @@ h2#our_clients_h2  {
     border-radius: 4px;
 }
 
-a.confirm_email {
+button.confirm_email {
     display: block;
     padding: 0 70px;
     font-family: Metropolis;
