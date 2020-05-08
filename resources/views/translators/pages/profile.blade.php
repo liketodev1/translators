@@ -347,7 +347,7 @@
                                 <div class="profile-section">
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-rows">
-                                            <h4 class="profile-rows-title">Linked Accounts
+                                            <h4 class="profile-rows-title">Linked Account
                                                 <span class="profile-rows-title-sub"></span>
                                             </h4>
                                         </div>

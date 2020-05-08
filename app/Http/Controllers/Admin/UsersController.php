@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -16,7 +18,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.user.index');
+        $users =  User::paginate(15);
+
+        return view('admin.pages.user.index',
+            array('users'=>$users)
+        );
     }
 
     /**
@@ -32,7 +38,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,7 +54,13 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return  view('admin.pages.user.view');
+
+
+        return  view('admin.pages.user.view',
+            array(
+                'user' => User::find($id)
+            )
+        );
     }
 
     /**
@@ -59,19 +71,29 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.pages.user.edit');
+        return view('admin.pages.user.edit',
+            array(
+                'user' => User::find($id)
+            )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $enabled = $request->input('enabled');
+
+        $user = User::find($id);
+        $user->enabled = $enabled?1:0;
+
+        return redirect()->route('admin.users.show',['user'=>$id])->with('success',"User updated");
+
     }
 
     /**
