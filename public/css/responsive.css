@@ -1,3 +1,244 @@
+/*---------------home page start------------------*/
+@media (max-width: 1312px) {
+    #home_form {
+        width: 70%;
+        padding-left: 5%!important;
+    }
+
+}
+
+@media (max-width: 1213px) {
+    #home_form {
+        width: 80%;
+        padding-left: 7%!important;
+    }
+
+    .help_left h2 {
+        margin: 90px 0 20px 90px
+    }
+}
+
+@media (max-width: 1180px) {
+    #home_form {
+        width: 90%;
+        padding-left: 10%!important;
+    }
+}
+
+@media (max-width: 1012px) {
+    #home_form {
+        width: 100%;
+    }
+
+    #content_home_container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 920px) {
+    .help_left h2 {
+        margin: 40px 0 20px 40px
+    }
+}
+
+@media (max-width: 860px) {
+    #help_container {
+        flex-direction: column;
+    }
+
+    .help_text_container a {
+        justify-content: center;
+    }
+
+    .help_left {
+        width: 100%;
+        text-align: center!important;
+    }
+
+    #help_container img {
+        width: 70%;
+        margin-right: 0!important;
+        height: 480px;
+        max-width: 100%;
+        padding-bottom: 124px;
+    }
+
+    .help_left {
+        padding-bottom: 40px;
+    }
+
+    .help_text_container {
+        text-align: center;
+        margin: auto;
+    }
+
+    .help_text_container p {
+        text-align: center;
+    }
+
+    .help_text_container h5::before {
+        display: none;
+    }
+
+    #help_container {
+        width: 85%;
+        padding: 1%;
+    }
+}
+
+@media (max-width: 876px) {
+    .carousel .testimonial p {
+        width: 100%;
+        margin: 3% 3% 10% 3%;
+    }
+
+    .profil_review_conatner {
+        padding: 0;
+    }
+    .select_container {
+        align-items: center;
+    }
+
+    .select_blocks {
+        width: 24%;
+    }
+
+    #home_form {
+        padding: 0!important;
+    }
+
+    .select_container p {
+        font-size: 11px!important;
+    }
+
+    .select_container select {
+        font-size: 12px!important;
+    }
+
+    #why_choose_us_block {
+        flex-direction: column;
+        text-align: center;
+        margin: auto!important;
+    }
+
+    #why_choose_us_container h6 {
+        text-align: center!important;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #why_choose_us_container p {
+        text-align: center!important;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}
+
+@media (max-width: 775px){
+    #content_home_container {
+        flex-direction: column;
+    }
+
+    .content_home_blocks {
+        width: 95%;
+        text-align: center;
+    }
+
+    #translators_container_block {
+        width: 95%;
+        padding: 2%;
+    }
+}
+
+@media (max-width: 767px) {
+    #start_using_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #start_using_container a {
+        margin-top: 40px;
+    }
+
+    #start_using_container .start_using_left,.start_using_right  {
+        width: 95%;
+    }
+
+    .start_using_right a {
+        width: 120px;
+    }
+}
+
+@media (max-width: 591px) {
+    .translators_container_block_row {
+        flex-direction: column;
+    }
+
+    .row {
+        margin-right: 0!important;
+        margin-left: 0!important;
+    }
+
+    #find_translators_container h2 {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .select_container {
+        flex-direction: column;
+    }
+
+    #home_form_search_btn {
+        border-radius: 4px 4px;
+        padding: 22px 24px;
+    }
+
+    .select_container select {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .select_blocks {
+        width: 100%;
+    }
+
+    #home_form {
+        margin-bottom: -124px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 575px){
+    .carousel .testimonial p {
+        width: 95%;
+        margin: 3% auto;
+    }
+    .profil_review_conatner {
+        padding-left: 3%;
+    }
+}
+
+@media (max-width: 425px){
+    h2#our_clients_h2 {
+        font-size: 32px;
+    }
+    .hedding_text_container h1 {
+        padding-top: 100px;
+        font-size: 48px;
+        line-height: 120%;
+    }
+
+    .hedding_text_container h3 {
+        padding-bottom: 102px;
+    }
+
+    #start_using_container .start_using_left h4 {
+        font-size: 22px;
+    }
+}
+
+/*---------------home page end------------------*/
 
 @media only screen and (max-width: 768px){
     .homeMainTextS{

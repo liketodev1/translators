@@ -2,23 +2,23 @@
 <footer>
     <div class="footer_1_block">
         <img class="footerLogo"src="./img/logo.png"/>
-        <p> Global community of leading translators and interpreters with specialised industry expertise</p>
-        <div class="copyright"> 2020 © translate.io  ·  Terms of Use  ·  Privacy Policy</div>
+        <p>{{__('global.textFooter1')}} </p>
+        <div class="copyright">{{__('global.textFooter2')}}·  Terms of Use  ·  Privacy Policy</div>
     </div>
     <div class="footer_2_block to-right">
-        <a href="">Find Job</a>
-        <a href="">Find Translator</a>
-        <a href="">Specializations</a>
+        <a href="">{{__('global.findJob')}}</a>
+        <a href="">{{__('global.findTranslator')}}</a>
+        <a href="">{{__('global.specializations')}}</a>
     </div>
     <div class="footer_2_block">
-        <a href="">About Us</a>
-        <a href="">How It Works</a>
-        <a href="">Key Features</a>
+        <a href="{{route('about_us')}}">{{__('global.about')}}</a>
+        <a href="{{route('how_it_works')}}">{{__('global.howItWorks')}}</a>
+        <a href="">{{__('global.keyFeatures')}}</a>
     </div>
     <div class="footer_2_block">
-        <a href="">Contact</a>
-        <a href="">Help</a>
-        <a href="">Blog</a>
+        <a href="">{{__('global.contact')}}</a>
+        <a href="">{{__('global.help')}}</a>
+        <a href="">{{__('global.blog')}}</a>
     </div>
     <div class="footer_5_block">
         <div class="footerLiAndSoc">
