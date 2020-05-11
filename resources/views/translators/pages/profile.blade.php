@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-3">
                 <ul class="left-list">
-                    <li class="item active"><a href="#">My Profile</a></li>
+                    <li class="item active"><a href="{{ route('translator_profile') }}">My Profile</a></li>
                     <li class="item"><a href="#">Membership</a></li>
                     <li class="item"><a href="#">Payment & Finance</a></li>
                     <li class="item"><a href="#">Notifications</a></li>

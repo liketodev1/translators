@@ -3,7 +3,7 @@
     <div class="header">
         <div class="row">
             <div class="col-2">
-                <a href="/">
+                <a href="{{ route('home') }}">
                     <img class="logo" src="{{ asset('img/logo-t.png') }}" alt="Talk Native">
                 </a>
             </div>
@@ -43,7 +43,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                             <img src="{{ asset('img/Single.png') }}" alt="avatar">
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="#">Dropdown link</a>
                             <a class="dropdown-item" href="#">Dropdown link</a>
                         </div>

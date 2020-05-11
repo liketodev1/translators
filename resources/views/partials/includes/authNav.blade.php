@@ -26,6 +26,7 @@
                     </li>
                 @endif
             @else
+
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -33,6 +34,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if(Auth::user()->role === ConstUserRole::TRANSLATOR)
+                            <a class="dropdown-item" href="{{ route('translator_profile') }}">Profile</a>
+                        @endif
                         {{--                                        <a class="dropdown-item"--}}
                         {{--                                           href="{{route("user.account")}}">{{__("form.account")}}</a>--}}
                         {{--                                        <a class="dropdown-item"--}}
@@ -42,7 +46,6 @@
                                                                      document.getElementById('logout-form').submit();">
                             {{ __('global.logout') }}
                         </a>
-
 
                         <form  id="logout-form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">

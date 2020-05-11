@@ -71,21 +71,7 @@
 
     function handleFiles(files) {
         let f = [...files];
-        f.forEach(uploadFile);
         f.forEach(previewFile);
-    }
-
-    function uploadFile(file) {
-        let url = 'https://backend.com'
-        let formData = new FormData()
-
-        formData.append('file', file)
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        }).then(() => { /* Done. Inform the user */
-        }).catch(() => { /* Error. Inform the user */
-        })
     }
 
     function previewFile(file) {
