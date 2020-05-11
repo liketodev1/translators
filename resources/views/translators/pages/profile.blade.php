@@ -64,7 +64,7 @@
                                                                         <div class="check-block">
                                                                             <input type="checkbox"
                                                                                    name="specializations[]"
-                                                                                   class="custom-control-input"
+                                                                                   class="custom-control-input specialization"
                                                                                    id="ch_{{ $item->id }}"
                                                                                    value="{{ $item->id }}"
                                                                                    @foreach(Auth::user()->specializations as $srz)
@@ -169,54 +169,54 @@
                                             @if(Auth::user()->languages && count(Auth::user()->languages))
                                                 @include('translators.partials.languages',['data'=>Auth::user()->languages])
                                             @else
-                                            <tr>
-                                                <td>
-                                                    <input type="hidden" name="langId[]">
-                                                    <div class="languages-select">
-                                                        <div class="input-group">
-                                                            <select name="lang_from[]" class="selectpicker"
-                                                                    data-style="btn-default">
-                                                                @foreach($language as $lang)
-                                                                    <option selected
-                                                                            value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            <select name="lang_to[]" class="selectpicker"
-                                                                    data-style="btn-default">
-                                                                @foreach($language as $lang)
-                                                                    <option selected
-                                                                            value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                @endforeach
-                                                            </select>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="langId[]">
+                                                        <div class="languages-select">
+                                                            <div class="input-group">
+                                                                <select name="lang_from[]" class="selectpicker"
+                                                                        data-style="btn-default">
+                                                                    @foreach($language as $lang)
+                                                                        <option selected
+                                                                                value="{{ $lang->id }}">{{ $lang->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                <select name="lang_to[]" class="selectpicker"
+                                                                        data-style="btn-default">
+                                                                    @foreach($language as $lang)
+                                                                        <option selected
+                                                                                value="{{ $lang->id }}">{{ $lang->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="languages-price">
-                                                        <span>$</span>
-                                                        <input type="number" class="form-control" name="slow[]">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="languages-price">
-                                                        <span>$</span>
-                                                        <input type="number" class="form-control" name="standard[]">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="languages-price">
-                                                        <span>$</span>
-                                                        <input type="number" class="form-control" name="urgent[]">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="languages-delete">
-{{--                                                        <button type="button" class="btn delete-row">--}}
-{{--                                                            <img src="{{ asset('img/delete.svg') }}" alt="delete">--}}
-{{--                                                        </button>--}}
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td>
+                                                        <div class="languages-price">
+                                                            <span>$</span>
+                                                            <input type="number" class="form-control" name="slow[]">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="languages-price">
+                                                            <span>$</span>
+                                                            <input type="number" class="form-control" name="standard[]">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="languages-price">
+                                                            <span>$</span>
+                                                            <input type="number" class="form-control" name="urgent[]">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="languages-delete">
+                                                            {{--                                                        <button type="button" class="btn delete-row">--}}
+                                                            {{--                                                            <img src="{{ asset('img/delete.svg') }}" alt="delete">--}}
+                                                            {{--                                                        </button>--}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             @endif
 
                                             <!--end lang-row-->
@@ -246,8 +246,7 @@
                                             <button type="button" class="btn"><img src="{{ asset('img/upload.svg') }}"
                                                                                    alt=""></button>
                                             <input type="file" id="files" name="certificates[]" class="inputfile"
-                                                   multiple
-                                                   onchange="handleFiles(this.files)"/>
+                                                   multiple/>
                                             <label for="files" class="upload-label">Drag your files here or click to
                                                 upload</label>
                                             <input type="hidden" name="delete_certificate" id="delete_certificate">
@@ -496,51 +495,53 @@
 
 
     <input type="hidden" id="langPrototype" value='<tr>
-         <td>
-                 <input type="hidden" name="langId[]">
-           <div class="languages-select">
-               <div class="input-group">
-                   <select name="lang_from[]" class="selectpicker"
-                           data-style="btn-default">
-                                                                @foreach($language as $lang)
-        <option selected
-                value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                @endforeach
+<td>
+<input type="hidden" name="langId[]">
+<div class="languages-select">
+<div class="input-group">
+<select name="lang_from[]" class="selectpicker"
+data-style="btn-default">
+@foreach($language as $lang)
+        <option selected value="{{ $lang->id }}">{{ $lang->name }}</option>
+@endforeach
         </select>
         <select name="lang_to[]" class="selectpicker"
-                data-style="btn-default">
+        data-style="btn-default">
 @foreach($language as $lang)
-        <option selected
-                value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                @endforeach
+        <option selected value="{{ $lang->id }}">{{ $lang->name }}</option>
+@endforeach
         </select>
-    </div>
-</div>
-</td>
-<td>
-<div class="languages-price">
-    <span>$</span>
-    <input type="number" class="form-control" name="slow[]">
-</div>
-</td>
-<td>
-<div class="languages-price">
-    <span>$</span>
-    <input type="number" class="form-control" name="standard[]">
-</div>
-</td>
-<td>
-<div class="languages-price">
-    <span>$</span>
-    <input type="number" class="form-control" name="urgent[]">
-</div>
-</td>
-<td>
-<div class="languages-delete">
-    <button type="button" class="btn delete-row">
+        </div>
+        </div>
+        </td>
+        <td>
+        <div class="languages-price">
+        <span>$</span>
+        <input type="number" class="form-control" name="slow[]">
+        </div>
+        </td>
+        <td>
+        <div class="languages-price">
+        <span>$</span>
+        <input type="number" class="form-control" name="standard[]">
+        </div>
+        </td>
+        <td>
+        <div class="languages-price">
+        <span>$</span>
+        <input type="number" class="form-control" name="urgent[]">
+        </div>
+        </td>
+        <td>
+        <div class="languages-delete">
+        <button type="button" class="btn delete-row">
         <img src="{{ asset('img/delete.svg') }}" alt="delete">
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>'>
+</button>
+</div>
+</td>
+</tr>'>
+@endsection
+
+@section('javascript')
+    <script src="{{ asset('translators/js/profile.js') }}"></script>
 @endsection
