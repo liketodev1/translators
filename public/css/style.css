@@ -98,9 +98,12 @@ header {
     background-size: cover;
 }
 
-#header2_navbar_ul a {
+#header2_navbar_ul a,#header2_navbar a#navbarDropdown {
     color: #FFFFFF!important;
 }
+/*#header2_navbar_ul a {*/
+/*    color: #FFFFFF!important;*/
+/*}*/
 
 #header2_navbar_ul a {
 
