@@ -177,7 +177,7 @@ if (!auth()->user()) {
                     class="col-xl-4 col-lg-4 col-md-6 col-sm-12 about-end-button d-flex justify-content-center align-items-center">
 
                     <a href="{{route($route)}}" type="button" class="get-started">
-                        {{__('global.getStarted')}}Get Started
+                        {{__('global.getStarted')}}
                     </a>
                 </div>
             </div>

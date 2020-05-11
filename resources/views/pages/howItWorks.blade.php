@@ -1,3 +1,10 @@
+<?php
+$route = 'home';
+if (!auth()->user()) {
+    $route = 'register';
+}
+
+?>
 @extends('layouts.app')
 @section('content')
     <section class="container-fluid section how-it-works-top">
@@ -150,9 +157,9 @@
                         </h2>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 about-end-button d-flex justify-content-center align-items-center">
-                        <button type="button" class="get-started">
-                            Get Started
-                        </button>
+                        <a href="{{route($route)}}" type="button" class="get-started">
+                            {{__('global.getStarted')}}
+                        </a>
                     </div>
                 </div>
             </div>

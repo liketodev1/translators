@@ -1,6 +1,6 @@
 <header id="homeHeader">
     <nav class="navbar navbar-expand-lg navbar-light" id="header2_navbar">
-        <a class="navbar-brand logo" href="#"><img src="{{asset('img/logo.png')}}" alt=""></a>
+        <a class="navbar-brand logo" href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,6 +13,7 @@
             @include('partials.includes.authNav')
         </div>
     </nav>
+
     <div class="hedding_text_container">
         <h1>Matchmaking platform for<br> the translation industry</h1>
         <h3>Connecting you to global community of leading translators<br> and interpreters with specialised industry
