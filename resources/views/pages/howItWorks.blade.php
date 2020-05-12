@@ -7,7 +7,7 @@ if (!auth()->user()) {
 ?>
 @extends('layouts.app')
 @section('content')
-    <section class="container-fluid section how-it-works-top">
+    <section class="container-fluid section section-how-it-works how-it-works-top">
         <div class="row no-gutters d-flex justify-content-end align-items-center">
             <div class="col-12 how-it-works-head">
                 <h1 class="how-it-works-title">
@@ -93,7 +93,7 @@ if (!auth()->user()) {
     </section>
 
 
-    <section class="container-fluid section how-it-works-bottom">
+    <section class="container-fluid section section-how-it-works how-it-works-bottom">
         <div class="row no-gutters">
             <div class="col-12 why-choose-block">
                 <h2 class="why-choose-block-title">
