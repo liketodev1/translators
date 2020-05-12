@@ -45,12 +45,21 @@ ul li {
   list-style-type: none;
 }
 
-header .header {
-  padding: 22px 101px;
-  height: 80px;
+header.p-0 {
+  padding: 0 !important;
 }
-header .logo {
-  width: 80%;
+header .header-t {
+  padding: 0 101px;
+}
+header .header-t .navbar {
+  padding: 10px 0;
+}
+header .search-block {
+  width: 37%;
+  margin-left: 80px;
+}
+header .nav-item {
+  padding-left: 32px;
 }
 
 .btn {
@@ -517,6 +526,87 @@ header .logo {
   display: block;
   margin: 2px auto;
   padding: 0;
+}
+
+@media only screen and (max-width: 1260px) {
+  header .header-t .navbar-nav .search-block {
+    margin-left: 60px;
+  }
+  header .header-t .navbar-nav .nav-item {
+    padding-left: 20px;
+  }
+
+  .content .left-list {
+    margin-left: 50px;
+  }
+}
+@media only screen and (max-width: 1162px) {
+  header .header-t {
+    padding: 0 20px;
+  }
+  header .header-t .navbar .search-block {
+    margin-left: 25px;
+  }
+}
+@media only screen and (max-width: 1013px) {
+  header .header-t {
+    padding: 0 20px;
+  }
+  header .header-t .navbar .search-block {
+    margin-left: 25px;
+  }
+  header .header-t .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0 5px;
+  }
+
+  .content .left-list {
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-width: 993px) {
+  header .header-t .navbar-toggler {
+    outline: none;
+  }
+  header .header-t .navbar .search-block {
+    margin-left: 0;
+    padding-bottom: 10px;
+    width: auto;
+  }
+  header .header-t .navbar .navbar-collapse {
+    margin-top: 20px !important;
+  }
+  header .header-t .navbar .navbar-nav .nav-item {
+    padding-left: 0;
+  }
+  header .header-t .navbar .navbar-nav .nav-item .nav-link {
+    padding: 10px 0;
+  }
+  header .header-t .navbar .message-isset {
+    margin-left: -10px;
+  }
+
+  .content {
+    padding: 40px 50px;
+    background: #E5E5E5;
+  }
+  .content .left-list {
+    padding-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .content {
+    padding: 40px 50px 40px;
+    background: #E5E5E5;
+  }
+  .content .left-list {
+    padding-bottom: 20px;
+  }
+  .content .profile .profile-section .checkbox-list li {
+    padding-top: 16px;
+  }
+  .content .profile .profile-section .ml-80 {
+    margin-left: 0px;
+  }
 }
 
 /*# sourceMappingURL=translatorProfile.css.map */

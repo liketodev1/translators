@@ -4,7 +4,7 @@
 @section('content')
     <section class="container-fluid content">
         <div class="row">
-            <div class="col-lg-4 col-md-3">
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12">
                 <ul class="left-list">
                     <li class="item active"><a href="{{ route('translator_profile') }}">My Profile</a></li>
                     <li class="item"><a href="#">Membership</a></li>
@@ -15,7 +15,7 @@
                     <li class="item"><a href="#">Account Settings</a></li>
                 </ul>
             </div>
-            <div class="col-8">
+            <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12">
                 <div class="row no-gutters right-block">
                     <div class="col-12">
                         <form action="{{ route('save_translator_profile') }}" method="post" class="form"
@@ -23,8 +23,12 @@
                             @method('POST')
                             @csrf
                             <div class="profile">
+
                                 {{--Industry specialization start--}}
                                 <div class="profile-section">
+                                    <div class="mb-3">
+                                        @include('translators.partials.alert')
+                                    </div>
                                     <h1>My Profile</h1>
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-description">
@@ -45,7 +49,6 @@
                                             </p>
                                             <a class="profile-l-more" href="#">Learn more</a>
                                         </div>
-
                                         <div class="col-12 profile-rows">
                                             <h4 class="profile-rows-title">Industry specialization <span
                                                     class="profile-rows-title-sub">(max 3)</span></h4>
@@ -57,7 +60,7 @@
                                                     @php($serviceCount = 0)
                                                     @foreach($industrySpecialization as $item)
                                                         @if($currentRow == 0)
-                                                            <div class="col-4">
+                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                                                                 <ul class="checkbox-list">
                                                                     @endif
                                                                     <li>
@@ -104,7 +107,7 @@
                                                     @php($serviceCount = 0)
                                                     @foreach($specialization as $item)
                                                         @if($currentRow == 0)
-                                                            <div class="col-4">
+                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                                                                 <ul class="checkbox-list">
                                                                     @endif
                                                                     <li>
@@ -153,7 +156,7 @@
                                             </p>
                                         </div>
 
-                                        <table class="table table-borderless lang-row">
+                                        <table  class="table table-borderless lang-row table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
                                             <thead>
                                             <tr>
                                                 <th scope="col">Languages:</th>
@@ -283,7 +286,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="row no-gutters experience-row">
-                                                <div class="col-lg-3 col-md-2 exp-section">
+                                                <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
                                                     <label for="years">Years of experience:</label>
                                                     <input type="number"
                                                            name="experience"
@@ -294,7 +297,7 @@
                                                         @endif
                                                     >
                                                 </div>
-                                                <div class="col-lg-7 col-md-8 ml-80 exp-section">
+                                                <div class="col-xl-7 col-lg-7 col-md-8 col-sm-12 ml-80 exp-section">
                                                     <label>Experience in different sectors:</label>
                                                     <div class="switch-group d-flex ">
                                                         <div class="switch-item">

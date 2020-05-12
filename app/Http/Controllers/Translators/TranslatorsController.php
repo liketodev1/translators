@@ -112,7 +112,7 @@ class TranslatorsController extends Controller
                 'private_sector' => $private_sector,
                 'education' => $education,
             ]);
-
+            return redirect()->route('translator_profile')->with('success','Thank you  we are reviewing your profile, will get in touch with you soon');
         } else {
 
             if ($resumePath){
@@ -130,7 +130,7 @@ class TranslatorsController extends Controller
 
         }
 
-        return redirect()->route('translator_profile')->with('success','Success');
+        return redirect()->route('translator_profile')->with('success','Data update successfully');
 
     }
 
