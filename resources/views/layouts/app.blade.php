@@ -11,9 +11,7 @@
 
     <!-- Scripts -->
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
-    <div class="container">
-        @include('flash::message')
-    </div>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -22,6 +20,7 @@
 {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     @include('partials.includes.css')
     @include('partials.includes.top_js')
+
 </head>
 <body>
     <div id="app">
@@ -81,6 +80,9 @@
         @else
             @include('partials.header')
         @endif
+        <div class="container">
+            @include('flash::message')
+        </div>
         <main class="py-4">
             @yield('content')
         </main>
