@@ -34,14 +34,10 @@ class TranslatorsController extends Controller
     public function profile(Request $request)
     {
         $user = Auth::user();
-        $linkedin = $request->input('linkedin');
+
+        $profile = $request->input('profile');
         $resume = $request->file('resume');
-        $biography = $request->input('biography');
-        $resumePath = null;
-        $experience = $request->input('experience');
-        $public_sector = $request->input('public_sector')? true :false;
-        $private_sector = $request->input('private_sector')? true :false;
-        $education = $request->input('education')? true :false;
+
         $certificates = $request->file('certificates');
         $lang_from = $request->input('lang_from');
         $lang_to = $request->input('lang_to');
@@ -74,9 +70,6 @@ class TranslatorsController extends Controller
             }
         }
 
-        if ($resume){
-            $resumePath = $resume->store('resume','public');
-        }
 
         if ($certificates){
 
@@ -101,36 +94,31 @@ class TranslatorsController extends Controller
         $user->specializations()->sync($request->input('specializations'));
         $user->specifications()->sync($request->input('specifications'));
 
-        if (!$user->profile) {
 
-            $user->profile()->create([
-                'linkedin' => $linkedin,
-                'resume' => $resumePath,
-                'biography' => $biography,
-                'experience' => $experience,
-                'public_sector' => $public_sector,
-                'private_sector' => $private_sector,
-                'education' => $education,
-            ]);
-            return redirect()->route('translator_profile')->with('success','Thank you  we are reviewing your profile, will get in touch with you soon');
-        } else {
+        // ------------------------------------------//
+        //                                           //
+        //     Create Update translator profile      //
+        //                                           //
+        //-------------------------------------------
+        $responseMessage = 'Data updated successfully';
 
-            if ($resumePath){
-                Storage::disk('public')->delete($user->profile->resume);
-                $user->profile->resume = $resumePath;
-            }
-
-            $user->profile->linkedin = $linkedin;
-            $user->profile->biography = $biography;
-            $user->profile->experience = $experience;
-            $user->profile->public_sector = $public_sector;
-            $user->profile->private_sector = $private_sector;
-            $user->profile->education = $education;
-            $user->profile->save();
-
+        if ($resume){
+            $resume = $resume->store('resume','public');
+            $profile['resume'] = $resume;
         }
 
-        return redirect()->route('translator_profile')->with('success','Data update successfully');
+        $profileId = null;
+        if ($user->profile){
+            $profileId = $user->profile->id;
+            if ($resume){
+                Storage::disk('public')->delete($user->profile->resume);
+            }
+        }else{
+            $responseMessage = 'Thank you  we are reviewing your profile, will get in touch with you soon';
+        }
+        $user->profile()->updateOrCreate(['id' => $profileId],$profile);
+
+        return redirect()->route('translator_profile')->with('success',$responseMessage);
 
     }
 

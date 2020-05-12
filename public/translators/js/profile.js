@@ -87,7 +87,21 @@ $(document).ready(()=>{
                this.checked = false
             }
         })
-    })
+    });
+
+    document.querySelectorAll('.experience_switch').forEach(item => {
+
+        item.addEventListener('change',switchAction)
+
+    });
+
+    function switchAction() {
+        if (this.checked === true){
+            this.value = 1
+        }else{
+            this.value = 0
+        }
+    }
 
 
 });

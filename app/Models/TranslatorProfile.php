@@ -12,6 +12,12 @@ class TranslatorProfile extends Model
 
     protected $guarded =[];
 
+    protected $casts = [
+        'public_sector' => 'boolean',
+        'private_sector' => 'boolean',
+        'education' => 'boolean',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

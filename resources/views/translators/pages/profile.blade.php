@@ -289,7 +289,7 @@
                                                 <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
                                                     <label for="years">Years of experience:</label>
                                                     <input type="number"
-                                                           name="experience"
+                                                           name="profile[experience]"
                                                            class="form-control"
                                                            id="years"
                                                            @if(Auth::user()->profile)
@@ -303,7 +303,8 @@
                                                         <div class="switch-item">
                                                             <label class="switch">
                                                                 <input type="checkbox"
-                                                                       name="public_sector"
+                                                                       name="profile[public_sector]"
+                                                                       class="experience_switch"
                                                                        @if(Auth::user()->profile && Auth::user()->profile->public_sector)
                                                                        checked
                                                                     @endif
@@ -315,7 +316,8 @@
                                                         <div class="switch-item">
                                                             <label class="switch">
                                                                 <input type="checkbox"
-                                                                       name="private_sector"
+                                                                       name="profile[private_sector]"
+                                                                       class="experience_switch"
                                                                        @if(Auth::user()->profile && Auth::user()->profile->private_sector)
                                                                        checked
                                                                     @endif
@@ -327,7 +329,8 @@
                                                         <div class="switch-item">
                                                             <label class="switch">
                                                                 <input type="checkbox"
-                                                                       name="education"
+                                                                       name="profile[education]"
+                                                                       class="experience_switch"
                                                                        @if(Auth::user()->profile && Auth::user()->profile->education)
                                                                        checked
                                                                     @endif
@@ -356,7 +359,7 @@
                                         <div class="col-12">
                                             <div class="row no-gutters linkedin">
                                                 <label for="linkedin-url">Linkedin:</label>
-                                                <input type="url" name="linkedin" class="form-control linkedin-url"
+                                                <input type="url" name="profile[linkedin]" class="form-control linkedin-url"
                                                        id="linkedin-url"
                                                        placeholder="https://"
                                                        @if(Auth::user()->profile)
@@ -470,7 +473,7 @@
                                         <div class="col-12">
                                             <div class="row no-gutters ">
                                                 <textarea rows="4" class="form-control"
-                                                          name="biography">@if(Auth::user()->profile){{ Auth::user()->profile->biography }}@endif</textarea>
+                                                          name="profile[biography]">@if(Auth::user()->profile){{ Auth::user()->profile->biography }}@endif</textarea>
                                                 <div class="error">Maximum 150 characters
                                                 </div>
                                             </div>

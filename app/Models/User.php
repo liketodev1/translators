@@ -93,12 +93,12 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(TranslatorProfile::class);
+        return $this->hasOne(TranslatorProfile::class,'user_id');
     }
 
     public function specializations()
     {
-        return $this->belongsToMany(Options::class,'options_user')->withTimestamps();
+        return $this->belongsToMany(Options::class,'options_user','user_id','options_id')->withTimestamps();
     }
 
     public function specifications()
