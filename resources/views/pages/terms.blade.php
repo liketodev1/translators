@@ -1,11 +1,20 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h2><strong>Terms of Use</strong></h2>
+        @if($term)
+        <h2><strong>{{$term->title}}</strong></h2>
 
-        <p>last updated April 15, 2020 </p>
+        <p>last updated {{$term->updated_at}} </p>
 
-        <p>The Talk Native website located at talknative.net is a copyrighted work belonging to Talk Native. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</p>
+        {!!  $term->description !!}
+        @else
+            <p>{{__('global.notTerm')}}</p>
+        @endif
+    </div>
+@endsection
+
+
+{{--<p>The Talk Native website located at talknative.net is a copyrighted work belonging to Talk Native. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</p>
 
         <p>All such additional terms, guidelines, and rules are incorporated by reference into these Terms.</p>
 
@@ -126,6 +135,4 @@
         <h2>Contact Information</h2>
 
         <p>Address: California</p>
-        <p>Email: ddd@mail.ru</p>
-    </div>
-@endsection
+        <p>Email: ddd@mail.ru</p>--}}

@@ -64,7 +64,22 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item {{ $routeName=='admin.terms.index'?'menu-open':'' }}">
+                    <a href="{{ route('admin.terms.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Terms
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item {{ $routeName=='admin.privacy_policy.index'?'menu-open':'' }}">
+                    <a href="{{ route('admin.privacy_policy.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Privacy Policy
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
