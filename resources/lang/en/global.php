@@ -36,4 +36,6 @@ return [
                                 account. On the next step, you will need to confirm your email.",
     'ThankYouForReg' => "Thank you for registering",
     'basicInfo' => "Basic information",
+    'notPrivacy' => "Sorry, not yet a Privacy Policy",
+    'notTerm' => "Sorry, not yet a Term Of Use",
 ];

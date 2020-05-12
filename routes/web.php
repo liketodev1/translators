@@ -35,6 +35,8 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
         array(
             'users' => 'UsersController',
             'options' => 'OptionsController',
+            'terms' => 'TermsController',
+            'privacy_policy' => 'PrivacyPolicyController',
         )
     );
 
