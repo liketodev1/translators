@@ -8,5 +8,5 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/about.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/howItWorks.css')}}">
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 {{--@stack('push_css')--}}
