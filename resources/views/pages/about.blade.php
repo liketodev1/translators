@@ -8,7 +8,7 @@ if (!auth()->user()) {
 @extends('layouts.app')
 @section('content')
     <
-    <section class="container-fluid section about-content">
+    <section class="container-fluid section section-about about-content">
         <div class="row no-gutters d-flex justify-content-end align-items-center">
             <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 ">
                 <div class="info-block">
@@ -42,7 +42,7 @@ if (!auth()->user()) {
             </div>
         </div>
     </section>
-    <section class="container-fluid section about-content-features">
+    <section class="container-fluid section section-about about-content-features">
         <div class="row no-gutters">
             <div class="col-12 features-block">
                 <h2 class="features-block-title">
@@ -122,7 +122,7 @@ if (!auth()->user()) {
         </div>
     </section>
 
-    <section class="container-fluid section goals-content">
+    <section class="container-fluid section section-about goals-content">
         <div class="row no-gutters d-flex justify-content-end">
             <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 goals-bg">
                 <div class="row no-gutters d-flex justify-content-around">
@@ -164,7 +164,7 @@ if (!auth()->user()) {
         </div>
     </section>
 
-    <section class="container-fluid section about-end">
+    <section class="container-fluid section section-about about-end">
         <div class="row no-gutters about-end-bg">
             <div class="row d-flex justify-content-between align-content-center">
 
