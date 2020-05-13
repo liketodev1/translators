@@ -57,6 +57,11 @@
         </div>
         <!-- /.content-header -->
 
+        {{--flash message--}}
+        <div class="container">
+            @include('flash::message')
+        </div>
+        {{-- end flash message--}}
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -109,6 +114,11 @@
 <!-- AdminLTE for demo purposes -->
 {{--<script src="{{ asset('bower_components/admin-lte/dist/js/demo.js') }}"></script>--}}
 <!-- DataTables -->
+{{--flesh message--}}
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
+{{-- end flesh message--}}
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script

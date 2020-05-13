@@ -1,7 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1><strong>Privacy Policy of Talk Native</strong></h1>
+        @if($policy)
+        <h1><strong>{{$policy->title}}</strong></h1>
+
+        <p>last updated {{$policy->updated_at}} </p>
+
+        {!!  $policy->description !!}
+        @else
+            <p>{{__('global.notPrivacy')}}</p>
+        @endif
+        {{--<h1><strong>Privacy Policy of Talk Native</strong></h1>
 
         <p>last updated April 15, 2020 </p>
 
@@ -60,6 +69,6 @@
 
         <h2>Contact Us</h2>
 
-        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
+        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>--}}
     </div>
 @endsection

@@ -4,6 +4,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\PrivacyPolicy;
+use App\Models\Term;
+
 class PagesController extends BaseController
 {
 
@@ -23,14 +26,22 @@ class PagesController extends BaseController
         return view('pages.howItWorks');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function terms()
     {
-        return view('pages.terms');
+        $term = Term::first(['title', 'description', 'updated_at']);
+        return view('pages.terms', compact('term'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function privacyPolicy()
     {
-        return view('pages.privacyPolicy');
+        $policy = PrivacyPolicy::first(['title', 'description', 'updated_at']);
+        return view('pages.privacyPolicy', compact('policy'));
     }
 
 }
