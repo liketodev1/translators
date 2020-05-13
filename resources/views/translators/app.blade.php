@@ -2,19 +2,16 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Translate.io</title>
     <!--start bootstrap-->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
-
     <!--end bootstrap-->
-
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
     <!-- select 2 -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/translatorProfile.css') }}">
-    <title>Translate.io</title>
+    @yield('stylesheet')
 </head>
 
 <body>

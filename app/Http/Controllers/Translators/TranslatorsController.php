@@ -10,6 +10,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use function GuzzleHttp\Promise\all;
 
 class TranslatorsController extends Controller
@@ -34,6 +36,40 @@ class TranslatorsController extends Controller
     public function profile(Request $request)
     {
         $user = Auth::user();
+
+        $validator = Validator::make($request->all(), [
+            'specializations' => ['required', 'max:3'],
+            'specifications' => ['required'],
+            'profile.linkedin' => ['required','url'],
+            'profile.biography' => ['required','max:150'],
+            'profile.experience' => ['required','digits_between:1,2'],
+            'lang_from.*' => ['required'],
+            'lang_to.*' => ['required'],
+            'slow.*' => ['required'],
+            'standard.*' => ['required'],
+            'urgent.*' => ['required'],
+            'resume' => ['mimes:pdf,doc,docx'],
+            'certificates.*' => ['mimes:pdf,png,jpg,jpeg'],
+        ]);
+
+        if ($validator->fails()){
+
+            return new JsonResponse([
+                'success' => false,
+                'message' => [
+                    'specialization' => $validator->errors()->get('specializations'),
+                    'specification' => $validator->errors()->get('specifications'),
+                    'linkedin' => $validator->errors()->get('profile.linkedin'),
+                    'biography' => $validator->errors()->get('profile.biography'),
+                    'experience' => $validator->errors()->get('profile.experience'),
+                    'resume' => $validator->errors()->get('resume'),
+                    'certificate' => $validator->errors()->get('certificates.0'),
+                    'full' => $validator->errors()->messages(),
+                ]
+
+            ]);
+        }
+
 
         $profile = $request->input('profile');
         $resume = $request->file('resume');
@@ -117,8 +153,11 @@ class TranslatorsController extends Controller
             $responseMessage = 'Thank you  we are reviewing your profile, will get in touch with you soon';
         }
         $user->profile()->updateOrCreate(['id' => $profileId],$profile);
-
-        return redirect()->route('translator_profile')->with('success',$responseMessage);
+        return response()->json(array(
+            'success' => true,
+            'message' => $responseMessage,
+        ));
+//        return redirect()->route('translator_profile')->with('success',$responseMessage);
 
     }
 

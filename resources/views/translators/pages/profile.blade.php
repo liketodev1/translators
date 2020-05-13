@@ -1,5 +1,19 @@
 @extends('translators.app')
 
+@section('stylesheet')
+    <style>
+        .error-container
+        .error-list{
+            margin-top: 15px;
+            padding-left: 0;
+        }
+        .error-container
+        .error-list li{
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+@endsection
 
 @section('content')
     <section class="container-fluid content">
@@ -18,7 +32,7 @@
             <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12">
                 <div class="row no-gutters right-block">
                     <div class="col-12">
-                        <form action="{{ route('save_translator_profile') }}" method="post" class="form"
+                        <form action="{{ route('save_translator_profile') }}" method="post" id="translatorProfile" class="form"
                               enctype="multipart/form-data">
                             @method('POST')
                             @csrf
@@ -26,7 +40,7 @@
 
                                 {{--Industry specialization start--}}
                                 <div class="profile-section">
-                                    <div class="mb-3">
+                                    <div class="mb-3" id="messageContainer">
                                         @include('translators.partials.alert')
                                     </div>
                                     <h1>My Profile</h1>
@@ -89,6 +103,9 @@
                                                         @endif
                                                     @endforeach
                                                 </div>
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="specialization_errors"></ul>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
@@ -136,9 +153,14 @@
                                                         @endif
                                                     @endforeach
                                                 </div>
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="specification_errors"></ul>
+                                                </div>
                                             @endif
                                         </div>
-
+                                        <div class="error-container">
+                                            <ul class="error-list" id="specialization_errors"></ul>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -272,6 +294,9 @@
                                                 </div>
                                             </div>
                                         @endif
+                                        <div class="error-container">
+                                            <ul class="error-list" id="certificate_errors"></ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <!--end Qualifications and certifications-->
@@ -296,6 +321,9 @@
                                                            value="{{ Auth::user()->profile->experience }}"
                                                         @endif
                                                     >
+                                                    <div class="error-container">
+                                                        <ul class="error-list" id="experience_errors"></ul>
+                                                    </div>
                                                 </div>
                                                 <div class="col-xl-7 col-lg-7 col-md-8 col-sm-12 ml-80 exp-section">
                                                     <label>Experience in different sectors:</label>
@@ -366,6 +394,9 @@
                                                        value=" {{ Auth::user()->profile->linkedin }}"
                                                     @endif
                                                 >
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list" id="linkedin_errors"></ul>
                                             </div>
                                         </div>
                                     </div>
@@ -443,15 +474,18 @@
                                             <div class="row no-gutters attach-file-block">
                                                 <label for="upload-resume">
                                                     <img src="{{ asset('img/upload-small.svg') }}" alt="upload-resume">
-                                                    <input type="file" name="resume" id="upload-resume" class="d-none">
+                                                    <input type="file" name="resume" id="upload-resume" class="d-none" >
                                                     Upload resume
                                                 </label>
                                             </div>
+                                            @if(Auth::user()->profile && Auth::user()->profile->resume)
                                             <div class="row no-gutters attach-file-block">
-                                                @if(Auth::user()->profile && Auth::user()->profile->resume)
                                                     <a href="{{ Storage::url(Auth::user()->profile->resume) }}"
                                                        download="">Download resume</a>
-                                                @endif
+                                            </div>
+                                            @endif
+                                            <div class="error-container">
+                                                <ul class="error-list" id="resume_errors"></ul>
                                             </div>
                                         </div>
                                     </div>
@@ -476,6 +510,9 @@
                                                           name="profile[biography]">@if(Auth::user()->profile){{ Auth::user()->profile->biography }}@endif</textarea>
                                                 <div class="error">Maximum 150 characters
                                                 </div>
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list" id="biography_errors"></ul>
                                             </div>
                                         </div>
 
