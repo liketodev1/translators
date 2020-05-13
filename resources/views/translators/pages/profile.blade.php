@@ -59,7 +59,6 @@
                                                 <h4 class="profile-rows-title">Industry specialization <span
                                                         class="profile-rows-title-sub">(max 3)</span></h4>
                                                 @if(count($industrySpecialization)>0)
-
                                                     <div class="row no-gutters">
                                                         @php($totalServices = count($industrySpecialization))
                                                         @php($currentRow = 0)
