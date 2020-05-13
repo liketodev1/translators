@@ -19,13 +19,21 @@ ul {
     }
 }
 
+.container-t {
+    max-width: 1248px !important;
+}
+
+.bg-color-t {
+    background-color: #E5E5E5;
+}
+
 header {
     &.p-0 {
         padding: 0 !important;
     }
 
     .header-t {
-        padding: 0 101px;
+        padding: 0 116px;
         //height: 80px;
         .navbar {
             padding: 10px 0;
@@ -39,6 +47,16 @@ header {
 
     .nav-item {
         padding-left: 32px;
+    }
+
+    .dropdown-toggle {
+        &:after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: top;
+            border: 0 !important;
+            content: url("../img/arrow-bottom--t.svg");
+        }
     }
 }
 
@@ -102,14 +120,14 @@ header {
 }
 
 .content {
-    padding: 40px 101px;
-    background: #E5E5E5;
+    padding: 40px 0;
+    //background: #E5E5E5;
 
     .left-list {
         font-weight: 600;
         font-size: 14px;
         line-height: 20px;
-        margin-left: 150px;
+        padding-left: 0;
 
         .item {
             padding: 8px 0 8px 14px;
@@ -132,6 +150,7 @@ header {
 
     .right-block {
         background: #FFFFFF;
+        border-radius: 4px;
     }
 
     .custom-control-input {
@@ -630,6 +649,7 @@ header {
                 > img {
                     width: 88px;
                     min-height: 88px;
+                    object-fit: cover;
                 }
 
                 .preview-block-item-delete {
@@ -641,6 +661,24 @@ header {
         }
     }
 }
+
+// Changed by Someone start
+.error-container {
+
+    .error-list {
+        margin-top: 15px;
+        padding-left: 0;
+    }
+}
+
+.error-container {
+
+    .error-list li {
+        font-size: 12px;
+        color: red;
+    }
+}
+// Changed by Someone end
 
 @media only screen and (max-width: 1260px) {
 
@@ -660,7 +698,7 @@ header {
 
     .content {
         .left-list {
-            margin-left: 50px;
+            margin-left: 0;
         }
     }
 
@@ -671,10 +709,12 @@ header {
     header {
         .header-t {
             padding: 0 20px;
+
             .navbar {
                 .search-block {
                     margin-left: 25px;
                 }
+
                 .navbar-nav {
 
                     .nav-item {
@@ -686,14 +726,17 @@ header {
         }
     }
 }
+
 @media only screen and (max-width: 1013px) {
     header {
         .header-t {
             padding: 0 20px;
+
             .navbar {
                 .search-block {
                     margin-left: 25px;
                 }
+
                 .navbar-nav {
                     .nav-item {
                         .nav-link {
@@ -706,7 +749,8 @@ header {
     }
     .content {
         .left-list {
-            margin-left: 0px;
+            margin-left: 0;
+            margin-right: 10px;
         }
     }
 }
@@ -775,9 +819,10 @@ header {
                 }
 
                 .ml-80 {
-                    margin-left: 0px;
+                    margin-left: 0;
                 }
             }
+
         }
     }
 }
