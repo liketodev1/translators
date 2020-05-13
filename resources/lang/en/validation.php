@@ -146,17 +146,6 @@ return [
     |
     */
 
-    'attributes' => [
-        'specializations' => 'Industry specialization',
-        'specifications' => 'Specification',
-        'profile.linkedin' => 'Linked Account',
-        'profile.biography' => 'Short biography',
-        'profile.experience' => 'Experience',
-        'lang_from.*' => 'Language pair',
-        'lang_to.*' => 'Language pair',
-        'slow.*' => 'Slow',
-        'standard.*' => 'Standard',
-        'urgent.*' => 'Urgent',
-    ],
+    'attributes' => [],
 
 ];

@@ -45,19 +45,11 @@ ul li {
   list-style-type: none;
 }
 
-.container-t {
-  max-width: 1248px !important;
-}
-
-.bg-color-t {
-  background-color: #E5E5E5;
-}
-
 header.p-0 {
   padding: 0 !important;
 }
 header .header-t {
-  padding: 0 116px;
+  padding: 0 101px;
 }
 header .header-t .navbar {
   padding: 10px 0;
@@ -68,13 +60,6 @@ header .search-block {
 }
 header .nav-item {
   padding-left: 32px;
-}
-header .dropdown-toggle:after {
-  display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: top;
-  border: 0 !important;
-  content: url("../img/arrow-bottom--t.svg");
 }
 
 .btn {
@@ -129,13 +114,14 @@ header .dropdown-toggle:after {
 }
 
 .content {
-  padding: 40px 0;
+  padding: 40px 101px;
+  background: #E5E5E5;
 }
 .content .left-list {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  padding-left: 0;
+  margin-left: 150px;
 }
 .content .left-list .item {
   padding: 8px 0 8px 14px;
@@ -153,7 +139,6 @@ header .dropdown-toggle:after {
 }
 .content .right-block {
   background: #FFFFFF;
-  border-radius: 4px;
 }
 .content .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
@@ -536,22 +521,11 @@ header .dropdown-toggle:after {
 .content .profile .images-preview-block .preview-block-item > img {
   width: 88px;
   min-height: 88px;
-  object-fit: cover;
 }
 .content .profile .images-preview-block .preview-block-item .preview-block-item-delete {
   display: block;
   margin: 2px auto;
   padding: 0;
-}
-
-.error-container .error-list {
-  margin-top: 15px;
-  padding-left: 0;
-}
-
-.error-container .error-list li {
-  font-size: 12px;
-  color: red;
 }
 
 @media only screen and (max-width: 1260px) {
@@ -563,7 +537,7 @@ header .dropdown-toggle:after {
   }
 
   .content .left-list {
-    margin-left: 0;
+    margin-left: 50px;
   }
 }
 @media only screen and (max-width: 1162px) {
@@ -586,8 +560,7 @@ header .dropdown-toggle:after {
   }
 
   .content .left-list {
-    margin-left: 0;
-    margin-right: 10px;
+    margin-left: 0px;
   }
 }
 @media only screen and (max-width: 993px) {
@@ -632,7 +605,7 @@ header .dropdown-toggle:after {
     padding-top: 16px;
   }
   .content .profile .profile-section .ml-80 {
-    margin-left: 0;
+    margin-left: 0px;
   }
 }
 

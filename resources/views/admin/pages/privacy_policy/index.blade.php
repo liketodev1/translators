@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Default box -->
-    @if(empty($items))
+    @if($items->isEmpty())
         <a href="{{route('admin.privacy_policy.create')}}">Create Privacy Policy</a>
     @endif
     <div class="card">
