@@ -12,15 +12,14 @@
 {{--        </ul>--}}
 
         <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
-                <li class="nav-item">
+                <li class="nav-item {{$header_name}}default_link_login">
                     <a {{--id="login"--}} class="<!--nav-link--> btn  my-2 my-sm-0 login"
                        href="{{ route('login') }}">{{ __('form.login') }}</a>
                 </li>
                 @if (Route::has('register'))
-                    <li class="nav-item">
+                    <li class="nav-item {{$header_name}}default_link_signup">
                         <a {{--id="signup"--}} class="<!--nav-link--> btn  my-2 my-sm-0 sign"
                            href="{{ route('register') }}">{{ __('form.register') }}</a>
                     </li>
@@ -37,23 +36,25 @@
                         @if(Auth::user()->role === ConstUserRole::TRANSLATOR)
                             <a class="dropdown-item" href="{{ route('translator_profile') }}">Profile</a>
                         @endif
-                        {{--                                        <a class="dropdown-item"--}}
-                        {{--                                           href="{{route("user.account")}}">{{__("form.account")}}</a>--}}
-                        {{--                                        <a class="dropdown-item"--}}
-                        {{--                                           href="{{route("user.changePass")}}">{{__("form.changePass")}}</a>--}}
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
                             {{ __('global.logout') }}
                         </a>
-
-                        <form  id="logout-form" action="{{ route('logout') }}" method="POST"
+{{--                            <form class="form-inline my-2 my-lg-0" id="login_signup_block">--}}
+{{--                                <a href="#" class="btn  my-2 my-sm-0 login">Log In</a>--}}
+{{--                                <a href="#" class="btn my-2 my-sm-0 sign">Sign UP</a>--}}
+{{--                            </form>--}}
+{{--                        <form  class="form-inline my-2 my-lg-0" id="login_signup_block" action="{{ route('logout') }}" method="POST"--}}
+{{--                              style="display: none;">--}}
+{{--                            @csrf--}}
+{{--                        </form>--}}
+                            <form  class="form-inline my-2 my-lg-0" id="logout-form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">
                             @csrf
                         </form>
                     </div>
                 </li>
             @endguest
-        </ul>
 {{--    </div>--}}
 {{--</nav>--}}

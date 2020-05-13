@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Default box -->
-    @if(empty($items))
+    @if($items->isEmpty())
         <a href="{{route('admin.terms.create')}}">Create Term</a>
     @endif
     <div class="card">
