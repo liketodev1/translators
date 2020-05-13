@@ -1,5 +1,6 @@
 @extends('translators.app')
 
+<<<<<<< HEAD
 
 @section('content')
     <section class="container-fluid content">
@@ -23,6 +24,84 @@
                             @method('POST')
                             @csrf
                             <div class="profile">
+
+                                    {{--Industry specialization start--}}
+                                    <div class="profile-section">
+                                        <div class="mb-3" id="messageContainer">
+                                            @include('translators.partials.alert')
+                                        </div>
+                                        <h1>My Profile</h1>
+                                        <div class="row no-gutters">
+                                            <div class="col-12 profile-description">
+                                                <h5 class=" profile-description-title">Your profile is not yet displayed
+                                                    in
+                                                    the
+                                                    translator list</h5>
+                                                <p class="profile-description-text">
+                                                    We do our best to ensure that only professional and leading
+                                                    translators
+                                                    work
+                                                    on
+                                                    our platform. Therefore, we review every profile before publication.
+                                                    Please
+                                                    complete the information about yourself and then submit it for
+                                                    review.
+                                                    Our
+                                                    team
+                                                    will check your profile and after that your profile will be shown on
+                                                    our
+                                                    platform.
+                                                </p>
+                                                <a class="profile-l-more" href="#">Learn more</a>
+                                            </div>
+                                            <div class="col-12 profile-rows">
+                                                <h4 class="profile-rows-title">Industry specialization <span
+                                                        class="profile-rows-title-sub">(max 3)</span></h4>
+                                                @if(count($industrySpecialization)>0)
+                                                    <div class="row no-gutters">
+                                                        @php($totalServices = count($industrySpecialization))
+                                                        @php($currentRow = 0)
+                                                        @php($serviceCount = 0)
+                                                        @foreach($industrySpecialization as $item)
+                                                            @if($currentRow == 0)
+                                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                                                    <ul class="checkbox-list">
+                                                                        @endif
+                                                                        <li>
+                                                                            <div class="check-block">
+                                                                                <input type="checkbox"
+                                                                                       name="specializations[]"
+                                                                                       class="custom-control-input specialization"
+                                                                                       id="ch_{{ $item->id }}"
+                                                                                       value="{{ $item->id }}"
+                                                                                       @foreach(Auth::user()->specializations as $srz)
+                                                                                       @if($srz->id == $item->id)
+                                                                                       checked
+                                                                                    @endif
+                                                                                    @endforeach
+                                                                                >
+                                                                                <label class="custom-control-label"
+                                                                                       for="ch_{{ $item->id }}">{{ $item->name }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        @php($currentRow ++)
+                                                                        @php($serviceCount ++)
+                                                                        @if($currentRow == 3 || $serviceCount == $totalServices)
+                                                                            @php($currentRow = 0)
+                                                                    </ul>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="error-container">
+                                                        <ul class="error-list" id="specialization_errors"></ul>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{--Industry specialization end--}}
+
 
                                 {{--Industry specialization start--}}
                                 <div class="profile-section">
