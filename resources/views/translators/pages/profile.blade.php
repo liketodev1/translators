@@ -1,5 +1,5 @@
 @extends('translators.app')
-
+@section('title') Profile @endsection
 @section('content')
     <!--start myProfile-->
     <div class="bg-color-t">
@@ -310,7 +310,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col-12">
-                                                <div class="row no-gutters experience-row">
+                                                <div class="row no-gutters experience-row d-flex justify-content-between">
                                                     <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
                                                         <label for="years">Years of experience:</label>
                                                         <input type="number"
@@ -325,7 +325,7 @@
                                                             <ul class="error-list" id="experience_errors"></ul>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-7 col-lg-7 col-md-8 col-sm-12 ml-80 exp-section">
+                                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 exp-section">
                                                         <label>Experience in different sectors:</label>
                                                         <div class="switch-group d-flex ">
                                                             <div class="switch-item">
