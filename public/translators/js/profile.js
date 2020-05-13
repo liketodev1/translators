@@ -166,7 +166,7 @@ $(document).ready(() => {
                 return true;
             }
         },
-        linkedin: function (selector, errors) {
+        /*linkedin: function (selector, errors) {
             if (errors.length > 0) {
                 let contentElement = document.getElementById(selector);
                 errors.forEach(item => {
@@ -175,7 +175,7 @@ $(document).ready(() => {
                 });
                 return true;
             }
-        },
+        },*/
         experience: function (selector, errors) {
             if (errors.length > 0) {
                 let contentElement = document.getElementById(selector);

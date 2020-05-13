@@ -40,7 +40,7 @@ class TranslatorsController extends Controller
         $validator = Validator::make($request->all(), [
             'specializations' => ['required', 'max:3'],
             'specifications' => ['required'],
-            'profile.linkedin' => ['required','url'],
+//            'profile.linkedin' => ['required_without:url'],
             'profile.biography' => ['required','max:150'],
             'profile.experience' => ['required','digits_between:1,2'],
             'lang_from.*' => ['required'],
@@ -59,7 +59,7 @@ class TranslatorsController extends Controller
                 'message' => [
                     'specialization' => $validator->errors()->get('specializations'),
                     'specification' => $validator->errors()->get('specifications'),
-                    'linkedin' => $validator->errors()->get('profile.linkedin'),
+//                    'linkedin' => $validator->errors()->get('profile.linkedin'),
                     'biography' => $validator->errors()->get('profile.biography'),
                     'experience' => $validator->errors()->get('profile.experience'),
                     'resume' => $validator->errors()->get('resume'),
