@@ -50,7 +50,7 @@ if (!empty($item)) {
                     <input type="text" name="title" value="{{old('title')??$title}}" class="form-control" id="title"
                            placeholder="Title">
                     <label for="description">Description</label>
-                    <textarea type="text" name="description" class="form-control" id="description"
+                    <textarea type="text" name="description" class="form-control editor" id="description"
                               placeholder="Description">{{old('description')??$description}}</textarea>
                 </div>
             </div>

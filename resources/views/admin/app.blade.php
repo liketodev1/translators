@@ -31,6 +31,8 @@
           href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
           href="{{ asset('bower_components/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/summernote/summernote-bs4.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @yield('stylesheets')
@@ -114,17 +116,25 @@
 <!-- AdminLTE for demo purposes -->
 {{--<script src="{{ asset('bower_components/admin-lte/dist/js/demo.js') }}"></script>--}}
 <!-- DataTables -->
-{{--flesh message--}}
-<script>
-    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
-</script>
-{{-- end flesh message--}}
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script
     src="{{ asset('bower_components/admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script
     src="{{ asset('bower_components/admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<!-- Summernote -->
+<script src="{{ asset('bower_components/admin-lte/plugins/summernote/summernote-bs4.min.js') }}"></script>
 @yield('javascript')
+{{--flesh message--}}
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    $(function () {
+        // Summernote
+        $('.editor').summernote({
+            minHeight: 300,
+        })
+    })
+</script>
+{{-- end flesh message--}}
 </body>
 </html>
