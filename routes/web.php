@@ -13,40 +13,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::middleware(['auth'])->group(function () {
 
-/*
-|--------------------------------------------------------------------------
-| Admin Routes
-|--------------------------------------------------------------------------
-*/
 
-Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+    // ----------------------------------
+    //  Admin Routes
+    // ----------------------------------
+    Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
 
-    Route::get('/', 'AdminController@index')->name('home');
-    Route::resources(
-        array(
-            'users' => 'UsersController',
-            'options' => 'OptionsController',
-            'terms' => 'TermsController',
-            'privacy_policy' => 'PrivacyPolicyController',
-        )
-    );
+        Route::get('/', 'AdminController@index')->name('home');
+
+        Route::resources(
+            array(
+                'users' => 'UsersController',
+                'options' => 'OptionsController',
+                'terms' => 'TermsController',
+                'privacy_policy' => 'PrivacyPolicyController',
+            )
+        );
+
+    });
+
+    // ----------------------------------
+    //  Translator Routes
+    // ----------------------------------
+    Route::middleware(['translators'])->namespace('Translators')->group(function () {
+        Route::get('/profile', 'TranslatorsController@index')->name('translator_profile');
+        Route::post('/profile', 'TranslatorsController@profile')->name('save_translator_profile');
+    });
 
 });
-
-Route::namespace('Translators')->group(function (){
-    Route::get('/profile','TranslatorsController@index')->name('translator_profile');
-    Route::post('/profile','TranslatorsController@profile')->name('save_translator_profile');
-});
-
 Route::get('users/{user}/confirm', 'Auth\RegisterController@confirmCode')->name('confirmCode');
 Route::post('users/{user}/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 
