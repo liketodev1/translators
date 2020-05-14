@@ -10,14 +10,12 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto" id="header2_navbar_ul">
+                    <ul class="navbar-nav mr-auto white_nav" id="header2_navbar_ul">
                         @include('partials.includes.top_navbar')
                     </ul>
-                    @include('partials.includes.authNav',["header_name"=>"home_header_"])
-{{--                    <form class="form-inline my-2 my-lg-0" id="login_signup_block">--}}
-{{--                        <a href="#" class="btn  my-2 my-sm-0 login">Log In</a>--}}
-{{--                        <a href="#" class="btn my-2 my-sm-0 sign">Sign UP</a>--}}
-{{--                    </form>--}}
+                    <ul class="navbar-nav ml-auto">
+                        @include('partials.includes.authNav',["header_name"=>"home_header_"])
+                    </ul>
                 </div>
             </nav>
             <div class="hedding_text_container">
