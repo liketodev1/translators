@@ -89,13 +89,23 @@ ul.black_menu a {
     color: #241F2D!important;
 }
 
+a.home_header_sign_in {
+    margin-right: 22px!important;
+    color: #FFFFFF!important;
+}
+
+a.default_header_sign_in {
+    margin-right: 22px!important;
+    color: #F54838!important;
+}
+
 .nav-item a.nav-link {
     font-family: Metropolis;
     font-style: normal;
     font-weight: 600!important;
     font-size: 14px;
     line-height: 20px;
-    color: #241F2D!important;
+    /*color: #241F2D!important;*/
 }
 
 .sign {
@@ -142,9 +152,14 @@ ul.black_menu a {
     margin-right: 0!important;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-expand-lg .white_nav a.nav-link {
     margin-right: 22px!important;
     color: #FFFFFF!important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    margin-right: 22px!important;
+    /*color: #FFFFFF!important;*/
 }
 
 
@@ -160,6 +175,7 @@ li.home_header_default_link_login a {
     line-height: 20px;
     color: #fff!important;
 }
+
 
 li.home_header_default_link_signup a {
     background-color: #F54838!important;

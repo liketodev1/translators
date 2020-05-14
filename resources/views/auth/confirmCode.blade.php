@@ -14,7 +14,7 @@
                 <p>{{__('global.YouNeedConfEmail')}}</p>
             </div>
             <div id="code_from_email_container">
-                <p>{{__('global.textConfirmationBladePart1')}} <span>{{$user->email}}</span>.{{__('global.textConfirmationBladePart2')}} </p>
+                <p>{!!  __('global.textConfirmationBladePart1') !!} <span>{{$user->email}}</span>.{!! __('global.textConfirmationBladePart2') !!} </p>
                 <p class="Code_email_p">{{__('global.codeFromEmail')}}</p>
                 <form class="d-inline Code_email_p" method="POST" action="{{ route('confirm', $user) }}">
                     @csrf
