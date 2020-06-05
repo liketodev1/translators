@@ -74,11 +74,13 @@ section.container {
     color: #3F3B48; }
 .how-it-works-top .tab-body .bg-1 {
     background-image: url("../img/1.svg");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    min-height: 201px; }
 .how-it-works-top .tab-body .bg-3 {
     background-image: url("../img/3.svg");
     background-repeat: no-repeat;
-    margin-top: 200px; }
+    margin-top: 200px;
+    min-height: 201px; }
 .how-it-works-top .tab-body .bg-3:before {
     content: '';
     background: url("../img/line-group-t-0.svg") no-repeat center center;
@@ -91,7 +93,8 @@ section.container {
     height: 87px; }
 .how-it-works-top .tab-body .bg-2 {
     background-image: url("../img/2.svg");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    min-height: 201px; }
 .how-it-works-top .tab-body .bg-2:before {
     content: '';
     background: url("../img/line-group-t-1.svg") no-repeat center center;
@@ -105,7 +108,8 @@ section.container {
 .how-it-works-top .tab-body .bg-4 {
     background-image: url("../img/4.svg");
     background-repeat: no-repeat;
-    margin-top: 200px; }
+    margin-top: 200px;
+    min-height: 201px; }
 .how-it-works-top .tab-body .bg-4:before {
     content: '';
     background: url("../img/line-group-t-1.svg") no-repeat center center;
