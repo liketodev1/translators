@@ -2,8 +2,8 @@
 <header class="container-fluid no-gutters p-0">
     <div class="header-t">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="/" class="navbar-brand logo">
-                <img class="" src="{{ asset('img/logo-t.svg') }}" alt="Talk Native" width="129" height="28">
+            <a href="{{ route('home') }}" class="navbar-brand logo">
+                <img class="" src="{{ asset('img/logo1.png') }}" alt="Talk Native" width="129" >
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,8 +44,8 @@
                                 <img src="{{ asset('img/avatar-t.svg')  }}" alt="avatar" class="avatar-t">
                             </button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="/">Home</a>
+{{--                                <a class="dropdown-item" href="#"></a>--}}
                             </div>
                         </div>
                     </div>

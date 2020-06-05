@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/about.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/howItWorks.css')}}">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/metropolis" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="https://fontlibrary.org/face/metropolis"/>
 
 {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 {{--@stack('push_css')--}}
