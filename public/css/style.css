@@ -649,11 +649,11 @@ a#a_findtranslators:hover {
 }
 .carousel-control.left {
     left: auto;
-    right: 75px;
+    right: -50px;
 }
 
 .carousel-control.right {
-    left: auto;
+    right: -105px;
 }
 
 .carousel-indicators {
@@ -2046,7 +2046,7 @@ footer {
     font-weight: 500;
     font-size: 15px;
     line-height: 28px;
-    padding-right: 35%;
+    /*padding-right: 35%;*/ /* TODO footer p-r-0 */
     color: #FFFFFF;
     margin: 27px 0;
 }

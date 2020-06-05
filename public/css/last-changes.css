@@ -1,0 +1,60 @@
+.legal-work {
+  padding-top: 65px;
+  padding-left: 162px;
+  padding-right: 84px;
+}
+.legal-work .legal-work-content .legal-work-title {
+  font-family: Metropolis, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  text-transform: capitalize;
+  color: #241F2D;
+  padding-top: 8px;
+}
+.legal-work .legal-work-content .legal-work-text {
+  padding-top: 55px;
+}
+.legal-work .legal-work-content .legal-work-text .legal-work-text-item {
+  padding-top: 29px;
+  font-family: Metropolis, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  color: #000000;
+}
+.legal-work .legal-work-content .legal-work-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 20px;
+  width: 180px;
+  height: 44px;
+  background: #F54838;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: Metropolis, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 80px;
+}
+
+.legal-work-img-wrap {
+  position: relative;
+}
+.legal-work-img-wrap .image-wrap {
+  position: absolute;
+}
+.legal-work-img-wrap .image-wrap .legal-work-img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .legal-work-img-wrap {
+    zoom: normal;
+  }
+}
+
+/*# sourceMappingURL=last-changes.css.map */
