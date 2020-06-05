@@ -30,8 +30,7 @@ return [
     'getStarted' => 'Get Started',
     'continue' => 'Continue',
     'textRegisterBlade3' => "I agree ot all the statements included in the",
-    'textRegisterBlade2' => "Your password must be at least 6 characters long and must contain
-                                        letters, numbers and special characters. Cannot contain whitespace.",
+    'textRegisterBlade2' => "Your password must be at least 6 characters long and must contain letters, numbers and special characters. Cannot contain whitespace.",
     'textRegisterBlade1' => "To register please fill in the fields below. Please note that all fields are required to create an
                                 account. On the next step, you will need to confirm your email.",
     'ThankYouForReg' => "Thank you for registering",

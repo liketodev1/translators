@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
+
+    private $roles=  [
+        ConstUserRole::ADMIN,
+        ConstUserRole::ROLE_LAWYER,
+        ConstUserRole::ROLE_CLIENT
+    ];
     /**
      * Run the migrations.
      *
@@ -16,7 +22,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('enabled')->default(0);
-            $table->enum('role', array('admin','translator','customer'))->nullable();
+            $table->enum('role', $this->roles)->nullable();
             $table->string('first_name',191);
             $table->string('last_name',191);
             $table->string('phone',191);

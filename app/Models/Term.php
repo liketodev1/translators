@@ -4,6 +4,7 @@
 namespace App\Models;
 
 
+use App\Casts\DateFormat;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,12 +20,7 @@ class Term extends Model
         'updated_at',
     ];
 
-    /**
-     * @param $date
-     * @return string
-     */
-    public function getUpdatedAtAttribute($date)
-    {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
-    }
+    protected $casts = [
+        'updated_at' => DateFormat::class
+    ];
 }

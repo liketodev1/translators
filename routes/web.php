@@ -39,11 +39,11 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // ----------------------------------
-    //  Translator Routes
+    //  Lawyer Routes
     // ----------------------------------
-    Route::middleware(['translators'])->namespace('Translators')->group(function () {
-        Route::get('/profile', 'TranslatorsController@index')->name('translator_profile');
-        Route::post('/profile', 'TranslatorsController@profile')->name('save_translator_profile');
+    Route::middleware(['lawyer'])->namespace('Lawyer')->group(function () {
+        Route::get('/profile', 'LawyerController@index')->name('lawyer_profile');
+        Route::post('/profile', 'LawyerController@profile')->name('save_lawyer_profile');
     });
 
 });

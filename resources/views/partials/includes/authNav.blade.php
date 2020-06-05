@@ -33,8 +33,8 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        @if(Auth::user()->role === ConstUserRole::TRANSLATOR)
-                            <a class="dropdown-item" href="{{ route('translator_profile') }}">Profile</a>
+                        @if(Auth::user()->role === ConstUserRole::ROLE_LAWYER)
+                            <a class="dropdown-item" href="{{ route('lawyer_profile') }}">Profile</a>
                         @endif
                         @if(Auth::user()->role === ConstUserRole::ADMIN)
                             <a class="dropdown-item" href="{{ route('admin.home') }}">Dashboard</a>

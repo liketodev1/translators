@@ -79,16 +79,6 @@ $(document).ready(() => {
         prnt.remove()
     });
 
-    let specialization = document.querySelectorAll('.specialization');
-
-    specialization.forEach(item => {
-        item.addEventListener('change', function (e) {
-            if ($('.specialization:checked').length > 3) {
-                this.checked = false
-            }
-        })
-    });
-
     document.querySelectorAll('.experience_switch').forEach(item => {
 
         item.addEventListener('change', switchAction)
@@ -156,7 +146,7 @@ $(document).ready(() => {
                 return true;
             }
         },
-        specification: function (selector, errors) {
+/*        specification: function (selector, errors) {
             if (errors.length > 0) {
                 let contentElement = document.getElementById(selector);
                 errors.forEach(item => {
@@ -165,7 +155,7 @@ $(document).ready(() => {
                 });
                 return true;
             }
-        },
+        },*/
         /*linkedin: function (selector, errors) {
             if (errors.length > 0) {
                 let contentElement = document.getElementById(selector);

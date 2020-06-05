@@ -14,7 +14,7 @@ class ConstBoolean
  */
 class ConstUserRole
 {
-    const TRANSLATOR = 'translator';
-    const CUSTOMER = 'customer';
+    const ROLE_LAWYER = 'lawyer';
+    const ROLE_CLIENT = 'client';
     const ADMIN = 'admin';
 }

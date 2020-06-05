@@ -1,4 +1,4 @@
-@extends('translators.app')
+@extends('lawyer.app')
 @section('title') Profile @endsection
 @section('content')
     <!--start myProfile-->
@@ -7,7 +7,7 @@
             <div class="row row no-gutters d-flex justify-content-center">
                 <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12">
                     <ul class="left-list">
-                        <li class="item active"><a href="{{ route('translator_profile') }}">My Profile</a></li>
+                        <li class="item active"><a href="{{ route('save_lawyer_profile') }}">My Profile</a></li>
                         <li class="item"><a href="#">Membership</a></li>
                         <li class="item"><a href="#">Payment & Finance</a></li>
                         <li class="item"><a href="#">Notifications</a></li>
@@ -19,7 +19,7 @@
                 <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12">
                     <div class="row no-gutters right-block">
                         <div class="col-12">
-                            <form action="{{ route('save_translator_profile') }}" method="post" id="translatorProfile"
+                            <form action="{{ route('save_lawyer_profile') }}" method="post" id="translatorProfile"
                                   class="form"
                                   enctype="multipart/form-data">
                                 @method('POST')
@@ -29,7 +29,7 @@
                                     {{--Industry specialization start--}}
                                     <div class="profile-section">
                                         <div class="mb-3" id="messageContainer">
-                                            @include('translators.partials.alert')
+                                            @include('lawyer.partials.alert')
                                         </div>
                                         <h1>My Profile</h1>
                                         <div class="row no-gutters">
@@ -56,8 +56,7 @@
                                                 <a class="profile-l-more" href="#">Learn more</a>
                                             </div>
                                             <div class="col-12 profile-rows">
-                                                <h4 class="profile-rows-title">Industry specialization <span
-                                                        class="profile-rows-title-sub">(max 3)</span></h4>
+                                                <h4 class="profile-rows-title">Popular legal areas</h4>
                                                 @if(count($industrySpecialization)>0)
                                                     <div class="row no-gutters">
                                                         @php($totalServices = count($industrySpecialization))
@@ -102,153 +101,6 @@
                                         </div>
                                     </div>
                                     {{--Industry specialization end--}}
-
-                                    <div class="profile-section">
-                                        <div class="row no-gutters">
-                                            <div class="col-12 profile-rows">
-                                                <h4 class="profile-rows-title">Specification <span
-                                                        class="profile-rows-title-sub"> </span></h4>
-                                                @if(count($specialization)>0)
-                                                    <div class="row no-gutters">
-                                                        @php($totalServices = count($specialization))
-                                                        @php($currentRow = 0)
-                                                        @php($serviceCount = 0)
-                                                        @foreach($specialization as $item)
-                                                            @if($currentRow == 0)
-                                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                                                    <ul class="checkbox-list">
-                                                                        @endif
-                                                                        <li>
-                                                                            <div class="check-block">
-                                                                                <input type="checkbox"
-                                                                                       name="specifications[]"
-                                                                                       class="custom-control-input"
-                                                                                       id="sp_{{ $item->id }}"
-                                                                                       value="{{ $item->id }}"
-                                                                                       @foreach(Auth::user()->specifications as $srz)
-                                                                                       @if($srz->id == $item->id)
-                                                                                       checked
-                                                                                    @endif
-                                                                                    @endforeach
-                                                                                >
-                                                                                <label class="custom-control-label"
-                                                                                       for="sp_{{ $item->id }}">{{ $item->name }}</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        @php($currentRow ++)
-                                                                        @php($serviceCount ++)
-                                                                        @if($currentRow == 3 || $serviceCount == $totalServices)
-                                                                            @php($currentRow = 0)
-                                                                    </ul>
-                                                                </div>
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="error-container">
-                                                        <ul class="error-list" id="specification_errors"></ul>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="error-container">
-                                                <ul class="error-list" id="specialization_errors"></ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--start language pair block-->
-                                    <div class="profile-section">
-                                        <div class="row no-gutters">
-                                            <div class="col-12 profile-rows">
-                                                <h4 class="profile-rows-title">Language pair <span
-                                                        class="profile-rows-title-sub"> </span></h4>
-                                                <p class="profile-rows-sub-title">Please select a language pair and
-                                                    specify
-                                                    the
-                                                    <strong>cost per word</strong> for three different timeframes (slow,
-                                                    standard, urgent).
-                                                </p>
-                                            </div>
-
-                                            <table
-                                                class="table table-borderless lang-row table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">Languages:</th>
-                                                    <th scope="col">Slow:</th>
-                                                    <th scope="col">Standard:</th>
-                                                    <th scope="col">Urgent:</th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="langTable">
-                                                <!--start lang-row-->
-                                                <input type="hidden" id="deleteLanguages" name="deleteLangs">
-                                                @if(Auth::user()->languages && count(Auth::user()->languages))
-                                                    @include('translators.partials.languages',['data'=>Auth::user()->languages])
-                                                @else
-                                                    <tr>
-                                                        <td>
-                                                            <input type="hidden" name="langId[]">
-                                                            <div class="languages-select">
-                                                                <div class="input-group">
-                                                                    <select name="lang_from[]" class="selectpicker"
-                                                                            data-style="btn-default">
-                                                                        @foreach($language as $lang)
-                                                                            <option selected
-                                                                                    value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                    <select name="lang_to[]" class="selectpicker"
-                                                                            data-style="btn-default">
-                                                                        @foreach($language as $lang)
-                                                                            <option selected
-                                                                                    value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="languages-price">
-                                                                <span>$</span>
-                                                                <input type="number" class="form-control" name="slow[]">
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="languages-price">
-                                                                <span>$</span>
-                                                                <input type="number" class="form-control"
-                                                                       name="standard[]">
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="languages-price">
-                                                                <span>$</span>
-                                                                <input type="number" class="form-control"
-                                                                       name="urgent[]">
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="languages-delete">
-                                                                {{--                                                        <button type="button" class="btn delete-row">--}}
-                                                                {{--                                                            <img src="{{ asset('img/delete.svg') }}" alt="delete">--}}
-                                                                {{--                                                        </button>--}}
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-
-                                                <!--end lang-row-->
-                                                </tbody>
-                                            </table>
-                                            <a href="javascript:void(0);"
-                                               class="add-language-pair"
-                                            >
-                                                <img src="{{ asset('img/plus.svg') }}" alt="">Add language pair
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!--end language pair block-->
 
                                     <!--start Qualifications and certifications-->
                                     <div class="profile-section">

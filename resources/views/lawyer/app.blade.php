@@ -21,7 +21,7 @@
 </head>
 
 <body>
-@include('translators.partials.header')
+@include('lawyer.partials.header')
 
 @yield('content')
 

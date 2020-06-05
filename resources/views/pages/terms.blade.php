@@ -4,7 +4,7 @@
         @if($term)
         <h2><strong>{{$term->title}}</strong></h2>
 
-        <p>last updated {{$term->updated_at}} </p>
+        <p>Last updated: {{$term->updated_at}}</p>
 
         {!!  $term->description !!}
         @else
