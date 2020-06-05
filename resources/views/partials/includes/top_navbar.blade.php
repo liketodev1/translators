@@ -8,7 +8,7 @@
     <a class="nav-link" href="{{route('how_it_works')}}">{{__('global.howItWorks')}}<span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{route('about_us')}}">{{__('global.about')}}<span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="#">{{__('global.about')}}<span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="">{{__('global.resources')}}<span class="sr-only">(current)</span></a>

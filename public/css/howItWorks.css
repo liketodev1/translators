@@ -26,7 +26,7 @@ section.container {
 .how-it-works-top .how-it-works-head .how-it-works-tabs .tab-button {
     padding: 10px 24px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: #76747D;
     background: #F5F5F5;
     display: inline-block;
@@ -137,11 +137,22 @@ section.container {
     padding: 24px 0 0; }
 .how-it-works-bottom .why-choose-block .why-choose-block-content {
     padding: 60px 0 80px; }
-.how-it-works-bottom .why-choose-block .why-choose-block-content .why-choose-item .why-choose-item-title {
+.how-it-works-bottom .why-choose-block .why-choose-block-content .why-choose-item .why-choose-item-title h4 {
     padding-top: 24px;
     font-weight: 600;
     font-size: 18px;
-    color: #241F2D; }
+    color: #241F2D;
+    min-height: 80px;
+}
+
+.how-it-works-bottom .why-choose-block .why-choose-block-content .why-choose-item .why-choose-item-title p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 140%;
+    color:  #3F3B48;
+}
+
 .how-it-works-bottom .why-choose-block .why-choose-block-content .why-choose-item .why-choose-item-img {
     background-color: #fff;
     width: 64px;
@@ -151,7 +162,7 @@ section.container {
     line-height: 64px;
     border-radius: 50%; }
 .how-it-works-bottom .how-it-end-bg {
-    background-image: url("../img/about-end-bg.svg");
+    background-image: url("../img/hit-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 140px;
