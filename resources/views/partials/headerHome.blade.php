@@ -19,9 +19,9 @@
                 </div>
             </nav>
             <div class="hedding_text_container">
-                <h1>Matchmaking platform for<br> the translation industry</h1>
-                <h3>Connecting you to global community of leading translators<br> and interpreters with specialised
-                    industry expertise</h3>
+
+                <h1>A Digital Workspace For<br> The Legal Industry</h1>
+                <h3>You have the right to an attorney; TalkCounsel’s pool of<br> vetted lawyers has got you covered</h3>
 
                 <!-- search Customer and Translatior start -->
                 @if(request()->route()->getName() == 'home')
@@ -29,20 +29,20 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary active" id="label1">
                                 <input type="radio" name="options" id="hatchback" autocomplete="off" checked> I am a
-                                Customer
+                                Client
                             </label>
                             <label class="btn btn-secondary" id="label2">
-                                <input type="radio" name="options" id="sedan" autocomplete="off"> I am a Translator
+                                <input type="radio" name="options" id="sedan" autocomplete="off"> I am a Lawyer
                             </label>
                         </div>
                         <div class="select_container">
                             <div class="select_blocks">
                                 <p>Select service</p>
                                 <select class="" name="">
-                                    <option>Translation</option>
-                                    <option>Translation</option>
-                                    <option>Translation</option>
-                                    <option>Translation</option>
+                                    <option>Law</option>
+                                    <option>Law</option>
+                                    <option>Law</option>
+                                    <option>Law</option>
                                 </select>
                             </div>
                             <div class="select_blocks">
@@ -55,12 +55,12 @@
                                 </select>
                             </div>
                             <div class="select_blocks">
-                                <p>Select language</p>
+                                <p>Select country</p>
                                 <select class="" name="">
-                                    <option>English to French</option>
-                                    <option>English to French</option>
-                                    <option>English to French</option>
-                                    <option>English to French</option>
+                                    <option>USA</option>
+                                    <option>USA</option>
+                                    <option>USA</option>
+                                    <option>USA</option>
                                 </select>
                             </div>
                             <div>
