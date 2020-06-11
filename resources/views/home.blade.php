@@ -77,9 +77,9 @@ if (!auth()->user()) {
                             <div class="legal-work-text d-flex flex-column">
                                 <span class="legal-work-text-item"><img src="{{asset('img/check-t-1.png')}}"
                                                                         alt="checkbox"> Convenient</span>
-                                <span class="legal-work-text-item"><img src="{{asset('img/check-t-2.png')}}"
+                                <span class="legal-work-text-item"><img src="{{asset('img/check-t-1.png')}}"
                                                                         alt="checkbox"> Affordable</span>
-                                <span class="legal-work-text-item"><img src="{{asset('img/check-t-3.png')}}"
+                                <span class="legal-work-text-item"><img src="{{asset('img/check-t-1.png')}}"
                                                                         alt="checkbox"> Quick and Secure Online Transactions</span>
                             </div>
                             <div>
@@ -97,38 +97,7 @@ if (!auth()->user()) {
                 </div>
             </div>
         </section>
-        <section id="why_choose_us_container">
-            <h2>Why choose Us</h2>
-            <h6>Nullam placerat sit ut non mattis sodales sit. Nunc proin venenatis orci est molestie. Consectetur <br>
-                amet, ullamcorper in non commodo, placerat erat quis dapibus.</h6>
-            <div id="why_choose_us_block">
-                <div class="why_choose_us_blocks">
-                    <div class="img_bg_2"><img src="{{asset('img/Icon (4).svg')}}" alt=""></div>
-                    <h5>Access to top industry talents around the world</h5>
-                    <p>Find and book your preferred translator directly based on industry, qualifications, skills,
-                        budget and availability. </p>
-                </div>
-                <div class="why_choose_us_blocks">
-                    <div class="img_bg_2"><img src="{{asset('img/Icon (5).svg')}}" alt=""></div>
-                    <h5>Booking translators directly and saving money</h5>
-                    <p>Skipping the middleman by booking translators directly through the platform and saving money by
-                        eliminating layered agency fees. </p>
-                </div>
-                <div class="why_choose_us_blocks">
-                    <div class="img_bg_2"><img src="{{asset('img/Icon (6).svg')}}" alt=""></div>
-                    <h5> Platform matches the best experts to your needs</h5>
-                    <p> Matchmaking platform filter our candidates who are the best match for the job, or let
-                        translators submit their proposal directly. </p>
-                </div>
-                <div class="why_choose_us_blocks">
-                    <div class="img_bg_2"><img src="{{asset('img/Icon (7).svg')}}" alt=""></div>
-                    <h5> Translation memory for cheaper and faster translations</h5>
-                    <p>Translation memory for corporates and individuals that will enable to benefit from cheaper and
-                        faster translations after multiple projects. </p>
-                </div>
-            </div>
-            <a href="" id="a_findtranslators"> Find Translators</a>
-        </section>
+
         <section id="clients_say">
             <div class="container">
                 <div class="row">
@@ -262,7 +231,7 @@ if (!auth()->user()) {
                     <a href="">Find A Job &nbsp; &nbsp; <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <img src="{{asset('img/image-t.png')}}" alt="" class="img-fluid">
+                <img src="{{asset('img/image-t.png')}}" alt="" class="img-fluid">
         </section>
         <section id="start_using_container">
             <div class="start_using_left">
