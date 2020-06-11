@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
+use App\Models\LegalAreas;
+use App\Models\Specializations;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $specializations = Specializations::orderBy('name','asc')->get();
+        $countries = Country::orderBy('name','asc')->get();
+        $legal_areas = LegalAreas::orderBy('name','asc')->get();
+
+        return view('home',
+            array(
+                'specializations' => $specializations,
+                'countries' => $countries,
+                'legal_areas' => $legal_areas,
+            )
+        );
     }
 }

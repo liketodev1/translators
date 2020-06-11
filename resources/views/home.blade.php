@@ -20,52 +20,33 @@ if (!auth()->user()) {
             <h6 style="text-align: center; padding-top: 16px;">Find the best legal experts by specialization
             </h6>
             <div id="translators_container_block">
+                @if(count($legal_areas)>0)
                 <div class="translators_container_block_row">
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/Law%20&%20Patents.svg')}}" alt="">
-                        <a href=""><h6>Agrements</h6></a>
-                        <p>150 lawyers</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/Business%20&%20Finance.svg')}}" alt="">
-                        <a href=""><h6>Business Formation</h6></a>
-                        <p>102 lawyers</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/marketing-t.svg')}}" alt="">
-                        <a href=""><h6>Patents</h6></a>
-                        <p>102 lawyers</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/contract-t.svg')}}" alt="">
-                        <a href=""><h6>Trademarks</h6></a>
-                        <p>228 lawyers</p>
-                    </div>
+                    @foreach($legal_areas as $legal_area)
+                        @if($loop->index <= 3)
+                            <div class="translators_block_rows">
+                                <img src="{{ ($legal_area->icon?Storage::url($legal_area->icon): asset('img/Law%20&%20Patents.svg') )}}" alt="{{ $legal_area->name }}">
+                                <a href=""><h6>{{ $legal_area->name }}</h6></a>
+                                <p>150 lawyers</p>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
-                <div class="translators_container_block_row" id="translators_container_block_row_2">
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/project-t.svg')}}" alt="">
-                        <a href=""><h6>Immigration</h6></a>
-                        <p>93 translators</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/find-t.svg')}}" alt="">
-                        <a href=""><h6>General Counsel</h6></a>
-                        <p>4 lawyers</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/case-t.svg')}}" alt="">
-                        <a href=""><h6>Labor &#38; Employment</h6></a>
-                        <p>199 lawyers</p>
-                    </div>
-                    <div class="translators_block_rows">
-                        <img src="{{asset('img/budget-t.svg')}}" alt="">
-                        <a href=""><h6>Securities &#38; Finance</h6></a>
-                        <p>67 lawyers </p>
-                    </div>
+                <div class="translators_container_block_row">
+                    @foreach($legal_areas as $legal_area)
+                        @if($loop->index > 3)
+                            <div class="translators_block_rows">
+                                <img src="{{ ($legal_area->icon? Storage::url($legal_area->icon): asset('img/project-t.svg') )}}" alt="{{ $legal_area->name }}">
+                                <a href=""><h6>{{ $legal_area->name }}</h6></a>
+                                <p>93 translators</p>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
+                @endif
             </div>
         </section>
+
         <section class="legal-work">
             <div class="container-fluid">
                 <div class="row no-gutters d-flex align-items-center">

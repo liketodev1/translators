@@ -18,3 +18,9 @@ class ConstUserRole
     const ROLE_CLIENT = 'client';
     const ADMIN = 'admin';
 }
+
+class PaymentType{
+
+    const hour = 1;
+    const fixed = 2;
+}

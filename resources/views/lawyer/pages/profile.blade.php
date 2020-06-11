@@ -230,16 +230,31 @@
                                             <div class="col-12">
                                                 <div
                                                     class="row no-gutters experience-row d-flex justify-content-between">
-                                                    <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
-                                                        <input type="text"
-                                                               name="profile[rate]"
-                                                               class="form-control"
-                                                               id="rate"
-                                                               placeholder="Select Rate"
-                                                               @if(Auth::user()->profile)
-                                                               value="{{ Auth::user()->profile->rate }}"
-                                                            @endif
-                                                        >
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 exp-section">
+                                                        <div class="input-group">
+                                                            <select name="profile[rate_type]" class="selectpicker"
+                                                                    data-style="btn-default">
+                                                                <option
+                                                                    @if(Auth::user()->profile && PaymentType::hour == Auth::user()->profile->rate_type)
+                                                                        selected
+                                                                    @endif
+                                                                    value="{{ PaymentType::hour }}">Per Hour</option>
+                                                                <option
+                                                                    @if(Auth::user()->profile && PaymentType::fixed == Auth::user()->profile->rate_type)
+                                                                        selected
+                                                                    @endif
+                                                                    value="{{ PaymentType::fixed }}">Fixed</option>
+                                                            </select>
+                                                            <input type="text"
+                                                                   name="profile[rate]"
+                                                                   class="form-control"
+                                                                   id="rate"
+                                                                   placeholder="$..."
+                                                                   @if(Auth::user()->profile)
+                                                                   value="{{ Auth::user()->profile->rate }}"
+                                                                @endif
+                                                            >
+                                                        </div>
                                                         <div class="error-container">
                                                             <ul class="error-list" id="experience_errors"></ul>
                                                         </div>
