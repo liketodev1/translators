@@ -102,6 +102,7 @@ if (!auth()->user()) {
                 </div>
 
             </div>
+            
             <div id="translator" class="row no-gutters d-none justify-content-around tab-body">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="row no-gutters work-method-row left">
