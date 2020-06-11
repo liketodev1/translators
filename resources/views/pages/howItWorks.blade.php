@@ -15,8 +15,8 @@ if (!auth()->user()) {
                     How It Works
                 </h1>
                 <div class="how-it-works-tabs d-flex justify-content-center">
-                    <a type="button" class="tab-button active" data-tab="customer">For Lawyer</a>
-                    <a type="button" class="tab-button" data-tab="translator">For Client</a>
+                    <a type="button" class="tab-button active" data-tab="customer" href="#customer">For Lawyer</a>
+                    <a type="button" class="tab-button" data-tab="translator" href="#translator">For Client</a>
                 </div>
                 <p class="how-it-works-head-text">
                     Quality Legal Made Easy Solutions
@@ -102,8 +102,80 @@ if (!auth()->user()) {
                 </div>
 
             </div>
+            
             <div id="translator" class="row no-gutters d-none justify-content-around tab-body">
-                translator
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="row no-gutters work-method-row left">
+                        <div class="col-12 work-method bg-1">
+                            <div class="work-method-img">
+                                <img src="{{asset('img/works-icon--t-0.svg')}}" alt="icon">
+                            </div>
+
+                            <h3 class="work-method-title">	Post a job for free </h3>
+                            {{--                            <div class="work-method-text">--}}
+                            {{--                                Egestas blandit rutrum duis est, at suspendisse commodo posuere. Sit aliquet magna non--}}
+                            {{--                                turpis--}}
+                            {{--                                lectus. Fames diam laoreet et massa turpis aenean fames. Non nibh netus morbi sed sit--}}
+                            {{--                                erat--}}
+                            {{--                                purus. Orci, feugiat faucibus ut porttitor viverra. Venenatis arcu pellentesque egestas--}}
+                            {{--                                cras--}}
+                            {{--                                id--}}
+                            {{--                                pellentesque mi.--}}
+                            {{--                            </div>--}}
+                        </div>
+                        <div class="col-12 work-method bg-3">
+                            <div class="work-method-img">
+                                <img src="{{asset('img/works-icon--t-1.svg')}}" alt="icon">
+                            </div>
+                            <h3 class="work-method-title">Start getting job offers upon verification</h3>
+                            {{--                            <div class="work-method-text">--}}
+                            {{--                                Non eu ipsum viverra fermentum imperdiet quam vulputate. Rhoncus felis, viverra cras--}}
+                            {{--                                fermentum--}}
+                            {{--                                tellus neque donec non nec. Montes, vel convallis in accumsan. Neque diam dolor tellus--}}
+                            {{--                                adipiscing porta sem mollis pellentesque. Porttitor a iaculis ut vitae urna. Aliquam--}}
+                            {{--                                purus--}}
+                            {{--                                dolor, turpis sem egestas.--}}
+                            {{--                            </div>--}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="row no-gutters work-method-row right">
+                        <div class="col-12 work-method bg-2">
+                            <div class="work-method-img">
+                                <img src="{{asset('img/works-icon--t-2.svg')}}" alt="icon">
+                            </div>
+                            <h3 class="work-method-title">Submit profile for verification</h3>
+                            {{--       <div class="work-method-text">
+                                       Morbi etiam gravida vestibulum massa neque risus. Consequat sit facilisis montes, vitae
+                                       nunc
+                                       sed. Integer aliquam sed sagittis fringilla lectus. Consequat feugiat phasellus nibh
+                                       aenean
+                                       eget
+                                       cursus. Nascetur in laoreet gravida est nunc, natoque est ut. In sollicitudin pretium
+                                       quis
+                                       est
+                                       amet.
+                                   </div>--}}
+                        </div>
+                        {{--                        <div class="col-12 work-method bg-4">--}}
+                        {{--                            <div class="work-method-img">--}}
+                        {{--                                <img src="{{asset('img/works-icon--t-3.svg')}}" alt="icon">--}}
+                        {{--                            </div>--}}
+                        {{--                            <h3 class="work-method-title">Skipping the middleman by booking translators </h3>--}}
+                        {{--                            <div class="work-method-text">--}}
+                        {{--                                Sapien nulla volutpat fringilla faucibus sed laoreet bibendum. Nascetur risus, lobortis--}}
+                        {{--                                a--}}
+                        {{--                                lacus--}}
+                        {{--                                accumsan fermentum. Non eleifend quis nec, orci. In libero quam consectetur varius morbi--}}
+                        {{--                                cursus--}}
+                        {{--                                commodo volutpat ornare. Tellus interdum sed vivamus malesuada aenean mattis imperdiet--}}
+                        {{--                                mauris,--}}
+                        {{--                                ultricies.--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
