@@ -16,7 +16,7 @@
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
     <!-- select 2 -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/translatorProfile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/lawyerProfile.css') }}">
     @yield('stylesheet')
 </head>
 

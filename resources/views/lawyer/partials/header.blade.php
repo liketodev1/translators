@@ -43,9 +43,18 @@
                                     aria-haspopup="true" aria-expanded="false">
                                 <img src="{{ asset('img/avatar-t.svg')  }}" alt="avatar" class="avatar-t">
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
                                 <a class="dropdown-item" href="/">Home</a>
 {{--                                <a class="dropdown-item" href="#"></a>--}}
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('global.logout') }}
+                                    <form  class="form-inline my-2 my-lg-0" id="logout-form" action="{{ route('logout') }}" method="POST"
+                                           style="display: none;">
+                                        @csrf
+                                    </form>
+                                </a>
                             </div>
                         </div>
                     </div>
