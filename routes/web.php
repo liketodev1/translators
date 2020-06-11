@@ -30,9 +30,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resources(
             array(
                 'users' => 'UsersController',
-                'options' => 'OptionsController',
                 'terms' => 'TermsController',
                 'privacy_policy' => 'PrivacyPolicyController',
+                'legal_areas' => 'LegalAreasController',
             )
         );
 

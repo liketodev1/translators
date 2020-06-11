@@ -6,58 +6,63 @@ namespace App\Http\Controllers\Lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Certification;
-use App\Models\LanguageUser;
-use App\Models\Options;
+use App\Models\Language;
+use App\Models\LanguageLevel;
+use App\Models\LanguageLevelUser;
+use App\Models\Specializations;
+use App\Services\FileSystemService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LawyerController extends Controller
 {
     public function index()
     {
-        $industrySpecialization = Options::where('type', '=', Options::INDUSTRY_SPECIALIZATION)->orderBy('name', 'asc')->get();
-        $specialization = Options::where('type', '=', Options::SPECIFICATION)->orderBy('name', 'asc')->get();
-        $language = Options::where('type', '=', Options::LANGUAGE)->orderBy('name', 'asc')->get();
+        $specializations = Specializations::orderBy('name', 'asc')->get();
+        $languages = Language::orderBy('name', 'asc')->get();
+        $languageLevels = LanguageLevel::orderBy('name', 'asc')->get();
 
         return view('lawyer.pages.profile',
             array(
-                'industrySpecialization' => $industrySpecialization,
-                'specialization' => $specialization,
-                'language' => $language,
+                'specializations' => $specializations,
+                'languages' => $languages,
+                'languageLevels' => $languageLevels,
             )
         );
     }
 
-    public function profile(Request $request)
+    public function profile(Request $request, FileSystemService $fileSystemService)
     {
         $user = Auth::user();
+        /* ********  Profile create or update ******* */
 
         $validator = Validator::make($request->all(), [
-            'specializations' => ['required'],
-//            'specifications' => ['required'],
-//            'profile.linkedin' => ['required_without:url'],
-            'profile.biography' => ['required','max:150'],
-            'profile.experience' => ['required','digits_between:1,2'],
-            'lang_from.*' => ['required'],
-            'lang_to.*' => ['required'],
-            'slow.*' => ['required'],
-            'standard.*' => ['required'],
-            'urgent.*' => ['required'],
+            'specialization' => ['required'],
+            'profile.linkedin' => ['sometimes','required_without:url'],
+            'profile.biography' => ['required', 'max:150'],
+            'profile.experience' => ['required', 'digits_between:1,2'],
+            'profile.country' => ['required'],
+            'profile.state' => ['required'],
+            'profile.city' => ['required'],
+            'profile.address' => ['required'],
             'resume' => ['mimes:pdf,doc,docx'],
             'certificates.*' => ['mimes:pdf,png,jpg,jpeg'],
         ]);
 
-        if ($validator->fails()){
-
+        if ($validator->fails()) {
+//            return  $validator->getMessageBag()->toArray();
             return new JsonResponse([
                 'success' => false,
                 'message' => [
-                    'specialization' => $validator->errors()->get('specializations'),
-//                    'specification' => $validator->errors()->get('specifications'),
-//                    'linkedin' => $validator->errors()->get('profile.linkedin'),
+                    'specialization' => $validator->errors()->get('specialization'),
+                    'country' => $validator->errors()->get('profile.country'),
+                    'state' => $validator->errors()->get('profile.state'),
+                    'city' => $validator->errors()->get('profile.city'),
+                    'address' => $validator->errors()->get('profile.address'),
+                    'linkedin' => $validator->errors()->get('profile.linkedin'),
                     'biography' => $validator->errors()->get('profile.biography'),
                     'experience' => $validator->errors()->get('profile.experience'),
                     'resume' => $validator->errors()->get('resume'),
@@ -69,83 +74,83 @@ class LawyerController extends Controller
         }
 
 
-        $profile = $request->input('profile');
-        $resume = $request->file('resume');
-
         $certificates = $request->file('certificates');
-//        $lang_from = $request->input('lang_from');
-//        $lang_to = $request->input('lang_to');
-        $slow = $request->input('slow');
-        $standard = $request->input('standard');
-        $urgent = $request->input('urgent');
-        $langIds = $request->input('langId');
-        $deleteLangs = $request->input('deleteLangs');
 
-
-        if ($certificates){
-
-            $certificatePaths = $this->uploadMultiple($certificates);
+        if ($certificates) {
+            $certificatePaths = $fileSystemService->uploadMultiple($certificates, 'certifications');
             foreach ($certificatePaths as $certificatePath) {
-                $certificate =  new Certification();
+                $certificate = new Certification();
                 $certificate->user_id = $user->id;
                 $certificate->path = $certificatePath;
                 $certificate->save();
-
             }
         }
 
-        if ($request->input('delete_certificate')){
-            $ids = explode(',', trim($request->input('delete_certificate'),','));
-            foreach (Certification::find($ids) as $item){
+        if ($request->input('delete_certificate')) {
+            $ids = explode(',', trim($request->input('delete_certificate'), ','));
+            foreach (Certification::find($ids) as $item) {
                 Storage::disk('public')->delete($item->path);
             }
             Certification::destroy($ids);
         }
 
-        $user->specializations()->sync($request->input('specializations'));
-        $user->specifications()->sync($request->input('specifications'));
+        $lluId = $request->get('lluId');
+        $language = $request->get('language');
+        $languageLevel = $request->get('languageLevel');
 
+        LanguageLevelUser::destroy(explode(',', trim($request->get('delLang'), ',')));
 
-        // ------------------------------------------//
-        //                                           //
-        //     Create Update translator profile      //
-        //                                           //
-        //-------------------------------------------
+        if ($language && count($language)) {
+            foreach ($language as $key => $value) {
+                if (isset($lluId[$key])) {
+                    $arr = ['id' => $lluId[$key]];
+                } else {
+                    $arr = ['id' => null];
+                }
+
+                $user->languageLevel()->updateOrCreate($arr,
+                    [
+                        'language_id' => (int)$value,
+                        'language_level_id' => (int)$languageLevel[$key],
+                    ]
+                );
+            }
+        }
+
+        $user->specializations()->sync($request->get('specialization'));
+
+        /* ********  Profile create or update ******* */
+        $profile = $request->get('profile');
+        $resume = $fileSystemService->fileUpload(
+            $request->file('resume'),
+            isset($user->profile) ? $user->profile->resume : null,
+            'resume'
+        );
+        $profile['resume'] = $resume;
+
+        $user->profile()->updateOrCreate(['user_id' => $user->id], $profile);
+
         $responseMessage = 'Data updated successfully';
 
-        if ($resume){
-            $resume = $resume->store('resume','public');
-            $profile['resume'] = $resume;
-        }
-
-        $profileId = null;
-        if ($user->profile){
-            $profileId = $user->profile->id;
-            if ($resume){
-                Storage::disk('public')->delete($user->profile->resume);
-            }
-        }else{
+        if (!isset($user->profile)) {
             $responseMessage = 'Thank you  we are reviewing your profile, will get in touch with you soon';
         }
-        $user->profile()->updateOrCreate(['id' => $profileId],$profile);
+
         return response()->json(array(
             'success' => true,
             'message' => $responseMessage,
         ));
-//        return redirect()->route('translator_profile')->with('success',$responseMessage);
 
     }
 
-    public function uploadMultiple($files)
-    {
-        $filePaths = [];
 
-        if ($files && count($files)>0){
-            foreach ($files as $file) {
-                $filePaths[] = $file->store('certificates','public');
-            }
+    public function fileDelete($fileName)
+    {
+
+        if ($fileName) {
+            Storage::disk('public')->delete($fileName);
         }
 
-        return $filePaths;
+        return true;
     }
 }

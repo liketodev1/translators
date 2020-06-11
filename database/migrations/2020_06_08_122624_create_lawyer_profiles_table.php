@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTranslatorProfilesTable extends Migration
+class CreateLawyerProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class CreateTranslatorProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('translator_profiles', function (Blueprint $table) {
+        Schema::create('lawyer_profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->mediumText('linkedin')->nullable();
-            $table->string('resume')->nullable();
-            $table->text('biography')->nullable();
+            $table->float('rate')->nullable();
             $table->tinyInteger('experience')->nullable();
             $table->boolean('public_sector')->nullable();
             $table->boolean('private_sector')->nullable();
             $table->boolean('education')->nullable();
-            $table->timestamps();
-
+            $table->mediumText('linkedin')->nullable();
+            $table->string('resume')->nullable();
+            $table->text('biography')->nullable();
             $table->foreign('user_id')
-                  ->onDelete('cascade')
-                  ->references('id')
-                  ->on('users');
+                ->onDelete('cascade')
+                ->references('id')
+                ->on('users');
+            $table->timestamps();
         });
     }
 
@@ -39,6 +39,6 @@ class CreateTranslatorProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('translator_profiles');
+        Schema::dropIfExists('lawyer_profiles');
     }
 }

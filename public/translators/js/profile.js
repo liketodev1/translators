@@ -61,6 +61,7 @@ $(document).ready(() => {
 
     $('.add-language-pair').click(function () {
         let langPrototype = $('#langPrototype').val();
+
         $('#langTable').append(langPrototype);
         $('.selectpicker').selectpicker();
 
@@ -77,6 +78,16 @@ $(document).ready(() => {
             document.getElementById('deleteLanguages').value += langId + ",";
         }
         prnt.remove()
+    });
+
+    let specialization = document.querySelectorAll('.specialization');
+
+    specialization.forEach(item => {
+        item.addEventListener('change', function (e) {
+            if ($('.specialization:checked').length > 3) {
+                this.checked = false
+            }
+        })
     });
 
     document.querySelectorAll('.experience_switch').forEach(item => {
@@ -104,15 +115,19 @@ $(document).ready(() => {
         let result = await response.json();
         let messageContainer = document.getElementById('messageContainer');
         messageContainer.innerHTML = '';
-        emptyContent('.error-list');
+        emptyContent('.error-item');
 
         if (!result.success) {
             for (let key in result.message) {
-                if (validator[key]) {
-                    validator[key](key + '_errors', result.message[key])
+                if (result.message[key].length > 0) {
+                    $(`#${key}_errors`).append(`<li class="error-item">${result.message[key]}</li>`)
                 }
             }
-            document.querySelector('.error-item').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+            document.querySelector('.error-item').scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "nearest"
+            });
         } else {
             messageContainer.innerHTML = `
                 <div class="alert alert-success alert-dismissible mb-0 mt-3">
@@ -129,88 +144,10 @@ $(document).ready(() => {
 
     function emptyContent(selector) {
         document.querySelectorAll(selector).forEach(item => {
-            if (item.innerHTML) {
-                item.innerHTML = '';
+            if (item) {
+                item.remove();
             }
         })
-    }
-
-    const validator = {
-        specialization: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },
-/*        specification: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },*/
-        /*linkedin: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },*/
-        experience: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },
-        resume: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },
-        biography: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                errors.forEach(item => {
-                    let Li = createErrorElement(item);
-                    contentElement.appendChild(Li)
-                });
-                return true;
-            }
-        },
-        certificate: function (selector, errors) {
-            if (errors.length > 0) {
-                let contentElement = document.getElementById(selector);
-                let Li = createErrorElement(errors[0].replace('.0', ''));
-                contentElement.appendChild(Li);
-                return true;
-            }
-        },
-    };
-
-    function createErrorElement(txt) {
-        let Li = document.createElement('li');
-        Li.className = 'error-item';
-        Li.innerText = txt;
-        return Li;
     }
 
 

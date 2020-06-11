@@ -1,12 +1,13 @@
 @extends('admin.app')
 
-@section('title', 'Users list')
-
+@section('title', 'Privacy policy')
+@include('admin.layouts.breadcrumb',array(
+    'title' => 'Term list',
+    'index' => route('admin.privacy_policy.index'),
+    'create' => route('admin.privacy_policy.create'),
+))
 @section('content')
     <!-- Default box -->
-    @if($items->isEmpty())
-        <a href="{{route('admin.privacy_policy.create')}}">Create Privacy Policy</a>
-    @endif
     <div class="card">
         <div class="card-body p-0">
             <table class="table table-striped projects">

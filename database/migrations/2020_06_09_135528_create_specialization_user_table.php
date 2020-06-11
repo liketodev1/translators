@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageUserTable extends Migration
+class CreateSpecializationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,28 +13,20 @@ class CreateLanguageUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('language_user', function (Blueprint $table) {
+        Schema::create('specialization_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('lang_from_id')->index();
-            $table->unsignedBigInteger('lang_to_id')->index();
-            $table->integer('slow')->nullable();
-            $table->integer('standard')->nullable();
-            $table->integer('urgent')->nullable();
+            $table->unsignedBigInteger('specialization_id')->index();
             $table->timestamps();
-
             $table->foreign('user_id')
                 ->onDelete('cascade')
                 ->references('id')
                 ->on('users');
-            $table->foreign('lang_from_id')
+            $table->foreign('specialization_id')
                 ->onDelete('cascade')
                 ->references('id')
-                ->on('options');
-            $table->foreign('lang_to_id')
-                ->onDelete('cascade')
-                ->references('id')
-                ->on('options');
+                ->on('specializations');
+
         });
     }
 
@@ -45,6 +37,6 @@ class CreateLanguageUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_user');
+        Schema::dropIfExists('specialization_user');
     }
 }

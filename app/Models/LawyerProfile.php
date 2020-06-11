@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TranslatorProfile extends Model
+class LawyerProfile extends Model
 {
-    protected $table = 'translator_profiles';
+    protected $table = 'lawyer_profiles';
 
     protected $primaryKey = 'id';
 
@@ -20,6 +20,6 @@ class TranslatorProfile extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }

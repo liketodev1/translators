@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,7 +53,6 @@ class User extends Authenticatable
     public static function generateToken()
     {
         return rand(100000,999999);
-//        return md5(microtime(true));
     }
 
     /**
@@ -81,7 +81,7 @@ class User extends Authenticatable
         if ($token === $this->confirmation_token) {
             // User has confirmed his e-mail address.
             $this->confirmation_token = null;
-            $this->confirmed_at = \Carbon\Carbon::now();
+            $this->confirmed_at = Carbon::now();
             $this->save();
 
             return true;
@@ -93,17 +93,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(TranslatorProfile::class,'user_id');
-    }
-
-    public function specializations()
-    {
-        return $this->belongsToMany(Options::class,'options_user','user_id','options_id')->withTimestamps();
-    }
-
-    public function specifications()
-    {
-        return $this->belongsToMany(Options::class,'specification_user','user_id','options_id')->withTimestamps();
+        return $this->hasOne(LawyerProfile::class,'user_id','id');
     }
 
     public function certifications()
@@ -111,9 +101,14 @@ class User extends Authenticatable
         return $this->hasMany(Certification::class);
     }
 
-    public function languages()
+    public function specializations()
     {
-       return $this->hasMany(LanguageUser::class);
+       return  $this->belongsToMany(Specializations::class,'specialization_user','user_id','specialization_id')->withTimestamps();
+    }
+
+    public function languageLevel()
+    {
+        return $this->hasMany(LanguageLevelUser::class,'user_id','id');
     }
 
 }

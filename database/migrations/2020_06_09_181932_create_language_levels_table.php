@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropIndexOptionsUserTable extends Migration
+class CreateLanguageLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class DropIndexOptionsUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('options_user', function (Blueprint $table) {
-            $table->dropIndex(['user_id','options_id']);
+        Schema::create('language_levels', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',50);
+            $table->smallInteger('position');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class DropIndexOptionsUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('options_user', function (Blueprint $table) {
-            $table->dropIndex(['user_id','options_id']);
-        });
+        Schema::dropIfExists('language_levels');
     }
 }

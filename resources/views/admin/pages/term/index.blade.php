@@ -1,12 +1,13 @@
 @extends('admin.app')
 
-@section('title', 'Users list')
-
+@section('title', 'Term')
+@include('admin.layouts.breadcrumb',array(
+    'title' => 'Term list',
+    'index' => route('admin.terms.index'),
+    'create' => route('admin.terms.create'),
+))
 @section('content')
     <!-- Default box -->
-    @if($items->isEmpty())
-        <a href="{{route('admin.terms.create')}}">Create Term</a>
-    @endif
     <div class="card">
         <div class="card-body p-0">
             <table class="table table-striped projects">
@@ -33,7 +34,7 @@
                             #{{$item->id}}
                         </td>
                         <td>{{ $item->title }}</td>
-                        <td>{!!   \Illuminate\Support\Str::limit($item->description, 200) !!}</td>
+                        <td>{!!   \Illuminate\Support\Str::limit($item->description, 500) !!}</td>
                         <td class="project-actions">
 {{--                            <a class="btn btn-primary btn-sm" href="{{ route('admin.terms.show',['term'=>$item->id]) }}">--}}
 {{--                                <i class="fas fa-folder">--}}

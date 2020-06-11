@@ -147,16 +147,15 @@ return [
     */
 
     'attributes' => [
-        'specializations' => 'Industry specialization',
-        'specifications' => 'Specification',
+        'specialization' => 'Specialization',
         'profile.linkedin' => 'Linked Account',
         'profile.biography' => 'Short biography',
         'profile.experience' => 'Experience',
-        'lang_from.*' => 'Language pair',
-        'lang_to.*' => 'Language pair',
-        'slow.*' => 'Slow',
-        'standard.*' => 'Standard',
-        'urgent.*' => 'Urgent',
+        'profile.country' => 'County',
+        'profile.state' => 'State',
+        'profile.city' => 'City',
+        'profile.address' => 'Address',
+        'certificates.*' => 'Certificates',
     ],
 
 ];

@@ -35,34 +35,29 @@
                                         <div class="row no-gutters">
                                             <div class="col-12 profile-description">
                                                 <h5 class=" profile-description-title">Your profile is not yet displayed
-                                                    in
-                                                    the
-                                                    translator list</h5>
-                                                <p class="profile-description-text">
-                                                    We do our best to ensure that only professional and leading
-                                                    translators
-                                                    work
-                                                    on
-                                                    our platform. Therefore, we review every profile before publication.
-                                                    Please
-                                                    complete the information about yourself and then submit it for
-                                                    review.
-                                                    Our
-                                                    team
-                                                    will check your profile and after that your profile will be shown on
-                                                    our
-                                                    platform.
+                                                    in the Attorneys list</h5>
+                                                <p class="profile-description-text">Welcome to TalkCounsel! We do our
+                                                    best to ensure that only leading attorneys are on our platform. That
+                                                    means all incoming applications are thoroughly vetted before
+                                                    publication. Please complete the items below and submit your profile
+                                                    for verification.
                                                 </p>
                                                 <a class="profile-l-more" href="#">Learn more</a>
                                             </div>
                                             <div class="col-12 profile-rows">
-                                                <h4 class="profile-rows-title">Popular legal areas</h4>
-                                                @if(count($industrySpecialization)>0)
+                                                <h4 class="profile-rows-title">Specializations (max 3)</h4>
+                                                <p class="profile-rows-text">Please limit your selections to Legal
+                                                    Specialization that best represent your current practice focus and
+                                                    expertise.</p>
+                                                @php
+                                                    $count = count($specializations);
+                                                @endphp
+                                                @if($count>0)
                                                     <div class="row no-gutters">
-                                                        @php($totalServices = count($industrySpecialization))
+                                                        @php($totalServices = $count)
                                                         @php($currentRow = 0)
                                                         @php($serviceCount = 0)
-                                                        @foreach($industrySpecialization as $item)
+                                                        @foreach($specializations as $item)
                                                             @if($currentRow == 0)
                                                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                                                                     <ul class="checkbox-list">
@@ -70,7 +65,7 @@
                                                                         <li>
                                                                             <div class="check-block">
                                                                                 <input type="checkbox"
-                                                                                       name="specializations[]"
+                                                                                       name="specialization[]"
                                                                                        class="custom-control-input specialization"
                                                                                        id="ch_{{ $item->id }}"
                                                                                        value="{{ $item->id }}"
@@ -84,9 +79,9 @@
                                                                                        for="ch_{{ $item->id }}">{{ $item->name }}</label>
                                                                             </div>
                                                                         </li>
-                                                                        @php($currentRow ++)
                                                                         @php($serviceCount ++)
-                                                                        @if($currentRow == 3 || $serviceCount == $totalServices)
+                                                                        @php($currentRow ++)
+                                                                        @if($currentRow == $count/3  || $serviceCount == $totalServices)
                                                                             @php($currentRow = 0)
                                                                     </ul>
                                                                 </div>
@@ -102,7 +97,161 @@
                                     </div>
                                     {{--Industry specialization end--}}
 
-                                    <!--start Qualifications and certifications-->
+                                    {{--start Practice Location block --}}
+                                    <div class="profile-section">
+                                        <div class="row no-gutters">
+                                            <div class="col profile-rows">
+                                                <h4 class="profile-rows-title">Practice Location block
+                                                    <span class="profile-rows-title-sub"></span>
+                                                </h4>
+                                                <p class="profile-rows-sub-title">TalkCounsel uses the location to help
+                                                    clients find attorneys in their areas.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters">
+                                            <div class="col-md-6">
+                                                <input type="text" name="profile[country]"
+                                                       class="form-control" id="country"
+                                                       placeholder="Country"
+                                                       @if(Auth::user()->profile)
+                                                       value="{{ Auth::user()->profile->country }}"
+                                                    @endif
+                                                >
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="country_errors"></ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="profile[state]"
+                                                       class="form-control" id="state"
+                                                       placeholder="State"
+                                                       @if(Auth::user()->profile)
+                                                       value="{{ Auth::user()->profile->state }}"
+                                                    @endif
+                                                >
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="state_errors"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters">
+                                            <div class="col-md-6">
+                                                <input type="text" name="profile[city]"
+                                                       class="form-control" id="city"
+                                                       placeholder="City"
+                                                       @if(Auth::user()->profile)
+                                                       value="{{ Auth::user()->profile->city }}"
+                                                    @endif
+                                                >
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="city_errors"></ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="profile[address]"
+                                                       class="form-control" id="address"
+                                                       placeholder="Address"
+                                                       @if(Auth::user()->profile)
+                                                       value="{{ Auth::user()->profile->address }}"
+                                                    @endif
+                                                >
+                                                <div class="error-container">
+                                                    <ul class="error-list" id="address_errors"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{--end Practice Location block --}}
+
+                                    {{--start Languages Spoken block --}}
+                                    <div class="profile-section">
+                                        <div class="row no-gutters">
+                                            <div class="col-12 profile-rows">
+                                                <h4 class="profile-rows-title">Languages Spoken<span
+                                                        class="profile-rows-title-sub"> </span></h4>
+                                                <p class="profile-rows-sub-title">Add Language Proficiency</p>
+                                            </div>
+
+                                            <table
+                                                class="table table-borderless lang-row table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
+                                                <tbody id="langTable">
+                                                <!--start lang-row-->
+                                                @if(count(Auth::user()->languageLevel)==0)
+                                                    <tr>
+                                                        <td>
+                                                            <div class="languages-select">
+                                                                <div class="input-group">
+                                                                    <select name="language[]" class="selectpicker"
+                                                                            data-style="btn-default">
+                                                                        @if(count($languages)>0)
+                                                                            @foreach($languages as $language)
+                                                                                <option
+                                                                                    value="{{ $language->id }}">{{ $language->name }}</option>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </select>
+                                                                    <select name="languageLevel[]" class="selectpicker"
+                                                                            data-style="btn-default">
+                                                                        @if(count($languageLevels)>0)
+                                                                            @foreach($languageLevels as $level)
+                                                                                <option
+                                                                                    value="{{ $level->id }}">{{ $level->name }}</option>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                @include('lawyer.partials.languages',['data' => Auth::user()->languageLevel])
+                                                <input type="hidden" name="delLang" id="deleteLanguages">
+                                                <!--end lang-row-->
+                                                </tbody>
+                                            </table>
+                                            <a href="javascript:void(0);" class="add-language-pair">
+                                                <img src="{{ asset('img/plus.svg') }}" alt="">Add language
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{--end Languages Spoken block --}}
+
+                                    {{--start Billings & Malpractice Insurance block--}}
+                                    <div class="profile-section">
+                                        <div class="row no-gutters">
+                                            <div class="col profile-rows">
+                                                <h4 class="profile-rows-title">Billings & Malpractice Insurance
+                                                    <span class="profile-rows-title-sub"></span>
+                                                </h4>
+                                                <p class="profile-rows-sub-title">Your preferred billing rate will be
+                                                    displayed on your profile.
+                                                    (You can only choose one billing rate).</p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div
+                                                    class="row no-gutters experience-row d-flex justify-content-between">
+                                                    <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
+                                                        <input type="text"
+                                                               name="profile[rate]"
+                                                               class="form-control"
+                                                               id="rate"
+                                                               placeholder="Select Rate"
+                                                               @if(Auth::user()->profile)
+                                                               value="{{ Auth::user()->profile->rate }}"
+                                                            @endif
+                                                        >
+                                                        <div class="error-container">
+                                                            <ul class="error-list" id="experience_errors"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{-- end Billings & Malpractice Insurance block--}}
+
+
+                                <!--start Qualifications and certifications-->
                                     <div class="profile-section">
                                         <div class="row no-gutters">
                                             <div class="col-12 profile-rows">
@@ -161,16 +310,18 @@
                                                 </h4>
                                             </div>
                                             <div class="col-12">
-                                                <div class="row no-gutters experience-row d-flex justify-content-between">
+                                                <div
+                                                    class="row no-gutters experience-row d-flex justify-content-between">
                                                     <div class="col-xl-3 col-lg-3 col-md-2 col-sm-12 exp-section">
                                                         <label for="years">Years of experience:</label>
                                                         <input type="number"
                                                                name="profile[experience]"
                                                                class="form-control"
+                                                               min="0"
                                                                id="years"
                                                                @if(Auth::user()->profile)
-                                                               value="{{ Auth::user()->profile->experience }}"
-                                                            @endif
+                                                                    value="{{ Auth::user()->profile->experience }}"
+                                                               @endif
                                                         >
                                                         <div class="error-container">
                                                             <ul class="error-list" id="experience_errors"></ul>
@@ -394,54 +545,43 @@
     </div>
     <!--end myProfile-->
 
-
-
-    <input type="hidden" id="langPrototype" value='<tr>
+<input type="hidden" id="langPrototype" value='
+<tr>
 <td>
-<input type="hidden" name="langId[]">
-<div class="languages-select">
-<div class="input-group">
-<select name="lang_from[]" class="selectpicker"
-data-style="btn-default">
-@foreach($language as $lang)
-        <option selected value="{{ $lang->id }}">{{ $lang->name }}</option>
-@endforeach
+    <div class="languages-select">
+        <div class="input-group">
+            <select name="language[]" class="selectpicker"
+                    data-style="btn-default">
+                    <option disabled selected>Chose language</option>
+            @if(count($languages)>0)
+                @foreach($languages as $language)
+                    <option value="{{ $language->id }}">{{ $language->name }}</option>
+                 @endforeach
+            @endif
+            </select>
+
+        <select name="languageLevel[]" class="selectpicker"
+                data-style="btn-default">
+                <option disabled selected>Chose level</option>
+            @if(count($languageLevels)>0)
+                @foreach($languageLevels as $level)
+                    <option value="{{ $level->id }}">{{ $level->name }}</option>
+                @endforeach
+            @endif
         </select>
-        <select name="lang_to[]" class="selectpicker"
-        data-style="btn-default">
-@foreach($language as $lang)
-        <option selected value="{{ $lang->id }}">{{ $lang->name }}</option>
-@endforeach
-        </select>
-        </div>
-        </div>
-        </td>
-        <td>
-        <div class="languages-price">
-        <span>$</span>
-        <input type="number" class="form-control" name="slow[]">
-        </div>
-        </td>
-        <td>
-        <div class="languages-price">
-        <span>$</span>
-        <input type="number" class="form-control" name="standard[]">
-        </div>
-        </td>
-        <td>
-        <div class="languages-price">
-        <span>$</span>
-        <input type="number" class="form-control" name="urgent[]">
-        </div>
-        </td>
-        <td>
-        <div class="languages-delete">
-        <button type="button" class="btn delete-row">
-        <img src="{{ asset('img/delete.svg') }}" alt="delete">
-</button>
+    </div>
 </div>
 </td>
-</tr>'>
+<td>
+    <div class="languages-delete">
+        <button type="button" class="btn delete-row">
+            <img src="{{ asset('img/delete.svg') }}" alt="delete">
+        </button>
+    </div>
+</td>
+</tr>
+
+'>
 @endsection
 
 @section('javascript')
