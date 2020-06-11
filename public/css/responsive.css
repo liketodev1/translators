@@ -10,7 +10,7 @@
     }
 
     .help_left h2 {
-        margin: 90px 0 20px 90px
+        /*margin: 90px 0 20px 90px*/
     }
 
     .all_container, .my_container, .footer_container,.all_container_2 {
@@ -65,9 +65,9 @@
     }
 
     #help_container img {
-        width: 70%;
+        /*width: 70%;*/
         margin-right: 0!important;
-        height: 480px;
+        /*height: 480px;*/
         max-width: 100%;
         padding-bottom: 124px;
     }
@@ -90,7 +90,6 @@
     }
 
     #help_container {
-        width: 85%;
         padding: 1%;
     }
 }
@@ -176,10 +175,6 @@
 
     #start_using_container .start_using_left,.start_using_right  {
         width: 95%;
-    }
-
-    .start_using_right a {
-        width: 120px;
     }
 
     .carousel-control.left {

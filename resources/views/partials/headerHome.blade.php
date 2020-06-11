@@ -37,21 +37,21 @@
                         </div>
                         <div class="select_container">
                             <div class="select_blocks">
-                                <p>Select service</p>
+                                <p>Select BILLING METHOD</p>
                                 <select class="" name="">
-                                    <option>Law</option>
-                                    <option>Law</option>
-                                    <option>Law</option>
-                                    <option>Law</option>
+                                    <option>Per Hour</option>
+                                    <option>Per Hour</option>
+                                    <option>Per Hour</option>
+                                    <option>Per Hour</option>
                                 </select>
                             </div>
                             <div class="select_blocks">
-                                <p>Select industry</p>
+                                <p>SELECT SPECIALIZATION</p>
                                 <select class="" name="">
-                                    <option>Business & Finance</option>
-                                    <option>Business & Finance</option>
-                                    <option>Business & Finance</option>
-                                    <option>Business & Finance</option>
+                                    <option>Animal Law</option>
+                                    <option>Animal Law</option>
+                                    <option>Animal Law</option>
+                                    <option>Animal Law</option>
                                 </select>
                             </div>
                             <div class="select_blocks">
