@@ -3,12 +3,18 @@ $route = 'home';
 if (!auth()->user()) {
     $route = 'register';
 }
-
+$headerType = 'white';
 ?>
 @extends('layouts.app')
 @section('content')
 
-    <
+    <div id="header_background">
+        <div class="hedding_text_container">
+            <h1>A Digital Workspace For<br> The Legal Industry</h1>
+            <h3>You have the right to an attorney; TalkCounsel’s pool of<br> vetted lawyers has got you covered</h3>
+        </div>
+    </div>
+
     <section class="container-fluid container-t section about-content">
         <div class="row no-gutters d-flex justify-content-end align-items-center">
             <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 ">

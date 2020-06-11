@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('favicon.png') }}" sizes="16x16 32x32" type="image/png">
 
 <!-- Fonts -->
@@ -18,12 +18,11 @@
 </head>
 <body>
 <div id="app">
-
-    @if(request()->route()->getName() == 'home' || request()->route()->getName() == 'about_us')
-        @include('partials.headerHome')
-    @else
-        @include('partials.header')
-    @endif
+{{--    @if(request()->route()->getName() == 'home' || request()->route()->getName() == 'about_us')--}}
+{{--        @include('partials.headerHome')--}}
+{{--    @else--}}
+        @include('partials.header_'.(isset($headerType)?$headerType:'black'))
+{{--    @endif--}}
     <div class="container">
         @include('flash::message')
     </div>
