@@ -3,46 +3,55 @@ $route = 'home';
 if (!auth()->user()) {
     $route = 'register';
 }
-
+$headerType = 'white';
 ?>
 @extends('layouts.app')
+
+@section('title','Home')
+
 @section('content')
-
-    {{--    start home new--}}
-    <div class="bg">
-        <div class="all_container">
-
+    <div id="header_background">
+        <div class="hedding_text_container">
+            <h1>A Digital Workspace For<br> The Legal Industry</h1>
+            <h3>You have the right to an attorney; TalkCounsel’s pool of<br> vetted lawyers has got you covered</h3>
+        <!-- search block start -->
+            @include('partials.search _form')
+        <!-- search block end -->
         </div>
     </div>
+    {{--    start home new--}}
     <div class="all_container">
         <section id="find_translators_container">
             <h2>Popular legal areas</h2>
-            <h6 style="text-align: center; padding-top: 16px;">Find the best legal experts by specialization
-            </h6>
+            <h6 style="text-align: center; padding-top: 16px;">Find the best legal experts by specialization</h6>
             <div id="translators_container_block">
                 @if(count($legal_areas)>0)
-                <div class="translators_container_block_row">
-                    @foreach($legal_areas as $legal_area)
-                        @if($loop->index <= 3)
-                            <div class="translators_block_rows">
-                                <img src="{{ ($legal_area->icon?Storage::url($legal_area->icon): asset('img/Law%20&%20Patents.svg') )}}" alt="{{ $legal_area->name }}">
-                                <a href=""><h6>{{ $legal_area->name }}</h6></a>
-                                <p>150 lawyers</p>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-                <div class="translators_container_block_row">
-                    @foreach($legal_areas as $legal_area)
-                        @if($loop->index > 3)
-                            <div class="translators_block_rows">
-                                <img src="{{ ($legal_area->icon? Storage::url($legal_area->icon): asset('img/project-t.svg') )}}" alt="{{ $legal_area->name }}">
-                                <a href=""><h6>{{ $legal_area->name }}</h6></a>
-                                <p>93 translators</p>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
+                    <div class="translators_container_block_row">
+                        @foreach($legal_areas as $legal_area)
+                            @if($loop->index <= 3)
+                                <div class="translators_block_rows">
+                                    <img
+                                        src="{{ ($legal_area->icon?Storage::url($legal_area->icon): asset('img/Law%20&%20Patents.svg') )}}"
+                                        alt="{{ $legal_area->name }}">
+                                    <a href=""><h6>{{ $legal_area->name }}</h6></a>
+                                    <p>150 lawyers</p>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="translators_container_block_row">
+                        @foreach($legal_areas as $legal_area)
+                            @if($loop->index > 3)
+                                <div class="translators_block_rows">
+                                    <img
+                                        src="{{ ($legal_area->icon? Storage::url($legal_area->icon): asset('img/project-t.svg') )}}"
+                                        alt="{{ $legal_area->name }}">
+                                    <a href=""><h6>{{ $legal_area->name }}</h6></a>
+                                    <p>93 translators</p>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
                 @endif
             </div>
         </section>
@@ -212,7 +221,7 @@ if (!auth()->user()) {
                     <a href="">Find A Job &nbsp; &nbsp; <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-                <img src="{{asset('img/image-t.png')}}" alt="" class="img-fluid">
+            <img src="{{asset('img/image-t.png')}}" alt="" class="img-fluid">
         </section>
         <section id="start_using_container">
             <div class="start_using_left">

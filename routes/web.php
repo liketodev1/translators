@@ -38,9 +38,9 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
-    // ----------------------------------
-    //  Lawyer Routes
-    // ----------------------------------
+    // ---------------------------------- //
+    //           Lawyer Routes            //
+    // ---------------------------------- //
     Route::middleware(['lawyer'])->namespace('Lawyer')->group(function () {
         Route::get('/profile', 'LawyerController@index')->name('lawyer_profile');
         Route::post('/profile', 'LawyerController@profile')->name('save_lawyer_profile');
