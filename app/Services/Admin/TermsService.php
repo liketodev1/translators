@@ -20,7 +20,4 @@ class TermsService extends BaseService
         $this->set_model($term);
         $this->baseValidator = $termsValidator;
     }
-
-
-
 }

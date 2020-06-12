@@ -24,3 +24,10 @@ class PaymentType{
     const hour = 1;
     const fixed = 2;
 }
+
+class PageType{
+
+    const PAGE_TERMS = 'terms';
+    const PAGE_POLICY = 'policy';
+
+}
