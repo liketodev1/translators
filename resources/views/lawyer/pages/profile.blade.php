@@ -98,7 +98,7 @@
                                     {{--Industry specialization end--}}
 
                                     {{--start Practice Location block --}}
-                                    <div class="profile-section">
+                                    <div class="profile-section practice-location-section">
                                         <div class="row no-gutters">
                                             <div class="col profile-rows">
                                                 <h4 class="profile-rows-title">Practice Location block
@@ -232,7 +232,7 @@
                                                     class="row no-gutters experience-row d-flex justify-content-between">
                                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 exp-section">
                                                         <div class="input-group">
-                                                            <select name="profile[rate_type]" class="selectpicker"
+                                                            <select name="profile[rate_type]" class="selectpicker per-hour-border"
                                                                     data-style="btn-default">
                                                                 <option
                                                                     @if(Auth::user()->profile && PaymentType::hour == Auth::user()->profile->rate_type)
@@ -590,7 +590,7 @@
 <td>
     <div class="languages-delete">
         <button type="button" class="btn delete-row">
-            <img src="{{ asset('img/delete.svg') }}" alt="delete">
+            <img src="{{ asset('img/delete-t.svg') }}" alt="delete">
         </button>
     </div>
 </td>

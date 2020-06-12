@@ -259,7 +259,7 @@ header {
                     }
                 }
 
-                .profile-rows-text{
+                .profile-rows-text {
                     font-size: 14px;
                     font-weight: normal;
                     margin-bottom: 8px;
@@ -271,6 +271,7 @@ header {
                     font-weight: normal;
                     color: #3F3B48;
                     margin-top: 12px;
+                    margin-bottom: 18px;
                 }
             }
 
@@ -387,6 +388,53 @@ header {
                 }
             }
 
+            input[name="profile[rate]"] {
+                color: #241F2D;
+                padding: 8px 12px;
+                border: 1px solid #D6D5D7;
+                font-size: 14px;
+                background-image: url(../img/arrow-bottom.png);
+                background-position: 95% center;
+                background-repeat: no-repeat;
+                padding-right: 4px;
+            }
+
+            &.practice-location-section {
+                input {
+                    color: #241F2D;
+                    padding: 8px 12px;
+                    border: 1px solid #D6D5D7;
+                    font-size: 14px;
+                    background-image: url(../img/arrow-bottom.png);
+                    background-position: 98% center;
+                    background-repeat: no-repeat;
+                    padding-right: 4px;
+                }
+
+                .form-control {
+                    border-radius: 0;
+                }
+
+                input[name='profile[country]'] {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+
+                input[name='profile[state]'] {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+
+                input[name='profile[city]'] {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+
+                input[name='profile[address]'] {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+            }
 
             /*start upload btn */
 
@@ -685,6 +733,7 @@ header {
         color: red;
     }
 }
+
 // Changed by Someone end
 
 @media only screen and (max-width: 1260px) {
