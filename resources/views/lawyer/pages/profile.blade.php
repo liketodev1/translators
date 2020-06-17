@@ -39,8 +39,7 @@
                                                 <p class="profile-description-text">Welcome to TalkCounsel! We do our
                                                     best to ensure that only leading attorneys are on our platform. That
                                                     means all incoming applications are thoroughly vetted before
-                                                    publication. Please complete the items below and submit your profile
-                                                    for verification.
+                                                    publication. Complete your profile to prioritize your account for review.
                                                 </p>
                                                 <a class="profile-l-more" href="#">Learn more</a>
                                             </div>
@@ -109,14 +108,20 @@
                                             </div>
                                         </div>
                                         <div class="row no-gutters">
+
                                             <div class="col-md-6">
-                                                <input type="text" name="profile[country]"
-                                                       class="form-control" id="country"
-                                                       placeholder="Country"
-                                                       @if(Auth::user()->profile)
-                                                       value="{{ Auth::user()->profile->country }}"
+                                                <select name="profile[country]" class="selectpicker  per-hour-border form-control"
+                                                        data-style="btn-default">
+                                                    @if(count($country))
+                                                        @foreach($country as $item)
+                                                            <option
+                                                                @if(Auth::user()->profile &&  Auth::user()->profile->country == $item->id)
+                                                                    selected
+                                                                @endif
+                                                                value="{{ $item->id }}">{{ $item->name  }}</option>
+                                                        @endforeach
                                                     @endif
-                                                >
+                                                </select>
                                                 <div class="error-container">
                                                     <ul class="error-list" id="country_errors"></ul>
                                                 </div>
@@ -256,7 +261,7 @@
                                                             >
                                                         </div>
                                                         <div class="error-container">
-                                                            <ul class="error-list" id="experience_errors"></ul>
+                                                            <ul class="error-list" id="rate_errors"></ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -487,7 +492,7 @@
                                                 </h4>
                                                 <p class="profile-rows-sub-title">Add your resume. Your resume can be
                                                     downloaded
-                                                    by customers to learn more about you.
+                                                    by prospective clients to learn more about you.
                                                     Available formats *.pdf, *.doc, *.docx.
                                                 </p>
                                             </div>
@@ -532,7 +537,7 @@
                                                 <div class="row no-gutters ">
                                                 <textarea rows="4" class="form-control"
                                                           name="profile[biography]">@if(Auth::user()->profile){{ Auth::user()->profile->biography }}@endif</textarea>
-                                                    <div class="error">Maximum 150 characters
+                                                    <div class="error">Maximum 750 characters
                                                     </div>
                                                 </div>
                                                 <div class="error-container">
@@ -541,11 +546,7 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <button class="btn btn-primary btn-verification" type="submit">Send
-                                                    profile
-                                                    for
-                                                    verification
-                                                </button>
+                                                <button class="btn btn-primary btn-verification">Save Profile</button>
                                             </div>
                                         </div>
                                     </div>

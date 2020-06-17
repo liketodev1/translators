@@ -13,8 +13,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="input-group search-block">
-                    <input type="text" class="form-control" placeholder="Find jobs"
-                           aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Find jobs">
                     <div class="input-group-append">
                         <button class="btn btn-search" type="button">Search</button>
                     </div>
@@ -44,8 +43,7 @@
                                 <img src="{{ asset('img/avatar-t.svg')  }}" alt="avatar" class="avatar-t">
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="/">Home</a>
-{{--                                <a class="dropdown-item" href="#"></a>--}}
+                                <a class="dropdown-item" href="{{ route('home') }}">Home</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

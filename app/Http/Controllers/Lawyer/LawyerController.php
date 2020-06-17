@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Certification;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\LanguageLevel;
 use App\Models\LanguageLevelUser;
@@ -24,12 +25,14 @@ class LawyerController extends Controller
         $specializations = Specializations::orderBy('name', 'asc')->get();
         $languages = Language::orderBy('name', 'asc')->get();
         $languageLevels = LanguageLevel::orderBy('name', 'asc')->get();
+        $country = Country::orderBy('name','asc')->get();
 
         return view('lawyer.pages.profile',
             array(
                 'specializations' => $specializations,
                 'languages' => $languages,
                 'languageLevels' => $languageLevels,
+                'country' => $country,
             )
         );
     }
@@ -42,12 +45,13 @@ class LawyerController extends Controller
         $validator = Validator::make($request->all(), [
             'specialization' => ['required'],
             'profile.linkedin' => ['sometimes','required_without:url'],
-            'profile.biography' => ['required', 'max:150'],
+            'profile.biography' => ['required', 'max:750'],
             'profile.experience' => ['required', 'digits_between:1,2'],
             'profile.country' => ['required'],
             'profile.state' => ['required'],
             'profile.city' => ['required'],
             'profile.address' => ['required'],
+            'profile.rate' => ['required'],
             'resume' => ['mimes:pdf,doc,docx'],
             'certificates.*' => ['mimes:pdf,png,jpg,jpeg'],
         ]);
@@ -65,6 +69,7 @@ class LawyerController extends Controller
                     'linkedin' => $validator->errors()->get('profile.linkedin'),
                     'biography' => $validator->errors()->get('profile.biography'),
                     'experience' => $validator->errors()->get('profile.experience'),
+                    'rate' => $validator->errors()->get('profile.rate'),
                     'resume' => $validator->errors()->get('resume'),
                     'certificate' => $validator->errors()->get('certificates.0'),
                     'full' => $validator->errors()->messages(),
