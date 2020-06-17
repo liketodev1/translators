@@ -1,0 +1,100 @@
+* {
+    font-family: Metropolis, sans-serif;
+}
+#login_modal {
+    .modal-content {
+        //padding-left: 40px;
+        //padding-bottom: 40px;
+
+        .modal-header {
+            border-bottom: none;
+            padding: 20px 20px 9px 40px;
+
+            .modal-title {
+                font-weight: 600;
+                font-size: 24px;
+                color: #241F2D;
+            }
+        }
+
+        .modal-body {
+            padding: 0 40px;
+
+            //padding: 0;
+            .form-group {
+                .remember-me {
+                    font-size: 14px;
+                    color: #3F3B48;
+
+                }
+
+                input {
+                    padding: 14px 16px;
+
+                    height: 48px;
+                    background: #fff !important;
+                    color: #97959D;
+                    border: 1px solid #D6D5D7;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+
+                    &:focus {
+                        border: 2px solid #3F3B48;
+                        background: #fff !important;
+                        box-shadow: none;
+                        color: #241F2D;
+                    }
+
+                    &#remember_me {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 8px;
+                    }
+                }
+            }
+
+        }
+
+        .blue-link {
+            font-size: 14px;
+            text-align: right;
+            text-decoration: underline;
+
+            color: #3189ED;
+        }
+
+        .modal-footer {
+            > * {
+                margin: 0;
+            }
+
+            padding: 0 40px;
+
+            margin-bottom: 40px;
+            border-top: none;
+
+            .login-popup-btn {
+                background: #F54838;
+                border-color: #F54838;
+                border-radius: 4px;
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 20px;
+
+                color: #FFFFFF;
+                padding-bottom: 12px;
+                padding-top: 12px;
+                margin-top: 24px;
+                margin-bottom: 24px;
+            }
+
+            .modal-footer-text {
+                font-size: 14px;
+                margin-top: 0;
+                text-align: center;
+
+                color: #76747D;
+            }
+        }
+    }
+}

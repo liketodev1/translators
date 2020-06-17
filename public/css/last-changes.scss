@@ -1,3 +1,56 @@
+* {
+    font-family: Metropolis, sans-serif;
+}
+
+/* start header menu */
+header {
+
+    .logo {
+        margin-right: 20% !important;
+    }
+
+    nav {
+        .black_menu {
+            .nav-item {
+                .nav-link {
+                    &.active {
+                        border-bottom: 2px solid #F54838;
+                    }
+                }
+            }
+        }
+    }
+
+    &#header_white {
+        .nav-item {
+            .nav-link {
+                &.active {
+                    border-bottom: 2px solid #F54838;
+                }
+            }
+        }
+    }
+}
+
+/* end header menu */
+
+/* start sign up */
+
+.sign-up {
+    .basic-form {
+        .custom-radios {
+            input[type=radio] {
+                &#lawyer, &#lawyer {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+/*end sign up*/
+
 /*start Home*/
 
 .legal-work {
@@ -134,6 +187,29 @@
 /*end Home*/
 
 /*start About*/
+#header_background {
+    &.about-header-bg {
+        width: 100%;
+        background: url(../img/about-bg-t.png) no-repeat top;
+        background-size: cover;
+
+
+        .about-header-icon {
+            margin-top: 153px;
+            margin-bottom: 15px;
+        }
+
+        .hedding_text_container {
+            h1 {
+                padding-top: 0;
+            }
+
+            h3 {
+                padding-top: 20px;
+            }
+        }
+    }
+}
 
 .bg-color-t {
     background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%) !important;
@@ -193,18 +269,69 @@
         vertical-align: middle;
     }
 }
+
 .languages-select {
     div, select, option {
         color: #241F2D;
         font-size: 14px;
         vertical-align: middle;
     }
+
     select {
         padding: 8px 12px;
     }
 }
 
 /*end Profile page*/
+
+/*start How It Works page*/
+.how-it-works-top {
+    .how-it-works-head {
+        .how-it-works-tabs {
+            ul {
+                &.nav-tabs {
+                    border-bottom: none;
+                }
+
+                li {
+                    &:nth-child(1) {
+                        border-radius: 4px 0 0 4px;
+
+                        a {
+                            &.tab-button {
+                                border-radius: 4px 0 0 4px;
+                            }
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        border-radius: 0 4px 4px 0;
+                        border-color: blueviolet !important;
+
+                        a {
+                            &.tab-button {
+                                border-radius: 0 4px 4px 0;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .tab-body {
+        .bg-5 {
+            background-image: url("../img/5.svg");
+            background-repeat: no-repeat;
+            margin-top: 200px;
+
+        }
+    }
+}
+
+
+/*end How It Works page*/
 
 @media only screen and (max-width: 1284px) {
     .goals-content {
@@ -234,6 +361,11 @@
 }
 
 @media only screen and (max-width: 1120px) {
+    header {
+        .logo {
+            margin-right: 15% !important;
+        }
+    }
     .goals-content {
         .goals-bg {
             .abs {
@@ -242,8 +374,19 @@
         }
     }
 }
-
+@media only screen and (max-width: 1056px) {
+    header {
+        .logo {
+            margin-right: 9% !important;
+        }
+    }
+}
 @media only screen and (max-width: 993px) {
+    header {
+        .logo {
+            margin-right: 9% !important;
+        }
+    }
     #help_container {
         img {
             &.img-fluid {

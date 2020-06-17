@@ -8,10 +8,12 @@ $headerType = 'white';
 @extends('layouts.app')
 @section('content')
 
-    <div id="header_background">
+    <div id="header_background" class="about-header-bg">
         <div class="hedding_text_container">
-            <h1>A Digital Workspace For<br> The Legal Industry</h1>
-            <h3>You have the right to an attorney; TalkCounsel’s pool of<br> vetted lawyers has got you covered</h3>
+            <img src="{{asset('img/logo-lawyer.png')}}" alt="logo lawyer" class="about-header-icon">
+            <h1>About TalkCounsel</h1>
+            <h3>We are TalkCounsel
+                 <br>Founded in 2020 to revolutionize the way legal work gets done</h3>
         </div>
     </div>
 
