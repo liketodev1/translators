@@ -1,34 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css");
-@font-face {
-  font-family: "MetropolisLight";
-  src: url("fonts/Metropolis/Metropolis-Light.woff2");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "MetropolisMedium";
-  src: url("fonts/Metropolis/Metropolis-Medium.woff2");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "MetropolisSemiBold";
-  src: url("fonts/Metropolis/Metropolis-SemiBold.woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "MetropolisRegular";
-  src: url("fonts/Metropolis/Metropolis-Regular.woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "MetropolisBold";
-  src: url("fonts/Metropolis/Metropolis-Bold.woff2");
-  font-weight: bold;
-  font-style: normal;
-}
+
 
 * {
     padding: 0;
@@ -36,14 +7,14 @@
     box-sizing: border-box;
 }
 
-  *:before, *:after {
+*:before, *:after {
     box-sizing: border-box;
-  }
+}
 
-  body {
+body {
     font-size: 16px;
-    font-family: MetropolisRegular, sans-serif;
-  }
+    font-family: Metropolis, sans-serif;
+}
 
 a {
     text-decoration: none;
@@ -56,78 +27,75 @@ li {
 /* --------------------------  header start -----------------------------------*/
 .all_container_2 {
     max-width: 1208px;
-    margin: auto!important;
+    margin: auto !important;
 }
 
 #header1_navbar {
-    padding: 30px 0 33px 0!important;
+    padding: 30px 0 33px 0 !important;
 }
 
 #header1_navbar ul.black_menu a {
-    margin-right: 22px!important;
-    color: #241F2D!important;
+    margin-right: 22px !important;
+    color: #241F2D !important;
 }
+
 /*#header1_navbar li a {*/
 /*    margin-right: 22px!important;*/
 /*    color: #241F2D!important;*/
 /*}*/
 
 #header1_navbar li a.nav-link::last-child {
-    margin-right: 0!important;
-}
-
-.logo {
-    margin-right: 5%!important;
+    margin-right: 0 !important;
 }
 
 ul.black_menu a {
-    font-family: Metropolis;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
     line-height: 20px;
-    color: #241F2D!important;
+    color: #241F2D !important;
 }
 
 a.home_header_sign_in {
-    margin-right: 22px!important;
-    color: #FFFFFF!important;
+    margin-right: 22px !important;
+    color: #FFFFFF !important;
 }
 
 a.default_header_sign_in {
-    margin-right: 22px!important;
-    color: #F54838!important;
+    margin-right: 22px !important;
+    color: #F54838 !important;
 }
 
 .nav-item a.nav-link {
-    font-family: Metropolis;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
-    line-height: 20px;
+    /*line-height: 20px;*/
+    line-height: 5px;
     /*color: #241F2D!important;*/
 }
 
 .sign {
-    background-color: #F54838!important;
-    color: #fff!important;
-    font-family: Metropolis;
+    background-color: #F54838 !important;
+    color: #fff !important;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
     line-height: 20px;
 }
 
 .login {
-    font-family: Metropolis;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
     line-height: 20px;
-    color: #F54838!important;
+    color: #F54838 !important;
 
 }
-
 
 
 /* header end */
@@ -145,52 +113,52 @@ a.default_header_sign_in {
     position: relative;
 }
 
-#header_white{
-    position:absolute;
+#header_white {
+    position: absolute;
     left: 0;
     right: 0;
     margin: auto;
 }
 
 #header2_navbar {
-    padding: 30px 0 0 0!important;
+    padding: 30px 0 0 0 !important;
 }
 
 .menu_blog {
-    margin-right: 0!important;
+    margin-right: 0 !important;
 }
 
 .navbar-expand-lg .white_nav a.nav-link {
-    margin-right: 22px!important;
-    color: #FFFFFF!important;
+    margin-right: 22px !important;
+    color: #FFFFFF !important;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    margin-right: 22px!important;
+    margin-right: 22px !important;
     /*color: #FFFFFF!important;*/
 }
 
 
 #login_signup_block a {
-     color: #FFFFFF!important;
+    color: #FFFFFF !important;
 }
 
 li.home_header_default_link_login a {
-    font-family: Metropolis;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
     line-height: 20px;
-    color: #fff!important;
+    color: #fff !important;
 }
 
 
 li.home_header_default_link_signup a {
-    background-color: #F54838!important;
-    color: #fff!important;
-    font-family: Metropolis;
+    background-color: #F54838 !important;
+    color: #fff !important;
+
     font-style: normal;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     font-size: 14px;
     line-height: 20px
 }
@@ -207,7 +175,7 @@ li.home_header_default_link_signup a {
 .hedding_text_container h1 {
     padding-top: 152px;
     padding-bottom: 16px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 58px;
@@ -216,12 +184,12 @@ li.home_header_default_link_signup a {
 }
 
 .hedding_text_container h3 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 21px;
     line-height: 145%;
-    color: #FFFFFF!important;
+    color: #FFFFFF !important;
     padding-bottom: 202px;
 }
 
@@ -231,13 +199,13 @@ li.home_header_default_link_signup a {
     align-items: flex-start;
     flex-direction: column;
     margin: 0 auto -32px auto;
-    padding: 0!important;
-    z-index: 2222!important;
-    box-shadow: 0px 12px 48px rgba(118, 116, 125, 0.08), 0px 1px 1px rgba(118, 116, 125, 0.2)!important;
+    padding: 0 !important;
+    z-index: 2222 !important;
+    box-shadow: 0px 12px 48px rgba(118, 116, 125, 0.08), 0px 1px 1px rgba(118, 116, 125, 0.2) !important;
 }
 
-#home_form_button_block button  {
-    font-family: Metropolis;
+#home_form_button_block button {
+
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -248,7 +216,7 @@ li.home_header_default_link_signup a {
 
 #home_form_search_btn {
     border: none;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -267,13 +235,14 @@ li.home_header_default_link_signup a {
 #label1, #label2 {
     border-radius: 4px 4px 0px 0px;
 }
+
 .btn-secondary {
-    background: #3F3B48!important;
+    background: #3F3B48 !important;
 }
 
 label.active {
-    color: #F54838!important;
-    background: #FFFFFF!important;
+    color: #F54838 !important;
+    background: #FFFFFF !important;
     border: none;
 }
 
@@ -294,11 +263,11 @@ label.active {
     flex-direction: column;
     align-items: flex-start;
     border-right: 1px solid #E0E0E1;
-    padding: 12px 16px!important;
+    padding: 12px 16px !important;
 }
 
 .select_container p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -309,27 +278,27 @@ label.active {
 }
 
 .select_container select {
-    outline: none!important;
-    -webkit-appearance: none!important;
-    -moz-appearance: none!important;
-    -o-appearance: none!important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -o-appearance: none !important;
     border: 0;
     background: transparent url("../img/Vector.svg") no-repeat right top;
     cursor: pointer;
-    appearance: none!important;
+    appearance: none !important;
     outline: none;
     font-size: 15px;
-    font-family: Metropolis;
+
     font-style: normal;
-    font-weight: 500!important;
+    font-weight: 500 !important;
     font-size: 15px;
     line-height: 22px;
     color: #241F2D;
 }
 
 .select_container select::after {
-    content: none!important;
-    outline: none!important;
+    content: none !important;
+    outline: none !important;
 }
 
 #section_container_home {
@@ -365,7 +334,7 @@ label.active {
 }
 
 .content_home_blocks h5 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -375,7 +344,7 @@ label.active {
 }
 
 .content_home_blocks p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -388,14 +357,14 @@ label.active {
 }
 
 #find_translators_container h2 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 32px;
     line-height: 120%;
     text-align: center;
     color: #241F2D;
-    margin:0;
+    margin: 0;
 }
 
 #translators_container_block {
@@ -412,7 +381,7 @@ label.active {
 }
 
 .translators_block_rows {
-    width: 302px!important;
+    width: 302px !important;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -424,7 +393,7 @@ label.active {
 }
 
 .translators_block_rows img {
-    padding:  17px 0;
+    padding: 17px 0;
 }
 
 .translators_block_rows a:hover {
@@ -433,7 +402,7 @@ label.active {
 
 .translators_block_rows h6 {
     padding-bottom: 4px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -443,7 +412,7 @@ label.active {
 }
 
 .translators_block_rows p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -467,7 +436,7 @@ label.active {
 }
 
 #why_choose_us_container h2 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -478,7 +447,7 @@ label.active {
 }
 
 #why_choose_us_container h6 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -514,7 +483,7 @@ label.active {
 .why_choose_us_blocks h5 {
     margin-top: 24px;
     margin-bottom: 16px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -523,20 +492,20 @@ label.active {
 }
 
 .why_choose_us_blocks p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
-    font-size: 16px!important;
-    line-height: 156%!important;
-    color: #3F3B48!important;
-    text-align: left!important;
+    font-size: 16px !important;
+    line-height: 156% !important;
+    color: #3F3B48 !important;
+    text-align: left !important;
 }
 
 a#a_findtranslators {
     text-align: center;
     background: #F54838;
     border-radius: 4px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -556,7 +525,7 @@ a#a_findtranslators:hover {
 
 /*----------------------- slider start  ------------- */
 #clients_say {
-    width: 100%!important;
+    width: 100% !important;
     background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%);
     margin-bottom: 70px;
     padding: 20px;
@@ -574,27 +543,29 @@ a#a_findtranslators:hover {
 
     padding-right: 0;
 }
+
 .carousel .media {
     position: relative;
 }
+
 .carousel .media img {
     width: 75px;
     height: 75px;
     display: block;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border: 2px solid #fff;
 }
 
 .testimonial {
     background: #FFFFFF;
-    box-shadow: 0px 12px 48px rgba(118, 116, 125, 0.08), 0px 1px 1px rgba(118, 116, 125, 0.2)!important;
-    border-radius: 4px!important;
+    box-shadow: 0px 12px 48px rgba(118, 116, 125, 0.08), 0px 1px 1px rgba(118, 116, 125, 0.2) !important;
+    border-radius: 4px !important;
 
 }
 
 .carousel .testimonial p {
-    font-family: Metropolis;
+
     font-style: italic;
     font-weight: normal;
     font-size: 18px;
@@ -609,7 +580,7 @@ a#a_findtranslators:hover {
     width: 20px;
     height: 20px;
     background: #9b9b9b;
-    box-shadow: inset 12px 0 13px rgba(0,0,0,0.5);
+    box-shadow: inset 12px 0 13px rgba(0, 0, 0, 0.5);
 }
 
 .review_blocks {
@@ -643,9 +614,11 @@ a#a_findtranslators:hover {
 .carousel .overview {
     padding: 3px 0 0 15px;
 }
+
 .carousel .overview .details {
     padding: 5px 0 8px;
 }
+
 .carousel .overview b {
     text-transform: uppercase;
     color: #ff5555;
@@ -654,6 +627,7 @@ a#a_findtranslators:hover {
 .carousel-control i {
     font-size: 16px;
 }
+
 .carousel-control.left {
     left: auto;
     right: -50px;
@@ -673,6 +647,7 @@ a#a_findtranslators:hover {
     border-radius: 0;
     margin: 1px 4px;
 }
+
 .carousel-indicators li {
     background: #e2e2e2;
     border: 4px solid #fff;
@@ -681,13 +656,14 @@ a#a_findtranslators:hover {
 .star-rating li {
     padding: 0 2px;
 }
+
 .star-rating i {
     font-size: 14px;
     color: #ffdc12;
 }
 
-h2#our_clients_h2  {
-    font-family: Metropolis;
+h2#our_clients_h2 {
+
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -701,7 +677,7 @@ h2#our_clients_h2  {
     padding-left: 48px;
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 51px!important;
+    margin-bottom: 51px !important;
 }
 
 .profil_review_conatner div {
@@ -709,7 +685,7 @@ h2#our_clients_h2  {
 }
 
 .profil_review_conatner div h4 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -717,8 +693,9 @@ h2#our_clients_h2  {
     margin-bottom: 4px;
     color: #241F2D;
 }
-.profil_review_conatner div span{
-    font-family: Metropolis;
+
+.profil_review_conatner div span {
+
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -729,6 +706,7 @@ h2#our_clients_h2  {
 #slider_coll {
 
 }
+
 /*----------------------- slider end ------------- */
 
 /*----------------------- help block start ------------- */
@@ -745,7 +723,7 @@ h2#our_clients_h2  {
 
 
 .help_left h2 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -765,7 +743,7 @@ h2#our_clients_h2  {
 .help_text_container h5::before {
     content: url("../img/lineHelp.png");
     display: block;
-    background:  no-repeat;
+    background: no-repeat;
     width: 24px;
     height: 1.5px;
     margin-left: -51px;
@@ -773,7 +751,7 @@ h2#our_clients_h2  {
 
 .help_text_container a {
     margin-top: 10px;
-    font-family: Metropolis,sans-serif;
+    font-family: Metropolis, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -816,7 +794,7 @@ h2#our_clients_h2  {
 }
 
 #start_using_container .start_using_left h4 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 32px;
@@ -833,7 +811,7 @@ h2#our_clients_h2  {
 }
 
 .start_using_right a {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -853,12 +831,9 @@ h2#our_clients_h2  {
 /*----------------------- get started end ------------- */
 
 .all_container {
-    max-width: 1208px!important;
-    margin: auto!important;
+    max-width: 1208px !important;
+    margin: auto !important;
 }
-
-
-
 
 
 /* --------------- home page end ---------------------------------------*/
@@ -867,22 +842,23 @@ h2#our_clients_h2  {
 
 .container {
     padding: 0 !important;
-  }
+}
 
-  .flex-container {
+.flex-container {
     flex-direction: row;
     flex-wrap: wrap;
-  }
+}
 
-  .btn {
+.btn {
     outline: none !important;
     box-shadow: none !important;
-  }
-  .btn i {
-    color: #C5C6C7;
-  }
+}
 
-  .btn-continue {
+.btn i {
+    color: #C5C6C7;
+}
+
+.btn-continue {
     background: #F54838;
     border: none;
     border-radius: 4px;
@@ -903,15 +879,17 @@ h2#our_clients_h2  {
     order: 0;
     margin: 0;
     letter-spacing: 1.1px;
-  }
-  .btn-continue:hover, .btn-continue:active {
-    background-color: #f32916;
-  }
+}
 
-  .input-row div {
+.btn-continue:hover, .btn-continue:active {
+    background-color: #f32916;
+}
+
+.input-row div {
     margin-bottom: 24px;
-  }
-  .input-row label {
+}
+
+.input-row label {
     height: 20px;
     font-family: Metropolis, sans-serif;
     font-style: normal;
@@ -920,36 +898,41 @@ h2#our_clients_h2  {
     line-height: 20px;
     color: #3F3B48;
     margin: 0 4px;
-  }
+}
 
-  .bootstrap-select .selectpicker {
+.bootstrap-select .selectpicker {
     border: 1px solid #3F3B48;
     box-sizing: border-box;
     border-radius: 4px;
-  }
-  .bootstrap-select > button.dropdown-toggle {
+}
+
+.bootstrap-select > button.dropdown-toggle {
     border: 1px solid #3F3B48;
     box-sizing: border-box;
     border-radius: 4px;
     background-color: #FFFFFF !important;
-  }
-  .bootstrap-select > button.dropdown-toggle:focus {
-    outline: none !important;
-  }
+}
 
-  .sign-up {
+.bootstrap-select > button.dropdown-toggle:focus {
+    outline: none !important;
+}
+
+.sign-up {
     margin-bottom: 140px;
-  }
-  .sign-up .native-tabs {
+}
+
+.sign-up .native-tabs {
     margin-top: 30px;
     background-color: #F3F6FB;
     border-bottom: none;
     min-height: 56px;
-  }
-  .sign-up .native-tabs .nav-item {
+}
+
+.sign-up .native-tabs .nav-item {
     height: 56px;
-  }
-  .sign-up .native-tabs .nav-item .nav-link {
+}
+
+.sign-up .native-tabs .nav-item .nav-link {
     border: none;
     background: none;
     position: relative;
@@ -961,11 +944,13 @@ h2#our_clients_h2  {
     line-height: 16px;
     color: #97959D;
     margin: 8px 32px;
-  }
-  .sign-up .native-tabs .nav-item .nav-link:active, .sign-up .native-tabs .nav-item .nav-link:hover {
+}
+
+.sign-up .native-tabs .nav-item .nav-link:active, .sign-up .native-tabs .nav-item .nav-link:hover {
     color: #241F2D;
-  }
-  .sign-up .native-tabs .nav-item .nav-link:before {
+}
+
+.sign-up .native-tabs .nav-item .nav-link:before {
     font-family: Metropolis, sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -981,36 +966,44 @@ h2#our_clients_h2  {
     color: #fff;
     border-radius: 50%;
     margin-right: 8px;
-  }
-  .sign-up .native-tabs .nav-item #translator-info-tab:before {
+}
+
+.sign-up .native-tabs .nav-item #translator-info-tab:before {
     content: "1";
-  }
-  .sign-up .native-tabs .nav-item #confirm-info-tab:before {
+}
+
+.sign-up .native-tabs .nav-item #confirm-info-tab:before {
     content: "2";
-  }
-  .sign-up .native-tabs .nav-item #complete-tab:before {
+}
+
+.sign-up .native-tabs .nav-item #complete-tab:before {
     content: "3";
-  }
-  .sign-up .native-tabs .nav-item .nav-link.active {
+}
+
+.sign-up .native-tabs .nav-item .nav-link.active {
     border-bottom: 2px solid #F54838;
     color: #241F2D;
-  }
-  .sign-up .native-tabs .nav-item .nav-link.active:before {
+}
+
+.sign-up .native-tabs .nav-item .nav-link.active:before {
     background: #241F2D;
-  }
-  .sign-up .form-box {
+}
+
+.sign-up .form-box {
     background: #FFF;
     border: 1px solid #EBEAEB;
     box-sizing: border-box;
     box-shadow: 0 12px 48px rgba(118, 116, 125, 0.08);
     border-radius: 4px;
-    padding: 50px 70px!important;
-  }
-  .sign-up .basic-form .custom-radios {
+    padding: 50px 70px !important;
+}
+
+.sign-up .basic-form .custom-radios {
     width: 100%;
     display: flex;
-  }
-  .sign-up .basic-form .custom-radios label {
+}
+
+.sign-up .basic-form .custom-radios label {
     display: inline-block;
     width: 100%;
     transition: all 0.3s;
@@ -1024,22 +1017,27 @@ h2#our_clients_h2  {
     background: #F5F5F5;
     border: solid 1px #F5F5F5;
     padding: 14px 16px;
-  }
-  .sign-up .basic-form .custom-radios label:nth-child(2) {
+}
+
+.sign-up .basic-form .custom-radios label:nth-child(2) {
     border-radius: 4px 0 0 4px;
-  }
-  .sign-up .basic-form .custom-radios label:nth-child(4) {
+}
+
+.sign-up .basic-form .custom-radios label:nth-child(4) {
     border-radius: 0 4px 4px 0;
-  }
-  .sign-up .basic-form .custom-radios input[type=radio] {
+}
+
+.sign-up .basic-form .custom-radios input[type=radio] {
     display: none;
-  }
-  .sign-up .basic-form .custom-radios input[type=radio]:checked + label {
+}
+
+.sign-up .basic-form .custom-radios input[type=radio]:checked + label {
     border: solid 1px #F54838;
     background: #F54838;
     color: #FFF;
-  }
-  .sign-up .basic-form .form-control {
+}
+
+.sign-up .basic-form .form-control {
     display: flex;
     flex-direction: column;
     padding: 14px 16px;
@@ -1049,16 +1047,19 @@ h2#our_clients_h2  {
     box-sizing: border-box;
     border-radius: 4px;
     margin: 0 2px;
-  }
-  .sign-up .basic-form .form-group {
+}
+
+.sign-up .basic-form .form-group {
     margin-bottom: 24px;
-  }
-  .sign-up .basic-form .form-group label {
+}
+
+.sign-up .basic-form .form-group label {
     margin-bottom: 2px;
     font-size: 14px;
     color: #3F3B48;
-  }
-  .sign-up .basic-form .form-group .form-check #check {
+}
+
+.sign-up .basic-form .form-group .form-check #check {
     width: 20px;
     height: 20px;
     background-color: red;
@@ -1066,8 +1067,9 @@ h2#our_clients_h2  {
     box-sizing: border-box;
     border-radius: 4px;
     align-self: flex-start;
-  }
-  .sign-up .basic-form .form-group .form-check .form-check-label {
+}
+
+.sign-up .basic-form .form-group .form-check .form-check-label {
     margin-left: 8px;
     font-family: Metropolis, sans-serif;
     font-style: normal;
@@ -1077,8 +1079,9 @@ h2#our_clients_h2  {
     color: #3F3B48;
     order: 1;
     align-self: center;
-  }
-  .sign-up .basic-form .form-group .error {
+}
+
+.sign-up .basic-form .form-group .error {
     font-family: Metropolis, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -1086,8 +1089,9 @@ h2#our_clients_h2  {
     line-height: 140%;
     color: #97959D;
     margin-top: 10px;
-  }
-  .sign-up .title {
+}
+
+.sign-up .title {
     font-family: Metropolis, sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -1095,8 +1099,9 @@ h2#our_clients_h2  {
     color: #241F2D;
     text-align: start;
     margin: 60px 0 0 0;
-  }
-  .sign-up .some-text {
+}
+
+.sign-up .some-text {
     margin: 16px 0 40px;
     padding: 0;
     font-family: Metropolis, sans-serif;
@@ -1104,12 +1109,12 @@ h2#our_clients_h2  {
     font-weight: normal;
     font-size: 16px;
     color: #3F3B48;
-  }
+}
 
 /* information page end */
 
 .email_text {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -1119,17 +1124,18 @@ h2#our_clients_h2  {
     margin-bottom: 12px;
 }
 
-.getStarted{
+.getStarted {
     padding: 140px 0;
 }
-.getStartedImg{
+
+.getStartedImg {
     background-image: url("../img/getStarted.png");
     max-width: 1208px;
     min-height: 320px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: bold;
     font-size: 32px;
@@ -1139,16 +1145,18 @@ h2#our_clients_h2  {
     justify-content: space-around;
     align-items: center;
 }
-.getStartedTitle{
+
+.getStartedTitle {
     width: 43%;
 }
-.getStartedButton{
+
+.getStartedButton {
     width: 140px;
     height: 44px;
     background: #F54838;
     border: 2px #F54838;
     border-radius: 4px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1158,7 +1166,8 @@ h2#our_clients_h2  {
     margin: 0px 0px;
     cursor: pointer;
 }
-.findJobIconDivs{
+
+.findJobIconDivs {
     width: 64px;
     height: 64px;
     background: #FFFFFF;
@@ -1169,19 +1178,24 @@ h2#our_clients_h2  {
     padding: 16px 0;
     margin-bottom: 24px;
 }
-.findJob{
+
+.findJob {
     padding: 140px 116px 0 116px;
-    background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%);}
-.findJobFlex{
+    background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%);
+}
+
+.findJobFlex {
     display: flex;
     justify-content: center;
 }
-.findJobDivs{
+
+.findJobDivs {
     width: 22%;
 }
-.findJobDiv1{
+
+.findJobDiv1 {
     /* width: 57%; */
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -1189,19 +1203,22 @@ h2#our_clients_h2  {
     color: #241F2D;
     margin-bottom: 16px;
 }
-.findJobDiv2{
+
+.findJobDiv2 {
     /* width: 72%; */
     font-weight: normal;
     font-size: 16px;
     line-height: 1.56;
     color: #3F3B48;
 }
-.findTranslator{
+
+.findTranslator {
     display: block;
     justify-content: center;
     text-align: center;
 }
-.findTranslatorMainTitle{
+
+.findTranslatorMainTitle {
     font-weight: bold;
     font-size: 32px;
     line-height: 120%;
@@ -1210,7 +1227,8 @@ h2#our_clients_h2  {
     margin: 140px 0 40px 0;
 
 }
-.findTranslatorDivSTitle1{
+
+.findTranslatorDivSTitle1 {
     font-weight: 600;
     font-size: 16px;
     line-height: 125%;
@@ -1218,14 +1236,16 @@ h2#our_clients_h2  {
     margin-top: 18px;
 
 }
-.findTranslatorDivSTitle2{
+
+.findTranslatorDivSTitle2 {
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     color: #97959D;
 
 }
-.findTranslatorDiv{
+
+.findTranslatorDiv {
     background: #FFFFFF;
     background: #FFFFFF;
     width: 350px;
@@ -1234,17 +1254,20 @@ h2#our_clients_h2  {
     border: 1px solid #EBEAEB;
 
 }
-.findTranslatorFlex{
+
+.findTranslatorFlex {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.findJobIconDiv{
+
+.findJobIconDiv {
     max-width: 334px;
 
     /* width: 20%; */
 }
-.whyChooseMainTitle1{
+
+.whyChooseMainTitle1 {
     font-weight: bold;
     font-size: 42px;
     line-height: 120%;
@@ -1252,13 +1275,15 @@ h2#our_clients_h2  {
     margin: 134px 0 24px 0px;
 
 }
-.whyChooseMainTitle2{
+
+.whyChooseMainTitle2 {
     font-weight: normal;
     color: #3F3B48;
     font-size: 18px;
     line-height: 1.56
 }
-.whyChooseIconDivs{
+
+.whyChooseIconDivs {
     width: 64px;
     height: 64px;
     background: #F3F5FB;
@@ -1269,31 +1294,36 @@ h2#our_clients_h2  {
     padding: 16px 0;
     margin-bottom: 24px;
 }
-.whyChooseIconDiv{
+
+.whyChooseIconDiv {
     max-width: 334px;
     width: 20%;
     width: 15%;
     margin: 0 40px 0 0;
 }
-.whyChooseMainTitleCenter{
+
+.whyChooseMainTitleCenter {
     text-align: center;
 }
-.whyChooseFlex{
+
+.whyChooseFlex {
     display: flex;
     padding: 60px 116px;
     justify-content: center;
 }
 
-#findTranslators{
+#findTranslators {
     width: 180px;
     height: 44px;
     margin-bottom: 140px;
 }
-.findTranslatorsButton{
+
+.findTranslatorsButton {
     text-align: center;
 }
-.help{
-    font-family: Metropolis;
+
+.help {
+
     font-style: normal;
     padding: 0 0 0 124px;
     display: flex;
@@ -1306,14 +1336,16 @@ h2#our_clients_h2  {
     align-items: center;
 
 }
-.helpMianTitle{
+
+.helpMianTitle {
     font-size: 42px;
     line-height: 120%;
     color: #241F2D;
     font-weight: bold;
     margin-bottom: 40px;
 }
-.helpTitle{
+
+.helpTitle {
     font-weight: 600;
     font-size: 18px;
     line-height: 140%;
@@ -1321,14 +1353,16 @@ h2#our_clients_h2  {
     margin-left: 32px;
     margin-bottom: 16px;
 }
-.helpText{
+
+.helpText {
     font-weight: normal;
     font-size: 16px;
     line-height: 1.56;
     color: #3F3B48;
     margin-bottom: 10px;
 }
-.heltTextOrange{
+
+.heltTextOrange {
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -1336,20 +1370,23 @@ h2#our_clients_h2  {
     color: #F54838;
     margin-right: 9px;
 }
-.heltTextOrangeAndSlackFlex{
+
+.heltTextOrangeAndSlackFlex {
     display: flex;
-    align-items: center ;
+    align-items: center;
     margin-bottom: 40px;
 
 }
-.helpTitleAndLineFlex{
+
+.helpTitleAndLineFlex {
     display: flex;
     align-items: center;
 }
+
 /* .helpPadding{
     width: 32%;
 } */
-.customerAndTranslator{
+.customerAndTranslator {
     width: 140px;
     height: 32px;
     background: #FFFFFF;
@@ -1360,42 +1397,49 @@ h2#our_clients_h2  {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    font-family: Metropolis;
+
     cursor: pointer;
 
 }
-.customerAndTranslatorFlex{
+
+.customerAndTranslatorFlex {
     display: flex;
 }
-.customerAndTranslator:active{
+
+.customerAndTranslator:active {
     color: yellow;
 }
-#translator{
-    background: #3F3B48;
+
+#translator {
+    /*background: #3F3B48;*/
     color: #BEBDC2;
     border: 1px #3F3B48;
 }
-#costomer{
+
+#costomer {
 
     color: #F54838;
 }
-.search{
+
+.search {
     width: 102px;
     height: 64px;
     background: #F54838;
     border: 1px solid #F54838;
     border-radius: 0px 4px 4px 0px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
     color: #FFFFFF;
     cursor: pointer;
 }
-.allSelectsAndSearchFlex{
+
+.allSelectsAndSearchFlex {
     display: flex;
 }
-.allSelects{
+
+.allSelects {
     width: 264px;
     height: 64px;
     background: #FFFFFF;
@@ -1406,7 +1450,8 @@ h2#our_clients_h2  {
     padding: 0 16px;
 
 }
-.select{
+
+.select {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -1414,32 +1459,36 @@ h2#our_clients_h2  {
     text-transform: uppercase;
     color: #97959D;
 }
-.selectDownText{
+
+.selectDownText {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;
     color: #241F2D;
 }
-.customerAndTranslatorMain{
+
+.customerAndTranslatorMain {
     display: grid;
     justify-content: center;
     position: absolute;
     width: 100%;
     margin-top: -32px;
 }
-.loginAndSignup{
+
+.loginAndSignup {
     background: none;
     border: none;
     color: #FFFFFF;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
     cursor: pointer;
 }
-#signup{
+
+#signup {
     width: 80px;
     height: 36px;
     background: #F54838;
@@ -1468,7 +1517,7 @@ h2#our_clients_h2  {
 }
 
 #steps_block a {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1531,7 +1580,7 @@ h2#our_clients_h2  {
 }
 
 #confirmation h3 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
@@ -1544,7 +1593,7 @@ h2#our_clients_h2  {
 
 #confirmation p {
     /* Paragraph Medium - 16px | 1.56 */
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -1568,7 +1617,7 @@ h2#our_clients_h2  {
 }
 
 #code_from_email_container p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -1583,7 +1632,7 @@ h2#our_clients_h2  {
 }
 
 .Code_email_p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -1607,7 +1656,7 @@ h2#our_clients_h2  {
 button.confirm_email {
     display: block;
     padding: 0 70px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1642,7 +1691,7 @@ button.confirm_email {
 }
 
 #steps_block_3 a {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1706,7 +1755,7 @@ button.confirm_email {
 }
 
 #confirmation h3 {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
@@ -1719,7 +1768,7 @@ button.confirm_email {
 
 #confirmation p {
     /* Paragraph Medium - 16px | 1.56 */
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -1742,7 +1791,7 @@ button.confirm_email {
 }
 
 #code_from_email_container p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -1757,7 +1806,7 @@ button.confirm_email {
 }
 
 .Code_email_p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -1781,7 +1830,7 @@ button.confirm_email {
 a.Sign_account {
     background: #F54838;
     border-radius: 4px;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1794,26 +1843,27 @@ a.Sign_account {
 }
 
 
-
 /* completing page start */
 
 
-.clients{
+.clients {
     max-width: 480px;
     min-height: 320px;
     background: #FFFFFF;
     box-shadow: 0px 12px 48px rgba(118, 116, 125, 0.08), 0px 1px 1px rgba(118, 116, 125, 0.2);
     border-radius: 4px;
-    font-family: Metropolis;
+
     padding: 48px;
     margin: 0 20px;
     margin: 0 40px 0 0;
 
 }
-#lastClients{
+
+#lastClients {
     margin: 0;
 }
-.cliientsTitle{
+
+.cliientsTitle {
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -1821,7 +1871,7 @@ a.Sign_account {
     color: #241F2D;
 }
 
-.clientText{
+.clientText {
     font-style: italic;
     font-weight: normal;
     font-size: 21px;
@@ -1829,65 +1879,73 @@ a.Sign_account {
     color: #241F2D;
     margin-bottom: 26px;
 }
-.clientsName{
+
+.clientsName {
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
     color: #241F2D;
 }
-.clientsJob{
+
+.clientsJob {
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     color: #97959D;
 }
-.clientsImgAndNameFlex{
+
+.clientsImgAndNameFlex {
     display: flex;
     align-items: center;
 }
-.clientsNameAndJob{
+
+.clientsNameAndJob {
     margin-left: 16px;
 
 }
-.clientsAllDiv{
+
+.clientsAllDiv {
     display: flex;
     margin: 70px 0 60px 0;
 
 }
-.clientsMain{
+
+.clientsMain {
     display: grid;
     justify-content: center;
     background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%);
 
 }
-.cliientsTitleAndSlackS{
+
+.cliientsTitleAndSlackS {
     display: flex;
     justify-content: space-between;
     margin-top: 140px;
 }
-.slackS{
+
+.slackS {
     display: flex;
 }
 
-#slackPrev{
+#slackPrev {
     margin-right: 16px;
 }
 
-.slackDiv{
+.slackDiv {
     width: 48px;
     background: #FFFFFF;
     border-radius: 100px;
     text-align: center;
 }
 
-.slackImg{
+.slackImg {
     margin-top: 19px;
 }
 
-.registrationMainTitle{
-    font-family: Metropolis;
+.registrationMainTitle {
+
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -1907,10 +1965,11 @@ a.Sign_account {
     background-color: #f32916 !important;
     border-color: #F54838 !important;
 }
+
 /*registor btn end 13.05*/
 
-.registrationTitle{
-    font-family: Metropolis;
+.registrationTitle {
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -1920,7 +1979,7 @@ a.Sign_account {
     margin: 0 20px 60px 20px;
 }
 
-.registrationButton{
+.registrationButton {
     width: 120px;
     height: 44px;
     background: #F54838;
@@ -1928,15 +1987,15 @@ a.Sign_account {
     cursor: pointer;
     border: none;
     color: #FFFFFF;
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
     line-height: 20px;
 }
 
-.registrationTexttTitle{
-    font-family: Metropolis;
+.registrationTexttTitle {
+
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -1945,8 +2004,8 @@ a.Sign_account {
     margin-bottom: 12px;
 }
 
-.registrationText{
-    font-family: Metropolis;
+.registrationText {
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -1955,7 +2014,8 @@ a.Sign_account {
     margin-bottom: 24px;
 
 }
-.registrationDiv{
+
+.registrationDiv {
     max-width: 396px;
     min-height: 133px;
     background: #FFFFFF;
@@ -1968,17 +2028,17 @@ a.Sign_account {
     margin-bottom: 140px;
 }
 
-#registrationLogin{
+#registrationLogin {
     color: #F54838;
 }
 
-.registrationDivS{
+.registrationDivS {
     display: flex;
     justify-content: center;
     /* flex-wrap: wrap; */
 }
 
-#registrationMenu{
+#registrationMenu {
     padding: 30px;
 }
 
@@ -1986,17 +2046,17 @@ a.Sign_account {
 
 footer {
     background: #241F2D;
-    padding: 126px 0!important;
+    padding: 126px 0 !important;
 }
 
 .footer_container {
-    max-width: 1208px!important;
+    max-width: 1208px !important;
     margin: auto;
-    display: flex!important;
+    display: flex !important;
     justify-content: space-between;
 }
 
-.footer_2_block,.footer_3_block,.footer_4_block,.footer_5_block {
+.footer_2_block, .footer_3_block, .footer_4_block, .footer_5_block {
     flex: 1;
 }
 
@@ -2015,7 +2075,7 @@ footer {
 }
 
 .footer_2_block a {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -2023,6 +2083,7 @@ footer {
     color: #FFFFFF;
     margin-bottom: 16px;
 }
+
 .footer_2_block a:hover {
     color: #fff;
     opacity: 0.7;
@@ -2030,7 +2091,7 @@ footer {
 }
 
 .footer_1_block p {
-    font-family: Metropolis;
+
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -2042,7 +2103,6 @@ footer {
 
 .copyright {
     margin-top: 40px;
-    font-family: Metropolis;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
