@@ -1,6 +1,6 @@
 @guest
     <li class="nav-item {{$header_name}}default_link_login">
-        <a {{--id="login"--}} class="<!--nav-link--> btn  my-2 my-sm-0 login"
+        <a data-toggle="modal" data-target="#login_modal" class="btn  my-2 my-sm-0 login"
            href="{{ route('login') }}">{{ __('form.login') }}</a>
     </li>
     @if (Route::has('register'))

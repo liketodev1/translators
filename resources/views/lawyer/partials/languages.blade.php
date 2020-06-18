@@ -36,7 +36,7 @@
             <td>
                 <div class="languages-delete">
                     <button type="button" class="btn delete-row">
-                        <img src="{{ asset('img/delete.svg') }}" alt="delete">
+                        <img src="{{ asset('img/delete-t.svg') }}" alt="delete">
                     </button>
                 </div>
             </td>

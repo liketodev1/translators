@@ -12,6 +12,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
     <link rel="stylesheet" href="{{ asset('css/last-changes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login-popup.css') }}">
 
     @include('partials.includes.css')
     @include('partials.includes.top_js')
@@ -30,6 +31,7 @@
         @yield('content')
     </main>
     @include('partials.footer')
+    @include('partials.login_popup')
     @include('partials.includes.bottom_js')
 </div>
 </body>

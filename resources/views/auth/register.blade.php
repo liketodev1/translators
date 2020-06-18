@@ -36,20 +36,20 @@
                                     <div class="custom-radios">
                                         <input type="radio"
                                                class="form-control @error('role') is-invalid @enderror"
-                                               id="{{ ConstUserRole::ROLE_LAWYER }}"
+                                               id="current_{{ ConstUserRole::ROLE_LAWYER }}"
                                                name="role"
                                                checked
                                                value="{{ ConstUserRole::ROLE_LAWYER }}"
                                         >
-                                        <label for="{{ ConstUserRole::ROLE_LAWYER }}">I'm a lawyer</label>
+                                        <label for="current_{{ ConstUserRole::ROLE_LAWYER }}">I'm a lawyer</label>
 
                                         <input type="radio"
                                                class="form-control @error('role') is-invalid @enderror"
-                                               id="{{ ConstUserRole::ROLE_CLIENT }}"
+                                               id="current_{{ ConstUserRole::ROLE_CLIENT }}"
                                                name="role"
                                                value="{{ ConstUserRole::ROLE_CLIENT }}"
                                         >
-                                        <label for="{{ ConstUserRole::ROLE_CLIENT }}">I'm a client</label>
+                                        <label for="current_{{ ConstUserRole::ROLE_CLIENT }}">I'm a client</label>
                                         @error('role')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
