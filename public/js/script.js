@@ -43,3 +43,36 @@ $(function () {
 
 
 });
+
+$(document).ready(function () {
+    $(".login").click(function () {
+        $("#login_modal").modal("show");
+    });
+
+    $('#loginForm').submit(function (e) {
+            e.preventDefault();
+
+            let data = {
+                _token: e.target.querySelector('input[type="hidden"]').value,
+                email: e.target.email.value,
+                password: e.target.password.value,
+                remember: e.target.remember.checked,
+
+            };
+
+            $.ajax({
+                method:'post',
+                url:'/login',
+                dataType:'json',
+                data: data,
+                success: function (response) {
+                    if (!response){
+                        location.reload();
+                    }
+                },
+                error: function (response) {
+                    console.log(response.responseJSON.message);
+                }
+            })
+    })
+});

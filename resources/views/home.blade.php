@@ -34,7 +34,6 @@ $headerType = 'white';
                                         src="{{ ($legal_area->icon?Storage::url($legal_area->icon): asset('img/Law%20&%20Patents.svg') )}}"
                                         alt="{{ $legal_area->name }}">
                                     <a href=""><h6>{{ $legal_area->name }}</h6></a>
-                                    <p>150 lawyers</p>
                                 </div>
                             @endif
                         @endforeach
@@ -47,7 +46,6 @@ $headerType = 'white';
                                         src="{{ ($legal_area->icon? Storage::url($legal_area->icon): asset('img/project-t.svg') )}}"
                                         alt="{{ $legal_area->name }}">
                                     <a href=""><h6>{{ $legal_area->name }}</h6></a>
-                                    <p>93 translators</p>
                                 </div>
                             @endif
                         @endforeach
