@@ -13,13 +13,16 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form  method="POST" action="{{ route('login') }}" id="loginForm">
+                <form method="POST" action="{{ route('login') }}" id="loginForm">
                     @csrf
                     <div class="form-group">
-                        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                        <span class="form-control text-danger error-message"> Incorrect email address or password </span>
+                    </div>
+                    <div class="form-group">
+                        <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                               autocomplete="email" autofocus
                                placeholder="henry.frazier@gmail.com"
                                class="form-control @error('email') is-invalid @enderror">
-
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -27,7 +30,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password"
+                               class="form-control @error('password') is-invalid @enderror" name="password" required
+                               autocomplete="current-password">
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -38,20 +43,21 @@
                     <div class="form-group d-flex justify-content-between pb-0 mb-0">
 
                         <label for="remember" class="remember-me d-flex">
-                            <input class="form-control" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input class="form-control" type="checkbox" name="remember"
+                                   id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <span>
                             {{ __('Remember Me') }}
+                            </span>
                         </label>
                         <a href="{{ route('password.request') }}" class="forget-pass blue-link">Forgot password?</a>
                     </div>
-                    <div class="form-group w-100">
+                    <div class="form-group w-100 modal-login-btn">
                         <button class="btn login-popup-btn w-100">Log In</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer d-flex flex-column">
-                <div class="form-group w-100">
-                    <button class="btn login-popup-btn w-100">Log In</button>
-                </div>
+
                 <div class="form-group">
                     <div class="modal-footer-text">
                         <span>Not a member yet? <a href="{{ route('register') }}" class="blue-link">Join now</a></span>

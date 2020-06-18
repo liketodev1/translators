@@ -1,8 +1,8 @@
 $base-orange: #F54838;
 
-@import "fonts";
+@import "_fonts";
 
-body {
+* {
     font-family: Metropolis, sans-serif;
     font-weight: normal;
 }
@@ -656,7 +656,6 @@ header {
 
                 height: 36px;
 
-                font-family: Metropolis, sans-serif;
                 font-style: normal;
                 font-weight: 600;
                 font-size: 14px;
@@ -683,7 +682,6 @@ header {
             }
 
             .error {
-                font-family: Metropolis, sans-serif;
                 font-style: normal;
                 font-weight: normal;
                 font-size: 13px;

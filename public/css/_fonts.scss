@@ -1,12 +1,12 @@
 @font-face {
     font-family: "Metropolis";
-    src: url("fonts/Metropolis/Metropolis.eot"); /* IE9*/
-    src: url("fonts/Metropolis/Metropolis.eot?#iefix") format("embedded-opentype"),  /* IE6-IE8 */
-    url("fonts/Metropolis/Metropolis.otf") format("otf"),
-    url("fonts/Metropolis/Metropolis.woff2") format("woff2"), /* chrome、firefox */
-    url("fonts/Metropolis/Metropolis.woff") format("woff"), /* chrome、firefox */
-    url("fonts/Metropolis/Metropolis.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url("fonts/Metropolis/Metropolis.svg#Metropolis") format("svg"); /* iOS 4.1- */
+    src: url("fonts/Metropolis/Metropolis-Regular.eot"); /* IE9*/
+    src: url("fonts/Metropolis/Metropolis-Regular.eot?#iefix") format("embedded-opentype"),  /* IE6-IE8 */
+    url("fonts/Metropolis/Metropolis-Regular.otf") format("otf"),
+    url("fonts/Metropolis/Metropolis-Regular.woff2") format("woff2"), /* chrome、firefox */
+    url("fonts/Metropolis/Metropolis-Regular.woff") format("woff"), /* chrome、firefox */
+    url("fonts/Metropolis/Metropolis-Regular.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("fonts/Metropolis/Metropolis-Regular.svg#Metropolis") format("svg"); /* iOS 4.1- */
 }
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css");
