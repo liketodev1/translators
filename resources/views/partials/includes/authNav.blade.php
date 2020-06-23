@@ -22,6 +22,9 @@
             @if(Auth::user()->role === ConstUserRole::ADMIN)
                 <a class="dropdown-item" href="{{ route('admin.home') }}">Dashboard</a>
             @endif
+            @if(Auth::user()->role === ConstUserRole::ROLE_CLIENT)
+                <a class="dropdown-item" href="{{ route('post.create') }}">Profile</a>
+            @endif
             <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">

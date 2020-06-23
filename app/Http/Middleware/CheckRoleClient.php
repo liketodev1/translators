@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use ConstUserRole;
 use Illuminate\Support\Facades\Auth;
 
 class CheckRoleClient
@@ -16,7 +17,7 @@ class CheckRoleClient
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role !== \ConstUserRole::ROLE_CLIENT){
+        if (Auth::user()->role !== ConstUserRole::ROLE_CLIENT){
             return redirect()->route('home');
         }
 

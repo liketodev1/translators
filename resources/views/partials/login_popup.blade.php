@@ -15,8 +15,8 @@
             <div class="modal-body">
                 <form method="POST" action="{{ route('login') }}" id="loginForm">
                     @csrf
-                    <div class="form-group">
-                        <span class="form-control text-danger error-message"> Incorrect email address or password </span>
+                    <div class="form-group" id="validation-error" style="display: none">
+                        <span class="form-control text-danger error-message"></span>
                     </div>
                     <div class="form-group">
                         <input id="email" type="email" name="email" value="{{ old('email') }}" required

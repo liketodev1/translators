@@ -23,7 +23,7 @@
                         <a class="nav-link active pr-0 pl-0" href="#">Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0" href="{{ route('post.index') }}">My Projects</a>
+                        <a class="nav-link pr-0 pl-0" href="#">My Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pr-0 pl-0" href="#">Help</a>

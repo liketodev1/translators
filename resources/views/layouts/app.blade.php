@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('favicon.png') }}" sizes="16x16 32x32" type="image/png">
 
-<!-- Fonts -->
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
     <link rel="stylesheet" href="{{ asset('css/last-changes.css') }}">
@@ -19,19 +19,18 @@
 </head>
 <body>
 <div id="app">
-{{--    @if(request()->route()->getName() == 'home' || request()->route()->getName() == 'about_us')--}}
-{{--        @include('partials.headerHome')--}}
-{{--    @else--}}
-        @include('partials.header_'.(isset($headerType)?$headerType:'black'))
-{{--    @endif--}}
+    @include('partials.header_'.(isset($headerType)?$headerType:'black'))
     <div class="container">
         @include('flash::message')
     </div>
-    <main{{-- class="py-4"--}}>
+    <main>
+
         @yield('content')
     </main>
     @include('partials.footer')
-    @include('partials.login_popup')
+    @if(!Auth::user())
+        @include('partials.login_popup')
+    @endif
     @include('partials.includes.bottom_js')
 </div>
 </body>

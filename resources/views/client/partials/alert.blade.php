@@ -1,11 +1,11 @@
-{{--@if ($errors->any())
+@if ($errors->any())
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger alert-dismissible mb-0 mt-3">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             {{$error}}
         </div>
     @endforeach
-@endif--}}
+@endif
 
 @if ($success = session('success'))
     <div class="alert alert-success alert-dismissible mb-0 mt-3">

@@ -41,9 +41,25 @@ Route::middleware(['auth'])->group(function () {
     // ---------------------------------- //
     //           Lawyer Routes            //
     // ---------------------------------- //
-    Route::middleware(['lawyer'])->namespace('Lawyer')->group(function () {
+    Route::middleware(['lawyer'])
+        ->prefix('lawyer')
+        ->namespace('Lawyer')
+        ->group(function () {
         Route::get('/profile', 'LawyerController@index')->name('lawyer_profile');
         Route::post('/profile', 'LawyerController@profile')->name('save_lawyer_profile');
+    });
+
+    // ---------------------------------- //
+    //           Client Routes            //
+    // ---------------------------------- //
+    Route::middleware(['client'])
+        ->prefix('client')
+        ->namespace('Client')
+        ->group(function () {
+        Route::get('/profile', 'ClientController@index')->name('client_profile');
+        Route::post('/profile', 'ClientController@profile')->name('save_client_profile');
+
+        Route::resource('post','PostController');
     });
 
 });

@@ -402,7 +402,7 @@
                                     <div class="profile-section">
                                         <div class="row no-gutters">
                                             <div class="col-12 profile-rows">
-                                                <h4 class="profile-rows-title">Linked Account
+                                                <h4 class="profile-rows-title">Linkedin Account
                                                     <span class="profile-rows-title-sub"></span>
                                                 </h4>
                                             </div>
