@@ -263,6 +263,3 @@
 
 @endsection
 
-@push('scripts')
-    <script src="{{ asset('translators/js/client_profile.js') }}"></script>
-@endpush

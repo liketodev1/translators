@@ -57,7 +57,6 @@ Route::middleware(['auth'])->group(function () {
         ->namespace('Client')
         ->group(function () {
         Route::get('/profile', 'ClientController@index')->name('client_profile');
-        Route::post('/profile', 'ClientController@profile')->name('save_client_profile');
 
         Route::resource('post','PostController');
     });
