@@ -2,10 +2,10 @@
     $name   = Route::currentRouteName();
 @endphp
 <li class="nav-item">
-    <a class="nav-link" href="#">{{__('global.findJob')}}</a>
+    <a class="nav-link" href="{{ route('find_a_job') }}">{{__('global.findJob')}}</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">{{__('global.findTranslator')}}</a>
+    <a class="nav-link" href="{{ route('our_lawyers') }}">{{__('global.findTranslator')}}</a>
 </li>
 <li class="nav-item">
     <a class="nav-link {{ $name=='how_it_works'?'active':'' }}" href="{{route('how_it_works')}}">{{__('global.howItWorks')}}</a>

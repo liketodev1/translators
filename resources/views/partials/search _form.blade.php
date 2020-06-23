@@ -1,24 +1,24 @@
-<form action="" id="home_form">
+<form action="{{ route('find_a_job') }}" method="get" id="home_form">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active" id="label1">
-            <input type="radio" name="options" id="hatchback" autocomplete="off" checked> I am a
+            <input type="radio" name="option" id="hatchback" checked data-url=""> I am a
             Client
         </label>
         <label class="btn btn-secondary" id="label2">
-            <input type="radio" name="options" id="sedan" autocomplete="off"> I am a Lawyer
+            <input type="radio" name="option" id="sedan" data-url=""> I am a Lawyer
         </label>
     </div>
     <div class="select_container">
         <div class="select_blocks">
             <p>Select BILLING METHOD</p>
-            <select class="" name="">
+            <select name="bt">
                 <option value="{{ PaymentType::hour }}">Per Hour</option>
                 <option value="{{ PaymentType::fixed }}">Fixed</option>
             </select>
         </div>
         <div class="select_blocks">
             <p>SELECT SPECIALIZATION</p>
-            <select class="" name="specialization">
+            <select name="s">
                 @if(count($specializations)>0)
                     @foreach($specializations as $specialization)
                         <option
@@ -29,16 +29,16 @@
         </div>
         <div class="select_blocks">
             <p>Select country</p>
-            <select class="" name="country">
+            <select name="c">
                 @if(count($countries)>0)
                     @foreach($countries as $county)
-                        <option class="{{ $county->id }}">{{ $county->name }}</option>
+                        <option value="{{ $county->id }}">{{ $county->name }}</option>
                     @endforeach
                 @endif
             </select>
         </div>
         <div>
-            <input type="submit" name="search" class="" value="Search" id="home_form_search_btn">
+            <input type="submit" value="Search" id="home_form_search_btn">
         </div>
     </div>
 </form>
