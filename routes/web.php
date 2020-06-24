@@ -70,5 +70,5 @@ Route::get('/how-it-works', 'PagesController@howItWorks')->name('how_it_works');
 Route::get('/terms', 'PagesController@terms')->name('terms');
 Route::get('/privacy-policy', 'PagesController@privacyPolicy')->name('privacy_policy');
 
-Route::get('find-a-jog','PagesController@findAJob')->name('find_a_job');
+Route::get('find-a-job','PagesController@findAJob')->name('find_a_job');
 Route::get('our-lawyers','PagesController@ourLawyers')->name('our_lawyers');

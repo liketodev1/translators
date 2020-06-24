@@ -7,21 +7,20 @@
             <div class="footer_5_block">
                 <div class="footerLiAndSoc">
                     <div class="soc">
-                        <a href="" target="_blank"><img src="{{asset('img/ln.png')}}"/></a>
-                        <a href="" target="_blank"><img src="{{asset('img/twitter-t.png')}}"/></a>
-                        <a href="" target="_blank"><img src="{{asset('img/fb.png')}}"/></a>
-                        <a href="" target="_blank"><img src="{{asset('img/insta.png')}}"/></a>
+                        <a href="#" target="_blank"><img src="{{asset('img/ln.png')}}" alt="linked"/></a>
+                        <a href="#" target="_blank"><img src="{{asset('img/twitter-t.png')}}" alt="twitter"/></a>
+                        <a href="#" target="_blank"><img src="{{asset('img/fb.png')}}" alt="facebook"/></a>
+                        <a href="#" target="_blank"><img src="{{asset('img/insta.png')}}" alt="instagram"/></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">{{__('global.textFooter2')}}· Terms of Use · Privacy Policy</div>
         </div>
         <div class="footer_2_block to-right">
-            <a href="">{{__('global.findJob')}}</a>
-            <a href="">{{__('global.findTranslator')}}</a>
+            <a href="{{ route('find_a_job') }}">{{__('global.findJob')}}</a>
+            <a href="{{ route('our_lawyers') }}">{{__('global.findTranslator')}}</a>
             <a href="">{{__('global.specializations')}}</a>
             <a href="">{{__('global.keyFeatures')}}</a>
-
         </div>
         <div class="footer_2_block">
             <a href="{{route('about_us')}}">{{__('global.about')}}</a>

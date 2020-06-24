@@ -1,11 +1,11 @@
-<form action="{{ route('find_a_job') }}" method="get" id="home_form">
+<form action="{{ route('our_lawyers') }}" method="get" id="home_form">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active" id="label1">
-            <input type="radio" name="option" id="hatchback" checked data-url=""> I am a
+            <input type="radio" class="searchTypes" name="option" id="hatchback" checked data-url="{{ route('our_lawyers') }}"> I am a
             Client
         </label>
         <label class="btn btn-secondary" id="label2">
-            <input type="radio" name="option" id="sedan" data-url=""> I am a Lawyer
+            <input type="radio" class="searchTypes" name="option" id="sedan" data-url="{{ route('find_a_job') }}"> I am a Lawyer
         </label>
     </div>
     <div class="select_container">
