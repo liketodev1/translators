@@ -16,8 +16,8 @@
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
     <!-- select 2 -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/clientProfile.css') }}">
-    @stack('stylesheet')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/lawyerProfile.css') }}">
+    @yield('stylesheet')
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 <!-- select 2 -->
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <!-- select 2 -->
-@stack('scripts')
+@yield('javascript')
 <!--end scripts-->
 </body>
 </html>

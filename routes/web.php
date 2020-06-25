@@ -18,15 +18,15 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-
-
     // ----------------------------------
     //  Admin Routes
     // ----------------------------------
-    Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+    Route::middleware(['admin'])
+        ->prefix('admin')
+        ->namespace('Admin')
+        ->name('admin.')->group(function () {
 
         Route::get('/', 'AdminController@index')->name('home');
-
         Route::resources(
             array(
                 'users' => 'UsersController',
@@ -41,9 +41,24 @@ Route::middleware(['auth'])->group(function () {
     // ---------------------------------- //
     //           Lawyer Routes            //
     // ---------------------------------- //
-    Route::middleware(['lawyer'])->namespace('Lawyer')->group(function () {
+    Route::middleware(['lawyer'])
+        ->prefix('lawyer')
+        ->namespace('Lawyer')
+        ->group(function () {
         Route::get('/profile', 'LawyerController@index')->name('lawyer_profile');
         Route::post('/profile', 'LawyerController@profile')->name('save_lawyer_profile');
+    });
+
+    // ---------------------------------- //
+    //           Client Routes            //
+    // ---------------------------------- //
+    Route::middleware(['client'])
+        ->prefix('client')
+        ->namespace('Client')
+        ->group(function () {
+        Route::get('/profile', 'ClientController@index')->name('client_profile');
+
+        Route::resource('post','PostController');
     });
 
 });
@@ -55,3 +70,5 @@ Route::get('/how-it-works', 'PagesController@howItWorks')->name('how_it_works');
 Route::get('/terms', 'PagesController@terms')->name('terms');
 Route::get('/privacy-policy', 'PagesController@privacyPolicy')->name('privacy_policy');
 
+Route::get('find-a-job','PagesController@findAJob')->name('find_a_job');
+Route::get('our-lawyers','PagesController@ourLawyers')->name('our_lawyers');

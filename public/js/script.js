@@ -59,7 +59,7 @@ $(document).ready(function () {
                 remember: e.target.remember.checked,
 
             };
-
+            let errorContent = document.getElementById('validation-error');
             $.ajax({
                 method:'post',
                 url:'/login',
@@ -67,11 +67,15 @@ $(document).ready(function () {
                 data: data,
                 success: function (response) {
                     if (!response){
+                        errorContent.remove();
                         location.reload();
                     }
                 },
                 error: function (response) {
-                    console.log(response.responseJSON.message);
+                    if (response.responseJSON.message){
+                        errorContent.style.display = 'block';
+                        errorContent.querySelector('span').innerText = response.responseJSON.message;
+                    }
                 }
             })
     })
