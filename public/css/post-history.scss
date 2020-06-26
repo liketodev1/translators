@@ -1,0 +1,149 @@
+@import "fonts";
+
+.show-read-more {
+    .more-text {
+        display: none;
+    }
+}
+
+.posts-block {
+    padding-top: 90px;
+
+    .posts-title {
+        font-weight: 600;
+        font-size: 34px;
+        text-transform: capitalize;
+
+        color: #000000;
+    }
+
+    .posts-sort-block {
+        padding-top: 12px;
+        padding-bottom: 40px;
+
+        color: #555555;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+
+        span {
+            color: #000000;
+
+            i, svg {
+                color: #555555;
+                font-size: 10px;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .post-item {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-bottom: 36px;
+
+        .post-item-title {
+            font-size: 20px;
+            line-height: 24px;
+
+            color: #000000;
+
+        }
+
+        .post-item-text {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+
+            color: #000000;
+            .read-more {
+                padding-left: 8px;
+                color: #F45644;
+            }
+
+            padding-top: 8px;
+            padding-bottom: 35px;
+
+        }
+
+
+        .posts-spec-block {
+            h6 {
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 18px;
+
+                text-decoration: underline;
+                text-decoration-color: rgba(118, 116, 125, 0.6);
+
+                color: #241F2D;
+
+                margin: 4px 0;
+                &.title {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 18px;
+
+                    color: #76747D;
+
+                    margin: 4px ;
+                    text-decoration-line: none;
+                }
+
+            }
+        }
+
+        .post-item-sub-title {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+
+            color: #000000;
+            padding-bottom: 8px;
+        }
+        .post-item-posted-time {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+
+            color: #666666;
+            padding-bottom: 8px;
+        }
+        .post-item-bids-count {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+
+            color: #666666;
+            padding-bottom: 45px;
+            span {
+                color: #000000;
+            }
+        }
+
+        .post-item-event-block {
+            font-size: 20px;
+            .fa-trash-alt {
+                color: #f45644;
+            }
+            .fa-edit{
+                color: #666666;
+            }
+        }
+    }
+
+/*more */
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
+    }
+    .comment {
+        //width: 400px;
+        //background-color: #f0f0f0;
+        margin: 10px;
+    }
+
+}

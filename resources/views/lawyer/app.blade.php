@@ -8,10 +8,15 @@
     <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('favicon.png') }}" sizes="16x16 32x32" type="image/png">
 
+
     <!--start bootstrap-->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <!--end bootstrap-->
+
+    <!--start fontawesome-->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome/all.css') }}">
+    <!--end fontawesome-->
 
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
@@ -28,12 +33,19 @@
 <input type="hidden" id="base_url" value="{{ url('') }}">
 <!--start scripts-->
 <script src="{{ asset('js/jquery-3.4.1.slim.min.js') }}"></script>
+
+
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
 <!-- select 2 -->
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <!-- select 2 -->
+
+<!-- fontawesome -->
+<script src="{{ asset('translators/js/fontawesome/all.js') }}"></script>
+<!-- fontawesome -->
+
 @stack('scripts')
 <!--end scripts-->
 </body>
