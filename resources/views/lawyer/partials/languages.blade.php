@@ -10,7 +10,7 @@
                             @if(count($languages)>0)
                                 @foreach($languages as $language)
                                     <option
-                                        @if ($item->language->id === $language->id)
+                                        @if ($item->language_id === $language->id)
                                         selected
                                         @endif
                                         value="{{ $language->id }}">{{ $language->name }}</option>
@@ -23,7 +23,7 @@
                             @if(count($languageLevels)>0)
                                 @foreach($languageLevels as $level)
                                     <option
-                                        @if ($item->languageLevel->id === $level->id)
+                                        @if ($item->language_level_id === $level->id)
                                         selected
                                         @endif
                                         value="{{ $level->id }}">{{ $level->name }}</option>

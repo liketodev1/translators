@@ -26,16 +26,26 @@
                             {{ $post->description }}
                         </p>
                         <div class="posts-spec-block d-flex flex-wrap">
+                            <h6 class="title">Language:</h6>
+                            @forelse($post->languageLevel as $item)
+                                <h6>{{ $item->language->name }}{{ !$loop->last?', ':'' }}</h6>
+                            @empty
+                                Not selected
+                            @endforelse
+                        </div>
+                        <div class="posts-spec-block d-flex flex-wrap">
                             <h6 class="title">Specialization:</h6>
-
                             <h6>{{ $post->specialization->name }}</h6>
-
                         </div>
                     </div>
                     <div class="card-body w-auto">
-                        <h5 class="card-title post-item-sub-title">${{ $post->price }} /{{ $post->billing_type==1?'h':'f' }} </h5>
+                        <h5 class="card-title post-item-sub-title">${{ $post->price }} /{{ $post->billing_type==1?'hour':'fixed' }} </h5>
                         <p class="card-text post-item-posted-time">
                             Posted {{ $post->created_at }}
+                        </p>
+                        <p class="card-text post-item-bids-count">
+                            Bids
+                            <span class="font-weight-bold">6</span>
                         </p>
                         <div class="post-item-event-block">
                             <form action="{{ route('post.destroy',['post'=>$post->id]) }}" method="post">

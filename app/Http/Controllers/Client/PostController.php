@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Language;
 use App\Models\LanguageLevel;
 use App\Models\LanguageLevelUser;
+use App\Models\PostLanguageLevel;
 use App\Models\Specializations;
 use App\Models\UserPost;
 use DateTime;
@@ -81,25 +82,6 @@ class PostController extends Controller
         $language = $request->get('language');
         $languageLevel = $request->get('languageLevel');
 
-        LanguageLevelUser::destroy(explode(',', trim($request->get('delLang'), ',')));
-
-        if ($language && count($language)) {
-            foreach ($language as $key => $value) {
-                if (isset($lluId[$key])) {
-                    $arr = ['id' => $lluId[$key]];
-                } else {
-                    $arr = ['id' => null];
-                }
-
-                $user->languageLevel()->updateOrCreate($arr,
-                    [
-                        'language_id' => (int)$value,
-                        'language_level_id' => (int)$languageLevel[$key],
-                    ]
-                );
-            }
-        }
-
         $post = new UserPost();
         $post->user_id = $user->id;
         $post->specialization_id = $request->specialization;
@@ -112,6 +94,17 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
+
+        if ($language && count($language)) {
+            foreach ($language as $key => $value) {
+                $post->languageLevel()->create(
+                    [
+                        'language_id' => (int)$value,
+                        'language_level_id' => (int)$languageLevel[$key],
+                    ]
+                );
+            }
+        }
         return redirect()->route('post.index')->with('success','Post created');
     }
 
@@ -175,11 +168,15 @@ class PostController extends Controller
 
         $user = Auth::user();
 
+        $post = UserPost::where('id','=',$id)
+            ->where('user_id','=',$user->id)
+            ->firstOrFail();
+
         $lluId = $request->get('lluId');
         $language = $request->get('language');
         $languageLevel = $request->get('languageLevel');
 
-        LanguageLevelUser::destroy(explode(',', trim($request->get('delLang'), ',')));
+        PostLanguageLevel::destroy(explode(',', trim($request->get('delLang'), ',')));
 
         if ($language && count($language)) {
             foreach ($language as $key => $value) {
@@ -189,7 +186,7 @@ class PostController extends Controller
                     $arr = ['id' => null];
                 }
 
-                $user->languageLevel()->updateOrCreate($arr,
+                $post->languageLevel()->updateOrCreate($arr,
                     [
                         'language_id' => (int)$value,
                         'language_level_id' => (int)$languageLevel[$key],
@@ -197,10 +194,6 @@ class PostController extends Controller
                 );
             }
         }
-
-        $post = UserPost::where('id','=',$id)
-            ->where('user_id','=',$user->id)
-            ->firstOrFail();
 
         $post->specialization_id = $request->specialization;
         $post->country_id = $request->country;

@@ -194,7 +194,6 @@
                                             class="table table-borderless lang-row table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
                                             <tbody id="langTable">
                                             <!--start lang-row-->
-                                            @if(count(Auth::user()->languageLevel)==0)
                                                 <tr>
                                                     <td>
                                                         <div class="languages-select">
@@ -221,9 +220,6 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            @endif
-                                            @include('lawyer.partials.languages',['data' => Auth::user()->languageLevel])
-                                            <input type="hidden" name="delLang" id="deleteLanguages">
                                             <!--end lang-row-->
                                             </tbody>
                                         </table>
