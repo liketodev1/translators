@@ -1,3 +1,4 @@
+$base-orange: #F54838;
 @import "fonts";
 
 .show-read-more {
@@ -56,6 +57,7 @@
             line-height: 20px;
 
             color: #000000;
+
             .read-more {
                 padding-left: 8px;
                 color: #F45644;
@@ -79,6 +81,7 @@
                 color: #241F2D;
 
                 margin: 4px 0;
+
                 &.title {
                     font-weight: 500;
                     font-size: 14px;
@@ -86,7 +89,7 @@
 
                     color: #76747D;
 
-                    margin: 4px ;
+                    margin: 4px;
                     text-decoration-line: none;
                 }
 
@@ -101,6 +104,7 @@
             color: #000000;
             padding-bottom: 8px;
         }
+
         .post-item-posted-time {
             font-weight: normal;
             font-size: 14px;
@@ -109,6 +113,7 @@
             color: #666666;
             padding-bottom: 8px;
         }
+
         .post-item-bids-count {
             font-weight: normal;
             font-size: 14px;
@@ -116,6 +121,7 @@
 
             color: #666666;
             padding-bottom: 45px;
+
             span {
                 color: #000000;
             }
@@ -123,27 +129,166 @@
 
         .post-item-event-block {
             font-size: 20px;
+
+            &.event-bookmark {
+
+            }
             .fa-trash-alt {
                 color: #f45644;
             }
-            .fa-edit{
+
+            .fa-edit {
                 color: #666666;
+            }
+            .fa-bookmark {
+                color: #000;
             }
         }
     }
 
-/*more */
+    /*more , less */
     a.morelink {
-        text-decoration:none;
+        text-decoration: none;
         outline: none;
+        color: #f45644;
+
     }
+
     .morecontent span {
         display: none;
     }
+
     .comment {
-        //width: 400px;
-        //background-color: #f0f0f0;
         margin: 10px;
     }
 
+    /*more , less */
+
 }
+
+
+/* find a job page */
+.find-job-form {
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 34px;
+    margin-bottom: 48px;
+    .btn-group {
+        &:nth-child(1) {
+            width: 90%;
+        }
+
+        &:nth-child(2) {
+            width: 10%;
+        }
+    }
+
+    .find-job-select-item {
+        background: #FFFFFF;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+
+        border: 1px solid #ccc;
+        border-radius: 0;
+        padding: 10.5px 16px;
+        width: 33.33333333%;
+
+        .find-job-select-title {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+            color: #97959D;
+
+        }
+
+        .dropdown-toggle {
+            font-weight: 500;
+            font-size: 15px;
+
+            color: #000000;
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            padding-top: 5px;
+
+        }
+
+        .dropdown-menu {
+            margin-left: -16px;
+
+            &.show {
+                width: 33.1%;
+            }
+
+            .dropdown-items-wrap {
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    color: #000000;
+                }
+            }
+
+        }
+    }
+
+    .find-job-search-btn {
+        background-color: $base-orange;
+        padding: 20px 40px;
+        border: transparent;
+        color: #fff;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
+
+.filter-form {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    .filter-dropdowns-block {
+        .filter-item {
+            font-size: 14px;
+            line-height: 20px;
+            border: 1px solid #999999;
+            color: #555555;
+            border-radius: 3px;
+            padding: 8px 12px;
+            .filter-btn {
+                &:before {
+                    color: #999999;
+                }
+                &:after {
+                    border: 0;
+                }
+                &.filter-btn-raiting {
+                    &:before {
+                        content: 'Raiting: ';
+                    }
+                }
+                &.filter-btn-price {
+                    &:before {
+                        content: 'Price: ';
+                    }
+                }
+                &.filter-btn-loc {
+                    &:before {
+                        content: 'Location: ';
+                    }
+                }
+            }
+
+            .filter-close {
+                background: transparent;
+                border: none;
+                color: #999999;
+            }
+        }
+        .posts-sort-block {
+
+        }
+    }
+}
+
