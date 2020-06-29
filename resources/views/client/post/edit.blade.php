@@ -191,6 +191,58 @@
                                 </div>
                                 {{--end Practice Location block --}}
 
+                                {{--start Languages Spoken block --}}
+                                <div class="profile-section">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 profile-rows">
+                                            <h4 class="profile-rows-title">Languages Spoken<span
+                                                    class="profile-rows-title-sub"> </span></h4>
+                                            <p class="profile-rows-sub-title">Add Language Proficiency</p>
+                                        </div>
+
+                                        <table
+                                            class="table table-borderless lang-row table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
+                                            <tbody id="langTable">
+                                            <!--start lang-row-->
+                                            @if(count(Auth::user()->languageLevel)==0)
+                                                <tr>
+                                                    <td>
+                                                        <div class="languages-select">
+                                                            <div class="input-group">
+                                                                <select name="language[]" class="selectpicker"
+                                                                        data-style="btn-default">
+                                                                    @if(count($languages)>0)
+                                                                        @foreach($languages as $language)
+                                                                            <option
+                                                                                value="{{ $language->id }}">{{ $language->name }}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </select>
+                                                                <select name="languageLevel[]" class="selectpicker"
+                                                                        data-style="btn-default">
+                                                                    @if(count($languageLevels)>0)
+                                                                        @foreach($languageLevels as $level)
+                                                                            <option
+                                                                                value="{{ $level->id }}">{{ $level->name }}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @include('lawyer.partials.languages',['data' => Auth::user()->languageLevel])
+                                            <input type="hidden" name="delLang" id="deleteLanguages">
+                                            <!--end lang-row-->
+                                            </tbody>
+                                        </table>
+                                        <a href="javascript:void(0);" class="add-language-pair">
+                                            <img src="{{ asset('img/plus.svg') }}" alt="">Add language
+                                        </a>
+                                    </div>
+                                </div>
+                                {{--end Languages Spoken block --}}
 
                                 {{--start Billings & Malpractice Insurance block--}}
                                 <div class="profile-section">
@@ -314,5 +366,9 @@
         </section>
     </div>
     <!--end myProfile-->
-
+    @include('client.post.partials.language_dropdown')
 @endsection
+
+@push('javascript')
+    <script src="{{ asset('translators/js/client_profile.js') }}"></script>
+@endpush
