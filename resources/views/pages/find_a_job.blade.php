@@ -164,9 +164,9 @@
                     </div>
                     <div class="card-body w-auto d-flex flex-column h-100 price-block">
                         <h5 class="card-title post-item-sub-title">${{ $job->price }}
-                            /{{ $job->billing_type==1?'h':'f' }} </h5>
+                            /{{ $job->billing_type==1?'hour':'fixed' }} </h5>
                         <p class="card-text post-item-posted-time">
-                            Posted 26 min ago
+                            Posted {{ $job->created_at }}
                         </p>
                         <p class="card-text post-item-bids-count">
                             Bids
