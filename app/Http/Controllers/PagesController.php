@@ -71,7 +71,7 @@ class PagesController extends BaseController
 
         $jobs = $query->get();
 
-        return view('pages.find_a_jog', compact('jobs'));
+        return view('pages.find_a_job', compact('jobs'));
 
     }
 
