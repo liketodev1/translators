@@ -1,20 +1,5 @@
 $(document).ready(() => {
     "use strict";
-        // var maxLength = 278;
-        // $(".card-text.show-read-more").each(function () {
-        //     var myStr = $(this).text();
-        //     if ($.trim(myStr).length > maxLength) {
-        //         var newStr = myStr.substring(0, maxLength);
-        //         var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-        //         $(this).empty().html(newStr);
-        //         $(this).append(' <a href="javascript:void(0);" class="read-more">More...</a>');
-        //         $(this).append('<span class="more-text">' + removedStr + '</span>');
-        //     }
-        // });
-        // $(".read-more").click(function () {
-        //     $(this).siblings(".more-text").contents().unwrap();
-        //     $(this).remove();
-        // });
 
     var showChar = 278;
     var ellipsestext = "...";
