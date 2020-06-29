@@ -4,7 +4,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Country;
+use App\Models\LegalAreas;
 use App\Models\PrivacyPolicy;
+use App\Models\Specializations;
 use App\Models\Term;
 use App\Models\User;
 use App\Models\UserPost;
@@ -56,6 +59,9 @@ class PagesController extends BaseController
      */
     public function findAJob(Request $request)
     {
+        $specializations = Specializations::orderBy('name', 'asc')->get();
+        $countries = Country::orderBy('name', 'asc')->get();
+        $legal_areas = LegalAreas::orderBy('name', 'asc')->get();
 
         $query = UserPost::where('deleted_at', '=', null)
             ->where('status', '=', true);
@@ -71,7 +77,7 @@ class PagesController extends BaseController
 
         $jobs = $query->get();
 
-        return view('pages.find_a_job', compact('jobs'));
+        return view('pages.find_a_job', compact('jobs', 'specializations', 'countries', 'legal_areas'));
 
     }
 
@@ -96,8 +102,10 @@ class PagesController extends BaseController
 
             })
             ->join('countries as c', function ($join) use ($request) {
-                $join->on('c.id', '=', 'lp.country_id')
-                    ->where('c.id', '=', $request->c);
+                $join->on('c.id', '=', 'lp.country_id');
+                if ($request->c) {
+                    $join->where('c.id', '=', $request->c);
+                }
             })
             ->select(['users.*'])
             ->groupBy('su.user_id');

@@ -26,4 +26,9 @@ class UserPost extends Model
     {
         return $this->belongsTo(Specializations::class,'specialization_id','id');
     }
+
+    public function languageLevel()
+    {
+        return $this->hasMany(PostLanguageLevel::class,'post_id','id');
+    }
 }

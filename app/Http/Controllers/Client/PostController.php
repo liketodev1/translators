@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Language;
 use App\Models\LanguageLevel;
+use App\Models\LanguageLevelUser;
+use App\Models\PostLanguageLevel;
 use App\Models\Specializations;
 use App\Models\UserPost;
 use DateTime;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -40,11 +44,14 @@ class PostController extends Controller
     {
         $specializations = Specializations::orderBy('name', 'asc')->get();
         $country = Country::orderBy('name','asc')->get();
-
+        $languages = Language::orderBy('name', 'asc')->get();
+        $languageLevels = LanguageLevel::orderBy('name', 'asc')->get();
         return view('client.post.create',
             array(
                 'specializations' => $specializations,
                 'country' => $country,
+                'languages' => $languages,
+                'languageLevels' => $languageLevels,
             )
         );
     }
@@ -69,8 +76,14 @@ class PostController extends Controller
             'description' => 'required',
         ]);
 
+        $user = Auth::user();
+
+        $lluId = $request->get('lluId');
+        $language = $request->get('language');
+        $languageLevel = $request->get('languageLevel');
+
         $post = new UserPost();
-        $post->user_id = auth()->user()->id;
+        $post->user_id = $user->id;
         $post->specialization_id = $request->specialization;
         $post->country_id = $request->country;
         $post->state = $request->state;
@@ -81,6 +94,17 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
+
+        if ($language && count($language)) {
+            foreach ($language as $key => $value) {
+                $post->languageLevel()->create(
+                    [
+                        'language_id' => (int)$value,
+                        'language_level_id' => (int)$languageLevel[$key],
+                    ]
+                );
+            }
+        }
         return redirect()->route('post.index')->with('success','Post created');
     }
 
@@ -94,6 +118,7 @@ class PostController extends Controller
     {
         $post = UserPost::where('id','=',$id)
                     ->where('user_id','=',auth()->user()->id)
+                    ->where('deleted_at',null)
                     ->firstOrFail();
 
         return view('client.post.show',compact('post'));
@@ -109,10 +134,15 @@ class PostController extends Controller
     {
         $post = UserPost::where('id','=',$id)
             ->where('user_id','=',auth()->user()->id)
+            ->where('deleted_at',null)
             ->firstOrFail();
+
         $specializations = Specializations::orderBy('name', 'asc')->get();
         $country = Country::orderBy('name','asc')->get();
-        return view('client.post.edit',compact('post','specializations','country'));
+        $languages = Language::orderBy('name', 'asc')->get();
+        $languageLevels = LanguageLevel::orderBy('name', 'asc')->get();
+
+        return view('client.post.edit',compact('post','specializations','country','languages','languageLevels'));
     }
 
     /**
@@ -120,7 +150,7 @@ class PostController extends Controller
      *
      * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -136,9 +166,34 @@ class PostController extends Controller
             'title' => 'required',
         ]);
 
+        $user = Auth::user();
+
         $post = UserPost::where('id','=',$id)
-            ->where('user_id','=',auth()->user()->id)
+            ->where('user_id','=',$user->id)
             ->firstOrFail();
+
+        $lluId = $request->get('lluId');
+        $language = $request->get('language');
+        $languageLevel = $request->get('languageLevel');
+
+        PostLanguageLevel::destroy(explode(',', trim($request->get('delLang'), ',')));
+
+        if ($language && count($language)) {
+            foreach ($language as $key => $value) {
+                if (isset($lluId[$key])) {
+                    $arr = ['id' => $lluId[$key]];
+                } else {
+                    $arr = ['id' => null];
+                }
+
+                $post->languageLevel()->updateOrCreate($arr,
+                    [
+                        'language_id' => (int)$value,
+                        'language_level_id' => (int)$languageLevel[$key],
+                    ]
+                );
+            }
+        }
 
         $post->specialization_id = $request->specialization;
         $post->country_id = $request->country;
