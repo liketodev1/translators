@@ -60,17 +60,17 @@
                         Sed rhoncus interdum eu elementum curabitur in duis.
                         Aliquam porta est scelerisque vitae morbi hendrerit orci.
                         Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.
-                        Nulla condimentum ornare justo, sit...
+                        Nulla condimentum ornare justo, sit
                         Mus et commodo duis bibendum facilisis sem condimentum.
                         Sed rhoncus interdum eu elementum curabitur in duis.
                         Aliquam porta est scelerisque vitae morbi hendrerit orci.
                         Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.
-                        Nulla condimentum ornare justo, sit...
+                        Nulla condimentum ornare justo, sit
                         Mus et commodo duis bibendum facilisis sem condimentum.
                         Sed rhoncus interdum eu elementum curabitur in duis.
                         Aliquam porta est scelerisque vitae morbi hendrerit orci.
                         Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.
-                        Nulla condimentum ornare justo, sit...
+                        Nulla condimentum ornare justo, sit
 
                     </p>
                     <div class="posts-spec-block d-flex flex-wrap">
