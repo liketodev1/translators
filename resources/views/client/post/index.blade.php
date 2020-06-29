@@ -19,9 +19,27 @@
         @forelse($posts as $post)
             <div class="row no-gutters mb-2">
 
+{{--<<<<<<< HEAD--}}
                 <div class="card d-flex flex-xl-row flex-lg-row flex-md-column flex-sm-column post-item">
                     <div class="card-body w-75 ">
                         <h5 class="card-title post-item-title">{{ $post->title }}</h5>
+{{--=======--}}
+{{--                        Mus et commodo duis bibendum facilisis sem condimentum.--}}
+{{--                        Sed rhoncus interdum eu elementum curabitur in duis.--}}
+{{--                        Aliquam porta est scelerisque vitae morbi hendrerit orci.--}}
+{{--                        Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.--}}
+{{--                        Nulla condimentum ornare justo, sit--}}
+{{--                        Mus et commodo duis bibendum facilisis sem condimentum.--}}
+{{--                        Sed rhoncus interdum eu elementum curabitur in duis.--}}
+{{--                        Aliquam porta est scelerisque vitae morbi hendrerit orci.--}}
+{{--                        Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.--}}
+{{--                        Nulla condimentum ornare justo, sit--}}
+{{--                        Mus et commodo duis bibendum facilisis sem condimentum.--}}
+{{--                        Sed rhoncus interdum eu elementum curabitur in duis.--}}
+{{--                        Aliquam porta est scelerisque vitae morbi hendrerit orci.--}}
+{{--                        Eu aliquet proin viverra nibh. Ultrices molestie semper ornare quam sed.--}}
+{{--                        Nulla condimentum ornare justo, sit--}}
+{{-->>>>>>> develop--}}
 
                         <p class="card-text post-item-text show-read-more comment more">
                             {{ $post->description }}

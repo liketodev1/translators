@@ -9,4 +9,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/last-changes.css')}}">
 
 {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-{{--@stack('push_css')--}}
+@stack('push_css')
