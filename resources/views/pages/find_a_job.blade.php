@@ -91,11 +91,11 @@
                 <h1 class="posts-title">
                     We found 275 jobs for your search
                 </h1>
-                <form class="filter-form d-flex flex-row justify-content-between">
+                <form class="filter-form d-flex flex-row flex-wrap justify-content-between">
 
-                    <div class="filter-dropdowns-block d-flex flex-row">
+                    <div class="filter-dropdowns-block d-flex flex-row flex-wrap mb-2">
 
-                        <div class="dropdown filter-item mr-2">
+                        <div class="dropdown filter-item mr-2 mb-2">
                             <button class="btn dropdown-toggle filter-btn filter-btn-raiting" type="button"
                                     id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
 
-                        <div class="dropdown filter-item mr-2">
+                        <div class="dropdown filter-item mr-2 mb-2">
                             <button class="btn dropdown-toggle filter-btn filter-btn-price" type="button"
                                     id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="dropdown filter-item mr-2">
+                        <div class="dropdown filter-item mr-2 mb-2">
                             <button class="btn dropdown-toggle filter-btn filter-btn-loc " type="button"
                                     id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,13 +176,13 @@
                         <h6>{{ $job->specialization->name }}</h6>
                     </div>
 
-                    <div class="posts-spec-block d-flex flex-wrap pt-5">
-                        <h6 class="title"><i class="fas fa-star"></i> 4.95 <span>(17 revievs)</span></h6>
+                    <div class="posts-spec-block d-flex flex-row flex-wrap pt-5 ">
+                        <h6 class="title  ml-0"><i class="fas fa-star"></i> 4.95 <span>(17 revievs)</span></h6>
 
-                        <h6><i class="fas fa-map-marker-alt"></i> {{ $job->city }}, {{ $job->country->name }}</h6>
+                        <h6 class=""><i class="fas fa-map-marker-alt"></i> {{ $job->city }}, {{ $job->country->name }}</h6>
                     </div>
                 </div>
-                <div class="card-body w-auto d-flex flex-column h-100">
+                <div class="card-body w-auto d-flex flex-column h-100 price-block">
                     <h5 class="card-title post-item-sub-title">${{ $job->price }} /{{ $job->billing_type==1?'h':'f' }} </h5>
                     <p class="card-text post-item-posted-time">
                         Posted 26 min ago
@@ -191,9 +191,9 @@
                         Bids
                         <span class="font-weight-bold">6</span>
                     </p>
-                    <div class="post-item-event-block event-bookmark float-right">
+                    <div class="post-item-event-block event-bookmark ">
 
-                        <a href="#" class="card-link ">
+                        <a href="#" class="card-link float-right">
                             <i class="far fa-bookmark"></i>
                         </a>
                     </div>

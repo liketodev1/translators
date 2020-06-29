@@ -324,7 +324,6 @@ nav .nav-item .nav-link.active {
   color: #241F2D;
   padding: 8px 12px;
   border: 1px solid #D6D5D7;
-  font-size: 14px;
   background-position: 98% center;
   background-repeat: no-repeat;
   padding-right: 4px;
@@ -332,17 +331,15 @@ nav .nav-item .nav-link.active {
 .content .profile .profile-section.practice-location-section .form-control {
   border-radius: 0;
   border: 1px solid #d6d5d7;
+}
+.content .profile .profile-section.practice-location-section .per-hour-border, .content .profile .profile-section.practice-location-section input[name=country] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.content .profile .profile-section.practice-location-section input[name="profile[country]"] {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.content .profile .profile-section.practice-location-section input[name="profile[state]"], .content .profile .profile-section.practice-location-section input[name="profile[address]"] {
+.content .profile .profile-section.practice-location-section input[name=state], .content .profile .profile-section.practice-location-section input[name=address] {
   border-radius: 0 4px 4px 0;
 }
-.content .profile .profile-section.practice-location-section input[name="profile[city]"] {
+.content .profile .profile-section.practice-location-section input[name=city] {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }

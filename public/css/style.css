@@ -1964,6 +1964,7 @@ a.Sign_account {
 .btn-continue:hover {
     background-color: #f32916 !important;
     border-color: #F54838 !important;
+    color: #fff;
 }
 
 /*registor btn end 13.05*/

@@ -42,6 +42,7 @@ $base-orange: #F54838;
         padding-top: 20px;
         padding-left: 20px;
         padding-bottom: 36px;
+        width: 100%;
 
         .post-item-title {
             font-size: 20px;
@@ -131,10 +132,23 @@ $base-orange: #F54838;
         .post-item-event-block {
             font-size: 20px;
 
-            form{
+            &.event-bookmark {
+                margin-top: 40px;
+                margin-right: 40px;
+
+                a {
+                    .fa-bookmark {
+                        &:active, &:hover, &:focus {
+                            color: $base-orange;
+                        }
+                    }
+                }
+            }
+
+            form {
                 display: inline-block;
 
-                button{
+                button {
                     background: transparent;
                     border: none;
                 }
@@ -147,6 +161,7 @@ $base-orange: #F54838;
             .fa-edit {
                 color: #666666;
             }
+
             .fa-bookmark {
                 color: #000;
             }
@@ -181,6 +196,7 @@ $base-orange: #F54838;
     justify-content: space-between;
     margin-top: 34px;
     margin-bottom: 48px;
+
     .btn-group {
         &:nth-child(1) {
             width: 90%;
@@ -255,6 +271,7 @@ $base-orange: #F54838;
 .filter-form {
     margin-top: 20px;
     margin-bottom: 40px;
+
     .filter-dropdowns-block {
         .filter-item {
             font-size: 14px;
@@ -263,23 +280,28 @@ $base-orange: #F54838;
             color: #555555;
             border-radius: 3px;
             padding: 8px 12px;
+
             .filter-btn {
                 &:before {
                     color: #999999;
                 }
+
                 &:after {
                     border: 0;
                 }
+
                 &.filter-btn-raiting {
                     &:before {
                         content: 'Raiting: ';
                     }
                 }
+
                 &.filter-btn-price {
                     &:before {
                         content: 'Price: ';
                     }
                 }
+
                 &.filter-btn-loc {
                     &:before {
                         content: 'Location: ';
@@ -293,9 +315,58 @@ $base-orange: #F54838;
                 color: #999999;
             }
         }
+
         .posts-sort-block {
 
         }
     }
 }
 
+@media only screen and (max-width: 993px) {
+
+    .find-job-form {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+
+        .btn-group:nth-child(1) {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+
+            .find-job-select-item {
+                width: 100%;
+            }
+        }
+         .btn-group:nth-child(2) {
+            width: 90%;
+             margin: auto;
+             .find-job-search-btn {
+                 width: 100%;
+             }
+        }
+    }
+    .price-block {
+        //margin-top: 100px;
+    }
+    .posts-block .post-item .post-item-event-block.event-bookmark {
+        margin-top: 0;
+        margin-right: 40px;
+    }
+    .posts-block {
+        .row{
+            margin-right: 15px !important;
+            margin-left: 15px !important;
+        }
+    }
+    .h-100 {
+        height: auto !important;
+    }
+    .filter-dropdowns-block {
+        justify-content: center;
+    }
+    .card {
+        justify-content: center;
+    }
+}
