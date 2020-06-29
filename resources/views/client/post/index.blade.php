@@ -57,6 +57,6 @@
 
 @endsection
 
-@push('scripts')
+@push('javascript')
     <script src="{{ asset('translators/js/post-history.js') }}"> </script>
 @endpush
