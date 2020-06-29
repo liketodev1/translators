@@ -151,7 +151,7 @@ return [
         'profile.linkedin' => 'Linked Account',
         'profile.biography' => 'Short biography',
         'profile.experience' => 'Experience',
-        'profile.country' => 'County',
+        'profile.country_id' => 'County',
         'profile.state' => 'State',
         'profile.city' => 'City',
         'profile.address' => 'Address',

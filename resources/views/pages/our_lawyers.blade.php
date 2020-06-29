@@ -2,20 +2,16 @@
 @section('title','Our Lawyers')
 @section('content')
     <div class="container">
-{{--        @if(count($jobs)>0)--}}
-{{--        @foreach ($jobs as $job)--}}
-{{--            <div class="card">--}}
-{{--                <h5 class="card-header">{{ $job->specialization->name }}</h5>--}}
-{{--                <div class="card-body">--}}
-{{--                    <h5 class="card-title">{{ $job->country->name }}</h5>--}}
-{{--                    <p class="card-text">{{ $job->description }}</p>--}}
-{{--                    <a href="#" class="btn btn-primary">Go somewhere</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--        @else--}}
+        @forelse ($users as $user)
+            <div class="card">
+                <h5 class="card-header">{{ $user->first_name }} {{ $user->last_name }}</h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $user->profile->country->name }}</h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        @empty
             Not result
-{{--        @endif--}}
-
+        @endforelse
     </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('lawyer.app')
+@extends('client.app')
 @section('title','Edit post '. $post->id)
 @section('content')
     <!--start myProfile-->
@@ -26,7 +26,28 @@
                                                 Please choose the preferred specialisation (s) for your job to enable us
                                                 identify the right attorney for you.
                                             </p>
-                                            @php
+                                            <div class="row no-gutters">
+                                            <select name="specialization" id="" class="selectpicker form-control select-border">
+                                                @foreach($specializations as $item)
+                                                    <option value="{{ $item->id }}"
+                                                            @if(old('specialization') == $item->id)
+                                                                selected
+                                                            @endif
+                                                            @if ($post->specialization->id == $item->id)
+                                                                selected
+                                                            @endif
+                                                    >{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list">
+                                                    @error('specialization')
+                                                    <li>{{ $message }}</li>
+                                                    @enderror
+                                                </ul>
+                                            </div>
+                                     {{--       @php
                                                 $count = count($specializations);
                                             @endphp
                                             @if($count>0)
@@ -73,7 +94,7 @@
                                                         @enderror
                                                     </ul>
                                                 </div>
-                                            @endif
+                                            @endif--}}
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +249,32 @@
                                     </div>
                                 </div>
                             {{-- end Billings & Malpractice Insurance block--}}
+                                <div class="profile-section">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 profile-rows">
+                                            <h4 class="profile-rows-title">Title
+                                                <span class="profile-rows-title-sub"></span>
+                                            </h4>
+                                            {{--                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few--}}
+                                            {{--                                                sentence to enable us identify the best attorney for your job.--}}
+                                            {{--                                            </p>--}}
+                                        </div>
 
+                                        <div class="col-12">
+                                            <div class="row no-gutters ">
+                                                <textarea rows="4" class="form-control"
+                                                          name="title">{{ old('title') }}{{ $post->title }}</textarea>
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list">
+                                                    @error('title')
+                                                    <li>{{ $message }}</li>
+                                                    @enderror
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             <!--start biography block-->
                                 <div class="profile-section">
@@ -237,8 +283,7 @@
                                             <h4 class="profile-rows-title">Job Description
                                                 <span class="profile-rows-title-sub"></span>
                                             </h4>
-                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few
-                                                sentence to enable us identify the best attorney for your job.
+                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few sentence to enable us identify the best attorney for your job.
                                             </p>
                                         </div>
 

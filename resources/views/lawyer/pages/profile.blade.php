@@ -1,5 +1,5 @@
 @extends('lawyer.app')
-@section('title') Profile @endsection
+@section('title','Profile')
 @section('content')
     <!--start myProfile-->
     <div class="bg-color-t">
@@ -110,12 +110,12 @@
                                         <div class="row no-gutters">
 
                                             <div class="col-md-6">
-                                                <select name="profile[country]" class="selectpicker  per-hour-border form-control"
+                                                <select name="profile[country_id]" class="selectpicker  per-hour-border form-control"
                                                         data-style="btn-default">
                                                     @if(count($country))
                                                         @foreach($country as $item)
                                                             <option
-                                                                @if(Auth::user()->profile &&  Auth::user()->profile->country == $item->id)
+                                                                @if(Auth::user()->profile &&  Auth::user()->profile->country_id == $item->id)
                                                                     selected
                                                                 @endif
                                                                 value="{{ $item->id }}">{{ $item->name  }}</option>
@@ -600,6 +600,6 @@
 '>
 @endsection
 
-@section('javascript')
+@push('scripts')
     <script src="{{ asset('translators/js/profile.js') }}"></script>
-@endsection
+@endpush

@@ -1,4 +1,4 @@
-@extends('lawyer.app')
+@extends('client.app')
 @section('title','Post Create')
 @section('content')
     <!--start myProfile-->
@@ -27,51 +27,65 @@
                                                 Please choose the preferred specialisation (s) for your job to enable us
                                                 identify the right attorney for you.
                                             </p>
-                                            @php
-                                                $count = count($specializations);
-                                            @endphp
-                                            @if($count>0)
-                                                <div class="row no-gutters">
-                                                    @php($totalServices = $count)
-                                                    @php($currentRow = 0)
-                                                    @php($serviceCount = 0)
+                                            <div class="row no-gutters">
+                                                <select name="specialization" id="" class="selectpicker form-control select-border">
                                                     @foreach($specializations as $item)
-                                                        @if($currentRow == 0)
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                                                <ul class="checkbox-list">
-                                                                    @endif
-                                                                    <li>
-                                                                        <div class="check-block">
-                                                                            <input type="checkbox"
-                                                                                   name="specialization"
-                                                                                   class="custom-control-input specialization"
-                                                                                   id="ch_{{ $item->id }}"
-                                                                                   value="{{ $item->id }}"
-                                                                                   @if(old('specialization') == $item->id)
-                                                                                       checked
-                                                                                   @endif
-                                                                            >
-                                                                            <label class="custom-control-label"
-                                                                                   for="ch_{{ $item->id }}">{{ $item->name }}</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    @php($serviceCount ++)
-                                                                    @php($currentRow ++)
-                                                                    @if($currentRow == $count/3  || $serviceCount == $totalServices)
-                                                                        @php($currentRow = 0)
-                                                                </ul>
-                                                            </div>
-                                                        @endif
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                     @endforeach
-                                                </div>
-                                                <div class="error-container">
-                                                    <ul class="error-list">
-                                                        @error('specialization')
-                                                        <li>{{ $message }}</li>
-                                                        @enderror
-                                                    </ul>
-                                                </div>
-                                            @endif
+                                                </select>
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list">
+                                                    @error('specialization')
+                                                    <li>{{ $message }}</li>
+                                                    @enderror
+                                                </ul>
+                                            </div>
+                                            {{--  @php
+                                                  $count = count($specializations);
+                                              @endphp
+                                              @if($count>0)
+                                                  <div class="row no-gutters">
+                                                      @php($totalServices = $count)
+                                                      @php($currentRow = 0)
+                                                      @php($serviceCount = 0)
+                                                      @foreach($specializations as $item)
+                                                          @if($currentRow == 0)
+                                                              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                                                  <ul class="checkbox-list">
+                                                                      @endif
+                                                                      <li>
+                                                                          <div class="check-block">
+                                                                              <input type="checkbox"
+                                                                                     name="specialization"
+                                                                                     class="custom-control-input specialization"
+                                                                                     id="ch_{{ $item->id }}"
+                                                                                     value="{{ $item->id }}"
+                                                                                     @if(old('specialization') == $item->id)
+                                                                                     checked
+                                                                                  @endif
+                                                                              >
+                                                                              <label class="custom-control-label"
+                                                                                     for="ch_{{ $item->id }}">{{ $item->name }}</label>
+                                                                          </div>
+                                                                      </li>
+                                                                      @php($serviceCount ++)
+                                                                      @php($currentRow ++)
+                                                                      @if($currentRow == $count/3  || $serviceCount == $totalServices)
+                                                                          @php($currentRow = 0)
+                                                                  </ul>
+                                                              </div>
+                                                          @endif
+                                                      @endforeach
+                                                  </div>
+                                                  <div class="error-container">
+                                                      <ul class="error-list">
+                                                          @error('specialization')
+                                                          <li>{{ $message }}</li>
+                                                          @enderror
+                                                      </ul>
+                                                  </div>
+                                              @endif--}}
                                         </div>
                                     </div>
                                 </div>
@@ -84,8 +98,8 @@
                                             <h4 class="profile-rows-title">Location
                                                 <span class="profile-rows-title-sub"></span>
                                             </h4>
-                                            <p class="profile-rows-sub-title">Please choose your location to enable
-                                                TalkCounsel match your job to attorneys near you. </p>
+                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few
+                                                sentence to enable us identify the best attorney for your job.</p>
                                         </div>
                                     </div>
                                     <div class="row no-gutters">
@@ -183,17 +197,17 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 exp-section">
                                                     <div class="input-group">
                                                         <select name="billing_type"
-                                                                class="selectpicker per-hour-border"
+                                                                class="selectpicker per-hour-border select-border"
                                                                 data-style="btn-default">
                                                             <option
                                                                 @if(old('billing_type') ==  PaymentType::hour )
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 value="{{ PaymentType::hour }}">Per Hour
                                                             </option>
                                                             <option
                                                                 @if(old('billing_type') ==  PaymentType::fixed)
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 value="{{ PaymentType::fixed }}">Fixed
                                                             </option>
@@ -217,10 +231,37 @@
                                         </div>
                                     </div>
                                 </div>
-                            {{-- end Billings & Malpractice Insurance block--}}
+                                {{-- end Billings & Malpractice Insurance block--}}
+
+                                <div class="profile-section">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 profile-rows">
+                                            <h4 class="profile-rows-title">Title
+                                                <span class="profile-rows-title-sub"></span>
+                                            </h4>
+                                            {{--                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few--}}
+                                            {{--                                                sentence to enable us identify the best attorney for your job.--}}
+                                            {{--                                            </p>--}}
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="row no-gutters ">
+                                                <textarea rows="4" class="form-control"
+                                                          name="title">{{ old('title') }}</textarea>
+                                            </div>
+                                            <div class="error-container">
+                                                <ul class="error-list">
+                                                    @error('title')
+                                                    <li>{{ $message }}</li>
+                                                    @enderror
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
-                            <!--start biography block-->
+                                <!--start biography block-->
                                 <div class="profile-section">
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-rows">
@@ -238,7 +279,7 @@
                                                           name="description">{{ old('description') }}</textarea>
                                             </div>
                                             <div class="error-container">
-                                                <ul class="error-list" id="biography_errors">
+                                                <ul class="error-list">
                                                     @error('description')
                                                     <li>{{ $message }}</li>
                                                     @enderror

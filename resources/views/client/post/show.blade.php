@@ -1,4 +1,4 @@
-@extends('lawyer.app')
+@extends('client.app')
 @section('title','Post '. $post->id)
 @section('content')
     <!--start myProfile-->

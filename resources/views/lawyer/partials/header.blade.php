@@ -15,26 +15,18 @@
 
                 <ul class="navbar-nav mr-auto black_menu">
                     <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0 active" href="#">Post A Job</a>
+                        <a class="nav-link pr-0 pl-0" href="{{ route('our_lawyers') }}">Our Lawyers</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0" href="#">Our Lawyers</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0" href="#">How It Works </a>
+                        <a class="nav-link pr-0 pl-0" href="{{ route('how_it_works') }}">How It Works </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0" href="{{ route('post.index') }}">My Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pr-0 pl-0" href="#">About</a>
+                        <a class="nav-link pr-0 pl-0" href="{{ route('about_us') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pr-0 pl-0" href="#">Resources</a>
                     </li>
-
                 </ul>
                 <div class="my-2 my-lg-0 ml-auto">
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

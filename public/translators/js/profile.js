@@ -107,7 +107,7 @@ $(document).ready(() => {
     translatorProfile.onsubmit = async (e) => {
         e.preventDefault();
 
-        let response = await fetch(`${base_url}/profile`, {
+        let response = await fetch(e.target.action, {
             method: 'POST',
             body: new FormData(e.target)
         });

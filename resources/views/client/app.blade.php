@@ -12,16 +12,20 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <!--end bootstrap-->
-
+    <!--start fontawesome-->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome/all.css') }}">
+    <!--end fontawesome-->
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
     <!-- select 2 -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lawyerProfile.css') }}">
-    @yield('stylesheet')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/clientProfile.css') }}">
+    @stack('stylesheet')
 </head>
-
+@php
+    $route = Route::currentRouteName();
+@endphp
 <body>
-@include('lawyer.partials.header')
+@include('client.partials.header')
 
 @yield('content')
 
@@ -34,7 +38,10 @@
 <!-- select 2 -->
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <!-- select 2 -->
-@yield('javascript')
+<!-- fontawesome -->
+<script src="{{ asset('translators/js/fontawesome/all.js') }}"></script>
+<!-- fontawesome -->
+@stack('javascript')
 <!--end scripts-->
 </body>
 </html>

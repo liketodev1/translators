@@ -47,7 +47,7 @@ class LawyerController extends Controller
             'profile.linkedin' => ['sometimes','required_without:url'],
             'profile.biography' => ['required', 'max:750'],
             'profile.experience' => ['required', 'digits_between:1,2'],
-            'profile.country' => ['required'],
+            'profile.country_id' => ['required'],
             'profile.state' => ['required'],
             'profile.city' => ['required'],
             'profile.address' => ['required'],

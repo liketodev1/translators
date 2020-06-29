@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\TimeAgo;
 use Illuminate\Database\Eloquent\Model;
 
 class UserPost extends Model
@@ -10,8 +11,10 @@ class UserPost extends Model
 
     protected $fillable = [];
 
+
     protected $casts = [
-        'status' => 'boolean'
+        'status' => 'boolean',
+        'created_at' => TimeAgo::class
     ];
 
     public function country()

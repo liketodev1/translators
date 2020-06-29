@@ -21,10 +21,12 @@
     <!-- select 2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet"/>
     <!-- select 2 -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/clientProfile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/lawyerProfile.css') }}">
     @stack('stylesheet')
 </head>
-
+@php
+  $route = Route::currentRouteName();
+@endphp
 <body>
 @include('lawyer.partials.header')
 

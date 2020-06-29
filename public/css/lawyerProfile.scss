@@ -7,6 +7,8 @@ $base-orange: #F54838;
     font-weight: normal;
 }
 
+
+
 h1, h3, h5, p {
     margin: 0;
 }
@@ -38,6 +40,12 @@ header {
         .navbar {
             padding: 10px 0;
         }
+
+        .navbar-brand {
+            &.logo{
+                margin-right: 11% !important;
+            }
+        }
     }
 
     .search-block {
@@ -48,6 +56,7 @@ header {
     .nav-item {
         padding-left: 32px;
     }
+
 
     .dropdown-toggle {
         &:after {

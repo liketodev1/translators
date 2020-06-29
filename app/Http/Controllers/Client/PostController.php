@@ -65,6 +65,7 @@ class PostController extends Controller
             'address' => 'required',
             'billing_type' => 'required',
             'price' => 'required',
+            'title' => 'required',
             'description' => 'required',
         ]);
 
@@ -77,6 +78,7 @@ class PostController extends Controller
         $post->address = $request->address;
         $post->billing_type = $request->billing_type;
         $post->price = $request->price;
+        $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
         return redirect()->route('post.index')->with('success','Post created');
@@ -131,6 +133,7 @@ class PostController extends Controller
             'billing_type' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'title' => 'required',
         ]);
 
         $post = UserPost::where('id','=',$id)
@@ -144,6 +147,7 @@ class PostController extends Controller
         $post->address = $request->address;
         $post->billing_type = $request->billing_type;
         $post->price = $request->price;
+        $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
 
