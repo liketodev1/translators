@@ -107,8 +107,7 @@ class PagesController extends BaseController
                     $join->where('c.id', '=', $request->c);
                 }
             })
-            ->select(['users.*'])
-            ->groupBy('su.user_id');
+            ->select(['users.*']);
 
         $users = $query->get();
 

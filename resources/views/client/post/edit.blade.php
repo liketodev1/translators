@@ -15,9 +15,9 @@
                             <div class="profile">
                                 {{--Industry specialization start--}}
                                 <div class="profile-section">
-                                     <div class="mb-3" id="messageContainer">
-                                         @include('lawyer.partials.alert')
-                                     </div>
+                                    <div class="mb-3" id="messageContainer">
+                                        @include('lawyer.partials.alert')
+                                    </div>
                                     <h1>Post A Job</h1>
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-rows">
@@ -27,18 +27,19 @@
                                                 identify the right attorney for you.
                                             </p>
                                             <div class="row no-gutters">
-                                            <select name="specialization" id="" class="selectpicker form-control select-border">
-                                                @foreach($specializations as $item)
-                                                    <option value="{{ $item->id }}"
-                                                            @if(old('specialization') == $item->id)
+                                                <select name="specialization" id=""
+                                                        class="selectpicker form-control select-border">
+                                                    @foreach($specializations as $item)
+                                                        <option value="{{ $item->id }}"
+                                                                @if(old('specialization') == $item->id)
+                                                                selected
+                                                                @endif
+                                                                @if ($post->specialization->id == $item->id)
                                                                 selected
                                                             @endif
-                                                            @if ($post->specialization->id == $item->id)
-                                                                selected
-                                                            @endif
-                                                    >{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
+                                                        >{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="error-container">
                                                 <ul class="error-list">
@@ -47,54 +48,54 @@
                                                     @enderror
                                                 </ul>
                                             </div>
-                                     {{--       @php
-                                                $count = count($specializations);
-                                            @endphp
-                                            @if($count>0)
-                                                <div class="row no-gutters">
-                                                    @php($totalServices = $count)
-                                                    @php($currentRow = 0)
-                                                    @php($serviceCount = 0)
-                                                    @foreach($specializations as $item)
-                                                        @if($currentRow == 0)
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                                                <ul class="checkbox-list">
-                                                                    @endif
-                                                                    <li>
-                                                                        <div class="check-block">
-                                                                            <input type="checkbox"
-                                                                                   name="specialization"
-                                                                                   class="custom-control-input specialization"
-                                                                                   id="ch_{{ $item->id }}"
-                                                                                   value="{{ $item->id }}"
-                                                                                   @if(old('specialization') == $item->id)
-                                                                                       checked
-                                                                                   @endif
-                                                                                @if ($post->specialization->id == $item->id)
-                                                                                   checked
-                                                                                @endif
-                                                                            >
-                                                                            <label class="custom-control-label"
-                                                                                   for="ch_{{ $item->id }}">{{ $item->name }}</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    @php($serviceCount ++)
-                                                                    @php($currentRow ++)
-                                                                    @if($currentRow == $count/3  || $serviceCount == $totalServices)
-                                                                        @php($currentRow = 0)
-                                                                </ul>
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-                                                <div class="error-container">
-                                                    <ul class="error-list">
-                                                        @error('specialization')
-                                                        <li>{{ $message }}</li>
-                                                        @enderror
-                                                    </ul>
-                                                </div>
-                                            @endif--}}
+                                            {{--       @php
+                                                       $count = count($specializations);
+                                                   @endphp
+                                                   @if($count>0)
+                                                       <div class="row no-gutters">
+                                                           @php($totalServices = $count)
+                                                           @php($currentRow = 0)
+                                                           @php($serviceCount = 0)
+                                                           @foreach($specializations as $item)
+                                                               @if($currentRow == 0)
+                                                                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                                                       <ul class="checkbox-list">
+                                                                           @endif
+                                                                           <li>
+                                                                               <div class="check-block">
+                                                                                   <input type="checkbox"
+                                                                                          name="specialization"
+                                                                                          class="custom-control-input specialization"
+                                                                                          id="ch_{{ $item->id }}"
+                                                                                          value="{{ $item->id }}"
+                                                                                          @if(old('specialization') == $item->id)
+                                                                                              checked
+                                                                                          @endif
+                                                                                       @if ($post->specialization->id == $item->id)
+                                                                                          checked
+                                                                                       @endif
+                                                                                   >
+                                                                                   <label class="custom-control-label"
+                                                                                          for="ch_{{ $item->id }}">{{ $item->name }}</label>
+                                                                               </div>
+                                                                           </li>
+                                                                           @php($serviceCount ++)
+                                                                           @php($currentRow ++)
+                                                                           @if($currentRow == $count/3  || $serviceCount == $totalServices)
+                                                                               @php($currentRow = 0)
+                                                                       </ul>
+                                                                   </div>
+                                                               @endif
+                                                           @endforeach
+                                                       </div>
+                                                       <div class="error-container">
+                                                           <ul class="error-list">
+                                                               @error('specialization')
+                                                               <li>{{ $message }}</li>
+                                                               @enderror
+                                                           </ul>
+                                                       </div>
+                                                   @endif--}}
                                         </div>
                                     </div>
                                 </div>
@@ -214,6 +215,11 @@
                                                                     @if(count($languages)>0)
                                                                         @foreach($languages as $language)
                                                                             <option
+                                                                                @foreach ($post->languageLevel as $item)
+                                                                                @if($item->language_id == $language->id)
+                                                                                    selected
+                                                                                @endif
+                                                                                @endforeach
                                                                                 value="{{ $language->id }}">{{ $language->name }}</option>
                                                                         @endforeach
                                                                     @endif
@@ -223,6 +229,11 @@
                                                                     @if(count($languageLevels)>0)
                                                                         @foreach($languageLevels as $level)
                                                                             <option
+                                                                                @foreach ($post->languageLevel as $item)
+                                                                                @if($item->language_level_id == $level->id)
+                                                                                selected
+                                                                                @endif
+                                                                                @endforeach
                                                                                 value="{{ $level->id }}">{{ $level->name }}</option>
                                                                         @endforeach
                                                                     @endif
@@ -232,7 +243,7 @@
                                                     </td>
                                                 </tr>
                                             @endif
-                                            @include('lawyer.partials.languages',['data' => $post->languageLevel])
+                                            @include('client.partials.languages',['data' => $post->languageLevel])
                                             <input type="hidden" name="delLang" id="deleteLanguages">
                                             <!--end lang-row-->
                                             </tbody>
@@ -264,25 +275,26 @@
                                                                 data-style="btn-default">
                                                             <option
                                                                 @if(old('billing_type') ==  PaymentType::hour )
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 @if($post->billing_type ==  PaymentType::hour )
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 value="{{ PaymentType::hour }}">Per Hour
                                                             </option>
                                                             <option
                                                                 @if(old('billing_type') ==  PaymentType::fixed)
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 @if($post->billing_type ==  PaymentType::fixed )
-                                                                    selected
+                                                                selected
                                                                 @endif
                                                                 value="{{ PaymentType::fixed }}">Fixed
                                                             </option>
                                                         </select>
                                                         <input type="text" name="price" class="form-control" id="rate"
-                                                               placeholder="$..." value="{{ old('price') }}{{ $post->price }}">
+                                                               placeholder="$..."
+                                                               value="{{ old('price') }}{{ $post->price }}">
 
                                                     </div>
                                                     <div class="error-container">
@@ -300,7 +312,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            {{-- end Billings & Malpractice Insurance block--}}
+                                {{-- end Billings & Malpractice Insurance block--}}
                                 <div class="profile-section">
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-rows">
@@ -328,14 +340,15 @@
                                     </div>
                                 </div>
 
-                            <!--start biography block-->
+                                <!--start biography block-->
                                 <div class="profile-section">
                                     <div class="row no-gutters">
                                         <div class="col-12 profile-rows">
                                             <h4 class="profile-rows-title">Job Description
                                                 <span class="profile-rows-title-sub"></span>
                                             </h4>
-                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few sentence to enable us identify the best attorney for your job.
+                                            <p class="profile-rows-sub-title">Please describe your legal needs in a few
+                                                sentence to enable us identify the best attorney for your job.
                                             </p>
                                         </div>
 

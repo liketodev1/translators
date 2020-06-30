@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,3 +73,13 @@ Route::get('/privacy-policy', 'PagesController@privacyPolicy')->name('privacy_po
 
 Route::get('find-a-job','PagesController@findAJob')->name('find_a_job');
 Route::get('our-lawyers','PagesController@ourLawyers')->name('our_lawyers');
+
+Route::get('/clear-cache', function() {
+   Artisan::call('cache:clear');
+   Artisan::call('route:clear');
+   Artisan::call('config:clear');
+   Artisan::call('view:clear');
+   Artisan::call('optimize:clear');
+
+    return "Cache is cleared";
+});
