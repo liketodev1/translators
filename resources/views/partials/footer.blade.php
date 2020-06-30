@@ -14,11 +14,11 @@
                     </div>
                 </div>
             </div>
-            <div class="copyright">{{__('global.textFooter2')}}· Terms of Use · Privacy Policy</div>
+            <div class="copyright">{{__('global.textFooter2')}}· TalkCounsel, LLC.</div>
         </div>
         <div class="footer_2_block to-right">
             <a href="{{ route('find_a_job') }}">{{__('global.findJob')}}</a>
-            <a href="{{ route('our_lawyers') }}">{{__('global.findTranslator')}}</a>
+            <a href="{{ route('our_lawyers') }}">Find A Lawyer</a>
             <a href="">{{__('global.specializations')}}</a>
             <a href="">{{__('global.keyFeatures')}}</a>
         </div>
