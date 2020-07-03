@@ -205,11 +205,11 @@ $headerType = 'white';
                 <h2>We Are Here <br> To Help You</h2>
                 <div class="help_text_container">
                     <h5>For Clients</h5>
-                    <p> At TalkCounsel, we provide you with <br>a global network of well-vetted lawyers. <br>
-                        Easily connect with expert help while <br>saving up to 50 percent in attorney’s fees.</p>
-                    <a href="">Find A Lawyer &nbsp;&nbsp; <i class="fas fa-arrow-right"></i></a>
+                    <p> At TalkCounsel, we provide you with a global network of well-vetted lawyers. Easily connect with
+                        expert help while saving up to 60 percent in attorney’s fees.
+                        <a href="">Find A Lawyer &nbsp;&nbsp; <i class="fas fa-arrow-right"></i></a>
 
-                    <h5>For translators</h5>
+                    <h5>For Lawyers</h5>
                     <p>Transform the way you work and collaborate with a space designed to fill attorneys’ needs for
                         professionalism and confidentiality. Improve flexibility and close deals more efficiently.
                         Receive payment faster with peace of mind that all transactions and data are secure. All this

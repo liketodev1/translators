@@ -1,5 +1,5 @@
 <?php
 return [
     "login" => "Log In",
-    "register" => "Sign UP",
+    "register" => "Sign Up",
 ];

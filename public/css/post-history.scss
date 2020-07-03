@@ -213,7 +213,7 @@ $base-orange: #F54838;
 
         border: 1px solid #ccc;
         border-radius: 0;
-        padding: 10.5px 16px;
+        padding: 10.5px 16px 0;
         width: 33.33333333%;
 
         .find-job-select-title {
@@ -224,7 +224,7 @@ $base-orange: #F54838;
 
         }
 
-        .dropdown-toggle {
+        .dropdown-toggle, select {
             font-weight: 500;
             font-size: 15px;
 
@@ -236,6 +236,11 @@ $base-orange: #F54838;
             align-items: center;
             padding: 0;
             padding-top: 5px;
+            border: none;
+
+            &:focus {
+                box-shadow: none;
+            }
 
         }
 
@@ -273,13 +278,40 @@ $base-orange: #F54838;
     margin-bottom: 40px;
 
     .filter-dropdowns-block {
+
+        select {
+            -moz-appearance: window;
+            -webkit-appearance: none;
+            background: #fff url("../img/arrow-bottom.png") 115% 1% no-repeat;
+            padding-right: 20px;
+            font-size: 14px;
+        }
+        @-moz-document url-prefix() {
+            .filter-item {
+                background: #fff url("../img/arrow-bottom.png") 115% 1% no-repeat;
+                padding-right: 20px;
+            }
+        }
         .filter-item {
             font-size: 14px;
             line-height: 20px;
             border: 1px solid #999999;
             color: #555555;
             border-radius: 3px;
-            padding: 8px 12px;
+            padding: 0 12px;
+
+            select {
+                padding-left: 8px;
+
+            }
+
+
+            .found-job-filter-title {
+                color: #999999;
+                font-size: 14px;
+
+
+            }
 
             .filter-btn {
                 &:before {
@@ -339,12 +371,14 @@ $base-orange: #F54838;
                 width: 100%;
             }
         }
-         .btn-group:nth-child(2) {
+
+        .btn-group:nth-child(2) {
             width: 90%;
-             margin: auto;
-             .find-job-search-btn {
-                 width: 100%;
-             }
+            margin: auto;
+
+            .find-job-search-btn {
+                width: 100%;
+            }
         }
     }
     .price-block {
@@ -355,7 +389,7 @@ $base-orange: #F54838;
         margin-right: 40px;
     }
     .posts-block {
-        .row{
+        .row {
             margin-right: 15px !important;
             margin-left: 15px !important;
         }
@@ -370,3 +404,5 @@ $base-orange: #F54838;
         justify-content: center;
     }
 }
+
+
