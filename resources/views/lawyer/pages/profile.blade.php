@@ -183,7 +183,7 @@
                                                 <!--start lang-row-->
                                                 @if(count(Auth::user()->languageLevel)==0)
                                                     <tr>
-                                                        <td>
+                                                        <td class="w-398">
                                                             <div class="languages-select">
                                                                 <div class="input-group">
                                                                     <select name="language[]" class="selectpicker"

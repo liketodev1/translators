@@ -313,6 +313,11 @@ header {
                 td {
                     padding: 0 12px 12px 0;
                     vertical-align: inherit;
+                    &.w-398 {
+                        max-width: 398px;
+                        min-width: 398px;
+                        width: 398px;
+                    }
                 }
 
                 tr {
@@ -411,7 +416,7 @@ header {
                     color: #241F2D;
                     padding: 8px 12px;
                     border: 1px solid #D6D5D7;
-                    font-size: 14px;
+                    //font-size: 14px;
                     //background-image: url(../img/arrow-bottom.png);
                     background-position: 98% center;
                     background-repeat: no-repeat;

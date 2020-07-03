@@ -347,7 +347,7 @@ header {
     #help_container {
         img {
             &.img-fluid {
-                max-width: 50%;
+                max-width: 60%;
             }
         }
     }
@@ -386,6 +386,9 @@ header {
         .logo {
             margin-right: 9% !important;
         }
+        #header_white .nav-item .nav-link.active {
+            width: 130px;
+        }
     }
     #help_container {
         img {
@@ -394,12 +397,21 @@ header {
             }
         }
     }
-}
 
+    .goals-content {
+        .goals-bg {
+            .abs {
+              display: none;
+            }
+        }
+    }
+
+}
+ 
 @media (max-width: 860px) {
     #help_container {
         max-width: 100%;
-
+        padding: 124px 96px 60px 96px;
         .help_left {
             padding: 0 40px 40px 40px;
 
