@@ -2123,14 +2123,15 @@ footer {
 
 /* footer end */
 
-/*TODO*/
 
-.collapse.navbar-collapse {
-    /*align-items: flex-end;*/
-}
-.navbar-expand-lg .white_nav a.nav-link {
-    padding-top: 20px;
-}
-li.home_header_default_link_login a {
-    padding-top: 14px;
-}
+/*!*TODO*!*/
+
+/*.collapse.navbar-collapse {*/
+/*    !*align-items: flex-end;*!*/
+/*}*/
+/*.navbar-expand-lg .white_nav a.nav-link {*/
+/*    padding-top: 20px;*/
+/*}*/
+/*li.home_header_default_link_login a {*/
+/*    padding-top: 14px;*/
+/*}*/
