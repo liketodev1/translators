@@ -1,6 +1,6 @@
 <div class="my_container">
     <header  id="header_white">
-        <nav class="navbar navbar-expand-lg navbar-light" id="header2_navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="header2_navbar">
             <a class="navbar-brand logo" href="{{route('home')}}">
                 <img src="{{ asset('img/logo.png')}} " alt="Logo">
             </a>

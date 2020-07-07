@@ -11,7 +11,9 @@
                 </div>
             </div>
         @empty
-            Not result
+            <div class="result-not-found">
+                <div>Result not found</div>
+            </div>
         @endforelse
     </div>
 @endsection

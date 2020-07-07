@@ -145,6 +145,7 @@
     }
     .select_container {
         align-items: center;
+        /*justify-content: center;*/
     }
 
     .select_blocks {
@@ -298,7 +299,7 @@
 
 @media (max-width: 425px){
     .help_left h2 {
-        margin: 124px 5px 40px 5px;
+        margin: 0 5px;
     }
 
     h2#our_clients_h2 {
