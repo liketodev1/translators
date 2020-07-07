@@ -62,6 +62,12 @@ class PagesController extends BaseController
         $specializations = Specializations::orderBy('name', 'asc')->get();
         $countries = Country::orderBy('name', 'asc')->get();
         $legal_areas = LegalAreas::orderBy('name', 'asc')->get();
+        $ratings = [
+            '4.5-5',
+            '3.5-4',
+            '2.5-3',
+            '1.5-2',
+            '0.5-1'];
 
         $query = UserPost::where('deleted_at', '=', null)
             ->where('status', '=', true);
@@ -74,10 +80,18 @@ class PagesController extends BaseController
         if ($request->bt) {
             $query->where('country_id', '=', (int)$request->c);
         }
-
         $jobs = $query->get();
 
-        return view('pages.find_a_job', compact('jobs', 'specializations', 'countries', 'legal_areas'));
+        $cities = $query->select(['user_posts.city'])->groupBy('user_posts.city')->get();
+
+        return view('pages.find_a_job',
+            compact('jobs',
+              'specializations',
+                'countries',
+                'legal_areas',
+                'ratings',
+                'cities'
+            ));
 
     }
 
