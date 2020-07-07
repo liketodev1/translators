@@ -92,7 +92,8 @@ header#header_white .nav-item .nav-link.active {
 }
 
 .legal-work {
-  padding: 65px 10px 110px 84px;
+  padding: 65px 10px 110
+  px 84px;
 }
 .legal-work .legal-work-content .legal-work-title {
   font-family: Metropolis, sans-serif;
