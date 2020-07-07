@@ -2123,15 +2123,12 @@ footer {
 
 /* footer end */
 
+.result-not-found{
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,.125);
+    margin: 25px 0;
+    border-radius: 3px;
+    font-size: 22px;
+}
 
-/*!*TODO*!*/
-
-/*.collapse.navbar-collapse {*/
-/*    !*align-items: flex-end;*!*/
-/*}*/
-/*.navbar-expand-lg .white_nav a.nav-link {*/
-/*    padding-top: 20px;*/
-/*}*/
-/*li.home_header_default_link_login a {*/
-/*    padding-top: 14px;*/
-/*}*/

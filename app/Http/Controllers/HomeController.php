@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\LegalAreas;
 use App\Models\Specializations;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,13 +23,13 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
         $specializations = Specializations::orderBy('name','asc')->get();
         $countries = Country::orderBy('name','asc')->get();
-        $legal_areas = LegalAreas::orderBy('name','asc')->get();
+        $legal_areas = LegalAreas::orderBy('position','asc')->get();
 
         return view('home',
             array(

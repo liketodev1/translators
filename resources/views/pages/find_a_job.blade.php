@@ -10,62 +10,55 @@
     <div class="container">
         <div class="row no-gutters w-100">
             <div class="col-12">
-                <form action="#" class="find-job-form w-100">
+                <form action="" class="find-job-form w-100" method="get">
                     <div class="btn-group border-0">
 
                         <div class="find-job-select-item">
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT BILLING METHOD</p>
-
-                            <select class="browser-default custom-select-lg">
-                                <option value="0" selected>Per Hour</option>
-                                <option value="1">Per Hour 2</option>
-                                <option value="2">Per Hour 3</option>
+                            <select name="bt" class="browser-default custom-select-lg">
+                                <option {{ PaymentType::hour == request()->bt? 'selected':'' }} value="{{ PaymentType::hour }}">Per Hour</option>
+                                <option {{ PaymentType::fixed == request()->bt? 'selected':'' }} value="{{ PaymentType::fixed }}">Fixed</option>
                             </select>
-
                         </div>
 
-
                         <div class="find-job-select-item">
-
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT SPECIALIZATION</p>
-
-                            <select class="browser-default custom-select-lg dropdown-items-wrap">
-                                <option value="0" selected>Business & Finance </option>
-                                <option value="1">Business & Finance 2</option>
-                                <option value="2">Business & Finance 3</option>
+                            <select name="s" class="browser-default custom-select-lg dropdown-items-wrap">
+                                @if(count($specializations)>0)
+                                    @foreach($specializations as $specialization)
+                                        <option {{ request()->s == $specialization->id?'selected':'' }}
+                                            value="{{ $specialization->id }}">{{ $specialization->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
-
-
                         </div>
+
                         <div class="find-job-select-item">
-
                             <p class="mb-0 text-uppercase find-job-select-title">Select country</p>
-
-                            <select class="browser-default custom-select-lg dropdown-items-wrap">
-                                <option value="0" selected> USA</option>
-                                <option value="1"> UK</option>
-                                <option value="2"> Canada </option>
+                            <select name="c" class="browser-default custom-select-lg dropdown-items-wrap">
+                                @if(count($countries)>0)
+                                    @foreach($countries as $county)
+                                        <option {{ request()->c == $county->id?'selected':'' }}
+                                            value="{{ $county->id }}">{{ $county->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
-
                         </div>
                     </div>
 
-
                     <div class="btn-group">
-                        <button type="button" class="find-job-search-btn"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="find-job-search-btn"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
             </div>
-
         </div>
-
     </div>
     <div class="container posts-block">
         <div class="row no-gutters">
 
             <div class="col-12 d-flex flex-column ">
                 <h1 class="posts-title">
-                    We found 275 jobs for your search
+                    We found {{ count($jobs) }} jobs for your search
                 </h1>
                 <form class="filter-form d-flex flex-row flex-wrap justify-content-between">
 
@@ -76,11 +69,12 @@
                             <p class="mb-0 found-job-filter-title">Rating: </p>
 
                             <select class="browser-default custom-select-lg filter-btn filter-btn-raiting border-0">
-                                <option value="0" selected>4.5-5</option>
-                                <option value="1"> 0-5</option>
-                                <option value="2"> 1-3 </option>
+                                <option value="" selected>All</option>
+                                @foreach ($ratings as $rating)
+                                    <option value="">{{$rating}}</option>
+                                @endforeach
                             </select>
-                            <button class="filter-close">
+                            <button class="filter-close" type="button">
                                 <i class="fas fa-times"></i>
                             </button>
 
@@ -90,31 +84,39 @@
 
                             <p class="mb-0 found-job-filter-title">Price: </p>
 
-                            <select class="browser-default custom-select-lg filter-btn filter-btn-raiting border-0">
-                                <option value="0" selected>$10 - $15 per hour</option>
-                                <option value="1"> $12 - $19 per hour</option>
-                                <option value="2"> $100 - $150 per hour </option>
+                            <select name="" class="browser-default custom-select-lg filter-btn filter-btn-raiting border-0">
+                                <option value="" selected>All</option>
+                                @for ($i = 5; $i < 350; $i+=5)
+                                    <option
+                                        value="{{ $i }}-{{ $i + 5 }}">{{ $i }}-{{ $i + 5 }}
+                                        @if(request()->bt == PaymentType::hour)
+                                            per hour
+                                        @else
+                                            @if(request()->bt == PaymentType::fixed)
+                                                fixed
+                                            @else
+                                                per hour
+                                            @endif
+                                        @endif
+                                    </option>
+                                @endfor
                             </select>
-                            <button class="filter-close">
+                            <button class="filter-close" type="button">
                                 <i class="fas fa-times"></i>
                             </button>
-
-
-
                         </div>
 
                         <div class="dropdown filter-item mr-2 mb-2 d-flex align-items-center">
                             <p class="mb-0 found-job-filter-title">Location: </p>
-
-                            <select class="browser-default custom-select-lg filter-btn filter-btn-raiting border-0">
-                                <option value="0" selected>United States</option>
-                                <option value="1"> UK </option>
-                                <option value="2"> Canada </option>
+                            <select name="city" class="browser-default custom-select-lg filter-btn filter-btn-raiting border-0">
+                                <option value="" selected>All</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->city }}">{{ $city->city }}</option>
+                                @endforeach
                             </select>
-                            <button class="filter-close">
+                            <button class="filter-close" type="button">
                                 <i class="fas fa-times"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="posts-sort-block pb-0">Sort by: <span>Newest <i class="fas fa-chevron-down"></i></span>
@@ -145,7 +147,7 @@
                         </div>
 
                         <div class="posts-spec-block d-flex flex-row flex-wrap pt-5 ">
-{{--                            <h6 class="title  ml-0"><i class="fas fa-star"></i> 4.95 <span>(17 revievs)</span></h6>--}}
+                            {{--                            <h6 class="title  ml-0"><i class="fas fa-star"></i> 4.95 <span>(17 revievs)</span></h6>--}}
 
                             <h6 class=""><i class="fas fa-map-marker-alt"></i> {{ $job->city }}
                                 , {{ $job->country->name }}</h6>
@@ -170,9 +172,10 @@
                     </div>
                 </div>
             </div>
-
         @empty
-            Not result
+            <div class="result-not-found">
+                <div>Result not found</div>
+            </div>
         @endforelse
     </div>
 @endsection
