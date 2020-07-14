@@ -190,7 +190,7 @@ $base-orange: #F54838;
 
 
 /* find a job page */
-.find-job-form  {
+.find-job-form {
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
@@ -286,12 +286,14 @@ $base-orange: #F54838;
             padding-right: 20px;
             font-size: 14px;
         }
+
         @-moz-document url-prefix() {
             .filter-item {
                 background: #fff url("../img/arrow-bottom.png") 115% 1% no-repeat;
                 padding-right: 20px;
             }
         }
+
         .filter-item {
             font-size: 14px;
             line-height: 20px;
@@ -403,6 +405,15 @@ $base-orange: #F54838;
     .card {
         justify-content: center;
     }
+
+    .find-job-form {
+        .find-job-search-btn {
+            border-radius: 0;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+
 }
 
 
