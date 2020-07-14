@@ -306,6 +306,7 @@ header {
     }
 }
 
+
 .bg-color-t {
     background: linear-gradient(180deg, #F3F6FB 0%, #FFFFFF 100%) !important;
 }
@@ -505,7 +506,7 @@ header {
     }
 
     .sm-center {
-        justify-content: center;
+        margin: auto;
     }
 
     .home-search-form {
@@ -533,7 +534,24 @@ header {
                 width: 100%;
             }
         }
+
+        .home-search-search-btn {
+            background-color: #f54838;
+            padding: 20px 30px;
+            border: transparent;
+            color: #fff;
+            border-radius: 0;
+
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            font-weight: bold;
+        }
     }
+
+    #find_translators_container h2 {
+        margin-top: 50px;
+    }
+
 }
 
 @media (max-width: 860px) {
@@ -608,6 +626,20 @@ header {
     .legal-work .legal-work-content .legal-work-text .legal-work-text-item {
         font-size: 18px;
     }
+    .goals-content .goals-block .goals-block-title {
+        font-size: 30px;
+    }
+    .goals-content .goals-bg .goals-block {
+        padding: 120px 40px 122px;
+    }
+
+    #help_container {
+        padding: 124px 30px 60px 30px;
+    }
+    .hedding_text_container {
+        padding-top: 100px;
+    }
+
 }
 
 @media only screen and (max-width: 432px) {
