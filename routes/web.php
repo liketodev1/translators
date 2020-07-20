@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
                 'terms' => 'TermsController',
                 'privacy_policy' => 'PrivacyPolicyController',
                 'legal_areas' => 'LegalAreasController',
+                'tag' => 'TagController',
+                'blog' => 'BlogController',
             )
         );
 
@@ -73,6 +75,9 @@ Route::get('/privacy-policy', 'PagesController@privacyPolicy')->name('privacy_po
 
 Route::get('find-a-job','PagesController@findAJob')->name('find_a_job');
 Route::get('our-lawyers','PagesController@ourLawyers')->name('our_lawyers');
+
+Route::get('/blog','BlogController@index')->name('blog_list');
+Route::get('/blog/{slug}','BlogController@view')->name('blog_view');
 
 Route::get('/clear-cache', function() {
    Artisan::call('cache:clear');

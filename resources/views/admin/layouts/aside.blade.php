@@ -53,6 +53,22 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item {{ $routeName=='admin.tag.index'?'menu-open':'' }}">
+                    <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Tags
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item {{ $routeName=='admin.blog.index'?'menu-open':'' }}">
+                    <a href="{{ route('admin.blog.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Blog
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

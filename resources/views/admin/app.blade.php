@@ -134,7 +134,15 @@
         $('.editor').summernote({
             minHeight: 300,
         })
-    })
+    });
+    $('input[type="checkbox"]').change(function(){
+        if($(this).prop("checked") == true){
+            $(this).val(1)
+        }
+        else if($(this).prop("checked") == false){
+            $(this).val(0)
+        }
+    });
 </script>
 {{-- end flesh message--}}
 </body>

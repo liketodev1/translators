@@ -128,5 +128,4 @@ class PagesController extends BaseController
         return view('pages.our_lawyers', compact('users'));
     }
 
-
 }

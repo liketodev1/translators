@@ -26,7 +26,7 @@
             <a href="{{route('about_us')}}">{{__('global.about')}}</a>
             <a href="{{route('how_it_works')}}">{{__('global.howItWorks')}}</a>
             <a href="{{ route('terms') }}">Terms Of Use</a>
-            <a href="">Blog</a>
+            <a href="{{ route('blog_list') }}">Blog</a>
         </div>
         <div class="footer_2_block">
             <a href="#">Careers</a>
