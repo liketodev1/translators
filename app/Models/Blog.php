@@ -13,6 +13,7 @@ class Blog extends Model
         'status',
         'slug',
         'type',
+        'short_text',
         'title',
         'description',
         'image',
@@ -20,8 +21,8 @@ class Blog extends Model
         'published_at',
     ];
 
-    protected $casts = [
-//      'published_at' => DateFormat::class
-    ];
-
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class,'blog_tags','blog_id','tag_id')->withTimestamps();
+    }
 }

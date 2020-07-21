@@ -60,6 +60,10 @@
             >
         </div>
         <div class="form-group">
+            <label for="short_text">Short Text</label>
+            <textarea name="short_text" id="short_text"  rows="6" class="form-control">{{ $result->short_text ?? '' }}</textarea>
+        </div>
+        <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description"
                       id="description"
@@ -100,6 +104,21 @@
             @if ($result && $result->image)
                 <img src="{{ Storage::url($result->image) }}" alt="" width="150px">
             @endif
+        </div>
+        <div class="form-group">
+
+            <label for="tag">Tag</label>
+            <select name="tag[]" id="tag" class="form-control select2bs4" multiple>
+               @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}"
+                        @if($result)
+                            @foreach($result->tags as $item)
+                             @if($item->id==$tag->id) selected @endif
+                            @endforeach
+                        @endif
+                    >{{ $tag->name }}</option>
+               @endforeach
+            </select>
         </div>
     </div>
     <!-- /.card-body -->
