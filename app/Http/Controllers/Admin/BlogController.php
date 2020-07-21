@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Services\FileSystemService;
 use Exception;
 use Illuminate\Contracts\View\Factory;
@@ -44,7 +45,9 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.blog.create');
+        $tags = Tag::orderby('name','asc')->get();
+
+        return view('admin.pages.blog.create',compact('tags'));
     }
 
     /**
@@ -55,12 +58,14 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $request->slug = Str::slug($request->slug, '-');
+
         $validatedData = $request->validate([
-            'slug'=> 'required|min:3|max:255|unique:blogs',
+            'slug'=> 'required|min:3|max:255|unique:blogs,slug',
             'type' => 'required',
             'title' => 'required|min:3|max:255',
             'description' => 'required|min:3',
-            'author' => 'required',
+            'author' => 'required|max:30',
             'published_at' => 'required'
         ]);
         $file = $request->file('image');
@@ -71,21 +76,10 @@ class BlogController extends Controller
 
         $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
         $validatedData['status'] = isset($request['title'])?true:false;
-        Blog::create($validatedData);
-
+        $blog = Blog::create($validatedData);
+        $blog->tags()->sync($request->tag);
         return redirect()->route('admin.blog.index')->with('success', $request->title . ' created successfully');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -96,8 +90,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
+        $tags = Tag::orderby('name','asc')->get();
         $result = Blog::findorFail($id);
-        return view('admin.pages.blog.edit',compact('result'));
+        return view('admin.pages.blog.edit',compact('result','tags'));
     }
 
     /**
@@ -124,6 +119,7 @@ class BlogController extends Controller
         }
         $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
         $validatedData['status'] = isset($request['title'])?true:false;
+        $blog->tags()->sync($request->tag);
         $blog->update($validatedData);
 
         return redirect()->route('admin.blog.edit',['blog'=>$blog])->with('success', $blog->title . ' updated successfully');
@@ -138,7 +134,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        Storage::disk('public')->delete($blog->image);
+        Storage::disk('public')->delete("{$blog->image}");
         $blog->delete();
 
         return redirect()->route('admin.blog.index')->with('success','Deleted successfully');
