@@ -60,6 +60,10 @@
             >
         </div>
         <div class="form-group">
+            <label for="short_text">Short Text</label>
+            <textarea name="short_text" id="short_text"  rows="6" class="form-control">{{ $result->short_text ?? '' }}</textarea>
+        </div>
+        <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description"
                       id="description"

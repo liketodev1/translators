@@ -64,6 +64,7 @@ class BlogController extends Controller
             'slug'=> 'required|min:3|max:255|unique:blogs,slug',
             'type' => 'required',
             'title' => 'required|min:3|max:255',
+            'short_text' => 'required|min:3|max:300',
             'description' => 'required|min:3',
             'author' => 'required|max:30',
             'published_at' => 'required'
@@ -75,7 +76,7 @@ class BlogController extends Controller
         }
 
         $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
-        $validatedData['status'] = isset($request['title'])?true:false;
+        $validatedData['status'] = isset($request['status'])?true:false;
         $blog = Blog::create($validatedData);
         $blog->tags()->sync($request->tag);
         return redirect()->route('admin.blog.index')->with('success', $request->title . ' created successfully');
@@ -108,6 +109,7 @@ class BlogController extends Controller
             'slug'=> "required|min:3|max:255|unique:blogs,slug,{$blog->slug},slug",
             'type' => 'required',
             'title' => 'required|min:3|max:255',
+            'short_text' => 'required|min:3|max:300',
             'description' => 'required|min:3',
             'author' => 'required',
             'published_at' => 'required'
@@ -118,7 +120,7 @@ class BlogController extends Controller
             $validatedData['image'] = $this->fileSystemService->fileUpload($file,'','images');
         }
         $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
-        $validatedData['status'] = isset($request['title'])?true:false;
+        $validatedData['status'] = isset($request['status'])?true:false;
         $blog->tags()->sync($request->tag);
         $blog->update($validatedData);
 

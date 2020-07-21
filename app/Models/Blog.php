@@ -13,6 +13,7 @@ class Blog extends Model
         'status',
         'slug',
         'type',
+        'short_text',
         'title',
         'description',
         'image',
