@@ -6,6 +6,7 @@
     'index' => route('admin.tag.index'),
     'create' => route('admin.tag.create'),
 ))
+
 @section('content')
     <!-- Default box -->
     <div class="card">
@@ -37,14 +38,12 @@
                                     </i>
                                     Edit
                                 </a>
-                            <form method="post" action="{{ route('admin.tag.destroy',['tag'=>$result->id]) }}">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i>
+                                <a type="button" class="btn btn-danger btn-sm delete-item" data-toggle="modal" data-target="#modal-sm"
+                                   href="#" data-href="{{ route('admin.tag.destroy',['tag'=>$result->id]) }}">
+                                    <i class="fas fa-trash">
+                                    </i>
                                     Delete
-                                </button>
-                            </form>
+                                </a>
                             </div>
                         </td>
                     </tr>

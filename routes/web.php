@@ -89,8 +89,8 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-Route::get('/migrate-force', function() {
-   Artisan::call('migrate --force');
-
-    return "DB migrated";
-});
+//Route::get('/migrate-force', function() {
+//   Artisan::call('migrate --force');
+//
+//    return "DB migrated";
+//});

@@ -77,9 +77,13 @@
 
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    @include('admin.layouts.footer')
 
+    {{-- Check if isset deleting route include modal--}}
+{{--    @if(isset($deletedRoute) && $deletedRoute)--}}
+        @include('admin.layouts.modal')
+{{--    @endif--}}
+<!-- /.content-wrapper -->
+    @include('admin.layouts.footer')
 </div>
 <!-- ./wrapper -->
 
@@ -154,6 +158,9 @@
     //Initialize Select2 Elements
     $('.select2bs4').select2({
         theme: 'bootstrap4'
+    })
+    $(document).on('click','.delete-item',function () {
+        $('form#delete-item').attr('action',$(this).data('href'))
     })
 </script>
 {{-- end flesh message--}}

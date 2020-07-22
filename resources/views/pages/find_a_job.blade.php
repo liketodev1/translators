@@ -16,6 +16,7 @@
                         <div class="find-job-select-item">
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT BILLING METHOD</p>
                             <select name="bt" class="browser-default custom-select-lg">
+                                <option value="">All</option>
                                 <option {{ PaymentType::hour == request()->bt? 'selected':'' }} value="{{ PaymentType::hour }}">Per Hour</option>
                                 <option {{ PaymentType::fixed == request()->bt? 'selected':'' }} value="{{ PaymentType::fixed }}">Fixed</option>
                             </select>
@@ -24,6 +25,7 @@
                         <div class="find-job-select-item">
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT SPECIALIZATION</p>
                             <select name="s" class="browser-default custom-select-lg dropdown-items-wrap">
+                                <option value="">All</option>
                                 @if(count($specializations)>0)
                                     @foreach($specializations as $specialization)
                                         <option {{ request()->s == $specialization->id?'selected':'' }}
@@ -36,7 +38,9 @@
                         <div class="find-job-select-item">
                             <p class="mb-0 text-uppercase find-job-select-title">Select country</p>
                             <select name="c" class="browser-default custom-select-lg dropdown-items-wrap">
-                                @if(count($countries)>0)
+                                <option value="">All</option>
+
+                            @if(count($countries)>0)
                                     @foreach($countries as $county)
                                         <option {{ request()->c == $county->id?'selected':'' }}
                                             value="{{ $county->id }}">{{ $county->name }}</option>
@@ -172,11 +176,15 @@
                     </div>
                 </div>
             </div>
+            <div>
+            </div>
         @empty
             <div class="result-not-found">
                 <div>Result not found</div>
             </div>
         @endforelse
+        {{ $jobs->links() }}
+
     </div>
 @endsection
 

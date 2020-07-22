@@ -6,6 +6,7 @@ if (!auth()->user()) {
 
 ?>
 @extends('layouts.app')
+@section('title','How it works')
 @section('content')
 
     <section class="container-fluid container-t section how-it-works-top">

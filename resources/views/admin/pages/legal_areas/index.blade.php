@@ -44,14 +44,12 @@
                                     </i>
                                     Edit
                                 </a>
-                            <form method="post" action="{{ route('admin.legal_areas.destroy',['legal_area'=>$result->id]) }}">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i>
+                                <a type="button" class="btn btn-danger btn-sm delete-item" data-toggle="modal" data-target="#modal-sm"
+                                   href="#" data-href="{{ route('admin.legal_areas.destroy',['legal_area'=>$result->id]) }}">
+                                    <i class="fas fa-trash">
+                                    </i>
                                     Delete
-                                </button>
-                            </form>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -60,7 +58,6 @@
             </table>
         </div>
     </div>
-
     <!-- /.card -->
 @endsection
 

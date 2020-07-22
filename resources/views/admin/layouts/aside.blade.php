@@ -1,7 +1,5 @@
 @php
-    $routeName =Route::currentRouteName();
-    $route = Route::current();
-    $action = Route::currentRouteAction();
+    $routeName = explode('.',Route::currentRouteName())[1];
 @endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -29,7 +27,7 @@
 {{--                        </p>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
-                <li class="nav-item {{ $routeName=='admin.terms.index'?'menu-open':'' }}">
+                <li class="nav-item {{ $routeName=='terms'?'menu-open':'' }}">
                     <a href="{{ route('admin.terms.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -37,7 +35,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ $routeName=='admin.privacy_policy.index'?'menu-open':'' }}">
+                <li class="nav-item {{ $routeName=='privacy_policy'?'menu-open':'' }}">
                     <a href="{{ route('admin.privacy_policy.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -45,7 +43,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ $routeName=='admin.legal_areas.index'?'menu-open':'' }}">
+                <li class="nav-item {{ $routeName=='legal_areas'?'menu-open':'' }}">
                     <a href="{{ route('admin.legal_areas.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
@@ -53,7 +51,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ $routeName=='admin.tag.index'?'menu-open':'' }}">
+                <li class="nav-item {{ $routeName=='tag'?'menu-open':'' }}">
                     <a href="{{ route('admin.tag.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
@@ -61,7 +59,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ $routeName=='admin.blog.index'?'menu-open':'' }}">
+                <li class="nav-item {{ $routeName=='blog'?'menu-open':'' }}">
                     <a href="{{ route('admin.blog.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>

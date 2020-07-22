@@ -207,7 +207,7 @@ $headerType = 'white';
                     <h5>For Clients</h5>
                     <p> At TalkCounsel, we provide you with a global network of well-vetted lawyers. Easily connect with
                         expert help while saving up to 60 percent in attorney’s fees.
-                        <a href="">Find A Lawyer &nbsp;&nbsp; <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ route('our_lawyers') }}">Find A Lawyer &nbsp;&nbsp; <i class="fas fa-arrow-right"></i></a>
 
                     <h5>For Lawyers</h5>
                     <p>Transform the way you work and collaborate with a space designed to fill attorneys’ needs for
@@ -216,7 +216,7 @@ $headerType = 'white';
                         from the comfort of your own home. Join TalkCounsel-- the digital workplace of the future for
                         legal professionals all over.<br>
                     </p>
-                    <a href="">Find A Job &nbsp; &nbsp; <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('find_a_job') }}">Find A Job &nbsp; &nbsp; <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <img src="{{asset('img/image-t.png')}}" alt="" class="img-fluid">

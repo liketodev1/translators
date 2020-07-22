@@ -134,23 +134,23 @@ $base-orange: #F54838;
             }
         }
 
-        .blog-single-item-text {
-            font-style: normal;
-            font-weight: normal;
-            font-size: 15px;
+        .parent-text{
+            h1,h2,h3,h4,h5,h6{
+                font-style: normal;
+                font-weight: 600;
+                color: #000000;
+                margin-top: 50px;
+                margin-bottom: 40px;
+            }
 
-            color: #000000;
+            p{
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                color: #000000;
+            }
         }
 
-        .blog-single-item-title {
-            font-style: normal;
-            font-weight: 600;
-            font-size: 24px;
-
-            color: #000000;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
 
         .blog-single-item-tags {
             a {

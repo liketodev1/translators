@@ -80,7 +80,7 @@ class PagesController extends BaseController
         if ($request->bt) {
             $query->where('country_id', '=', (int)$request->c);
         }
-        $jobs = $query->get();
+        $jobs = $query->paginate(15);
 
         $cities = $query->select(['user_posts.city'])->groupBy('user_posts.city')->get();
 

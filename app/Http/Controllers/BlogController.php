@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -13,7 +12,13 @@ class BlogController extends Controller
     }
 
     public function view($slug){
-        $blog = Blog::where('slug',$slug)->firstOrFail();
-        return view('blog.view',compact('blog'));
+        $blog  = Blog::where('slug',$slug)->firstOrFail();
+        $blogs = Blog::where('type',$blog->type)
+            ->where('id','<>',$blog->id)
+            ->where('status',true)
+            ->take(2)
+            ->get();
+
+        return view('blog.view',compact('blog','blogs'));
     }
 }

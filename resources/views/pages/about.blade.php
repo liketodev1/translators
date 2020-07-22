@@ -6,6 +6,7 @@ if (!auth()->user()) {
 $headerType = 'white';
 ?>
 @extends('layouts.app')
+@section('title','About us')
 @section('content')
 
     <div id="header_background" class="about-header-bg">
