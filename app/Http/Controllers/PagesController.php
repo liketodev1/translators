@@ -4,7 +4,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\ContactUs;
 use App\Models\Country;
+use App\Models\KeyFeatures;
 use App\Models\LegalAreas;
 use App\Models\PrivacyPolicy;
 use App\Models\Specializations;
@@ -13,6 +15,7 @@ use App\Models\User;
 use App\Models\UserPost;
 use ConstUserRole;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -128,4 +131,31 @@ class PagesController extends BaseController
         return view('pages.our_lawyers', compact('users'));
     }
 
+    public function contactUs()
+    {
+        return view('pages.contact_us');
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function createContactMessage(Request $request)
+    {
+        $validated = $request->validate([
+            'subject'=> 'required',
+            'email'=> 'required|email',
+            'message'=> 'required|min:10',
+        ]);
+
+        ContactUs::create($validated);
+        return redirect()->route('contact_us')->with('success','Message send');
+    }
+
+    public function keyFeatures()
+    {
+        $features = KeyFeatures::orderBy('title','asc')->get();
+
+        return view('pages.key_features',compact('features'));
+    }
 }

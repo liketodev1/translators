@@ -33,8 +33,8 @@ $headerType = 'white';
                         </p>
                     </div>
                     <div class="info-block-links">
-                        <a href="#" class="info-block-link">Find A Lawyer</a>
-                        <a href="#" class="info-block-link">Find A Job</a>
+                        <a href="{{ route('our_lawyers') }}" class="info-block-link">Find A Lawyer</a>
+                        <a href="{{ route('find_a_job') }}" class="info-block-link">Find A Job</a>
                     </div>
                 </div>
             </div>

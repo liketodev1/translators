@@ -67,6 +67,22 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item {{ $routeName=='contact-messages'?'menu-open':'' }}">
+                    <a href="{{ route('admin.contact-messages.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Contact Messages
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item {{ $routeName=='key_features'?'menu-open':'' }}">
+                    <a href="{{ route('admin.key_features.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Key features
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

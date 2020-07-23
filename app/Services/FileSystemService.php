@@ -48,4 +48,14 @@ class FileSystemService
 
         return $filePath;
     }
+
+    public function fileDelete($fileName)
+    {
+
+        if ($fileName) {
+            Storage::disk('public')->delete($fileName);
+        }
+
+        return true;
+    }
 }

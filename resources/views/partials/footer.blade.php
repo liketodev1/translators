@@ -19,8 +19,8 @@
         <div class="footer_2_block to-right">
             <a href="{{ route('find_a_job') }}">{{__('global.findJob')}}</a>
             <a href="{{ route('our_lawyers') }}">Find A Lawyer</a>
-            <a href="">{{__('global.specializations')}}</a>
-            <a href="">{{__('global.keyFeatures')}}</a>
+            <a href="#">{{__('global.specializations')}}</a>
+            <a href="{{ route('key_features') }}">{{__('global.keyFeatures')}}</a>
         </div>
         <div class="footer_2_block">
             <a href="{{route('about_us')}}">{{__('global.about')}}</a>
@@ -32,7 +32,7 @@
             <a href="#">Careers</a>
             <a href="{{ route('privacy_policy') }}">Privacy &#38; Policy</a>
             <a href="#">Press</a>
-            <a href="#">Contact Us</a>
+            <a href="{{ route('contact_us') }}">Contact Us</a>
         </div>
     </div>
 </footer>
