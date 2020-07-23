@@ -215,7 +215,9 @@ $base-orange: #F54838;
         border-radius: 0;
         padding: 10.5px 16px 0;
         width: 33.33333333%;
-
+        &:not(:last-child) {
+            border-right: transparent;
+        }
         .find-job-select-title {
             font-weight: 500;
             font-size: 12px;

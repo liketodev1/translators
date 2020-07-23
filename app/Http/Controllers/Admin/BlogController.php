@@ -117,7 +117,7 @@ class BlogController extends Controller
         $file = $request->file('image');
 
         if ($request->file('image')){
-            $validatedData['image'] = $this->fileSystemService->fileUpload($file,'','images');
+            $validatedData['image'] = $this->fileSystemService->fileUpload($file,$blog->image,'images');
         }
         $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
         $validatedData['status'] = isset($request['status'])?true:false;
