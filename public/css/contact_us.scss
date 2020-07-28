@@ -1,0 +1,65 @@
+$base-orange: #F54838;
+@import "fonts";
+
+.contact-us {
+    margin-top: 60px;
+    margin-bottom: 200px;
+    .contact-us-col {
+        &:nth-child(1){
+            margin-right: 140px;
+            width: 60%;
+        }
+        .contact-us-title {
+            font-weight: 600;
+            font-size: 34px;
+            color: #000000;
+        }
+
+        .contact-us-text {
+            font-weight: normal;
+            font-size: 15px;
+            color: #000000;
+            margin-top: 20px;
+            padding-right: 20px;
+        }
+
+        form {
+            .form-group {
+                label {
+                    font-weight: normal;
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 8px;
+                }
+
+                .form-control {
+                    padding-left: 10px;
+                    font-weight: normal;
+                    font-size: 14px;
+                    color: #000000;
+                }
+
+                .send {
+                    max-width: 160px;
+                }
+
+            }
+        }
+
+        .contact-mail-block {
+            margin-top: 30px;
+            //margin-bottom: 10px;
+            .contact-for {
+                font-weight: normal;
+                font-size: 15px;
+                color: #000000;
+                margin-bottom: 4px;
+            }
+            .contact-mail {
+                font-weight: 500;
+                font-size: 18px;
+                color: #000000;
+            }
+        }
+    }
+}

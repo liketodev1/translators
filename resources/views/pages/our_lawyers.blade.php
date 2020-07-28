@@ -3,7 +3,6 @@
 @push('push_css')
     <link rel="stylesheet" href="{{ asset('css/post-history.css') }}">
     <link rel="stylesheet" href="{{ asset('css/our_lawyers.css') }}">
-
 @endpush
 
 @push('push_css')
