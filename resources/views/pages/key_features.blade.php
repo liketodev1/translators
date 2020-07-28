@@ -17,70 +17,29 @@
             </div>
         </div>
     </section>
-    <
+
     <section class="container">
         @forelse($features as $feature)
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2>{{ $feature->title }}</h2>
-                    <h3>{{ $feature->short_text }}</h3>
-                    <img src="{{ Storage::url($feature->icon) }}" alt="{{ $feature->title }}" width="50px">
-                    <img src="{{ Storage::url($feature->image) }}" alt="{{ $feature->image }}" width="350px">
+            <div class="row key-features-item ">
+                <div class="col-6">
+                    <div class="key-features-item-content d-flex flex-column align-items-center">
+                        <div class="key-features-item-icon">
+                            <img src="{{ Storage::url($feature->icon) }}" alt="{{ $feature->title }}">
+                        </div>
+                        <h3 class="key-features-item-title">{{ $feature->title }}</h3>
+                        <div class="key-features-item-text">{{ $feature->short_text }}</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="key-features-item-img">
+                        <img src="{{ Storage::url($feature->image) }}" alt="{{ $feature->image }}">
+                    </div>
                 </div>
             </div>
         @empty
-
-            <div class="row key-features-item ">
-                <div class="col-6">
-                    <div class="key-features-item-content d-flex flex-column align-items-center">
-                        <div class="key-features-item-icon">
-
-                            <img src="{{asset('img/key-features-item-icon.png')}}"/>
-
-                        </div>
-
-                        <h3 class="key-features-item-title"> A global community of qualified attorneys </h3>
-
-                        <div class="key-features-item-text">
-                            Working with seasoned attorneys at an affordable rate has never been easier. When you use
-                            TalkCounsel, you gain round-the-clock access to a global collective of experienced lawyers.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="key-features-item-img">
-                        <img src="{{asset('img/key-features-img.png')}}"/>
-                    </div>
-                </div>
+            <div class="result-not-found">
+                <div>Result not found</div>
             </div>
-
-            <div class="row key-features-item ">
-                <div class="col-6">
-                    <div class="key-features-item-content d-flex flex-column align-items-center">
-                        <div class="key-features-item-icon">
-
-                            <img src="{{asset('img/key-features-item-icon-2.png')}}"/>
-
-                        </div>
-
-                        <h3 class="key-features-item-title"> Affordable </h3>
-
-                        <div class="key-features-item-text">
-                            With TalkCounsel, you can now connect with a community of forward-thinking, diverse, and
-                            talented professionals. Whatever your legal need, we have candidates available at an
-                            affordable fee.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="key-features-item-img">
-                        <img src="{{asset('img/key-features-item-img-2.png')}}"/>
-                    </div>
-                </div>
-            </div>
-
-
-
         @endforelse
 
         <section class="container section key-features-bottom">
