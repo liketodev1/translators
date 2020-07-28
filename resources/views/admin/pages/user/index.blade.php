@@ -9,52 +9,35 @@
             <table class="table table-striped projects">
                 <thead>
                 <tr>
-                    <th style="width: 1%">
-                        Id
-                    </th>
-                    <th>
-                        First Name
-                    </th>
-                    <th >
-                        Last Name
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th  class="text-center">
-                        Phone
-                    </th>
-                    <th >
-                        Actions
-                    </th>
+                    <th style="width: 1%" title="Id">Id</th>
+                    <th title="Status">Status</th>
+                    <th title="Role">Role</th>
+                    <th title="First Name">First Name</th>
+                    <th title="Last Name">Last Name</th>
+                    <th title="Email">Email</th>
+                    <th title="Phone">Phone</th>
+                    <th title="Actions">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
+                    {{ debug($user) }}
                     <tr>
-                        <td>
-                            #{{$user->id}}
+                        <td> #{{$user->id}}</td>
+                        <td class="project-state">
+                            <span class="badge badge-success">{{ $user->enabled?'Active':'Passive' }}</span>
                         </td>
+                        <td>{{ $user->role }}</td>
                         <td>{{ $user->first_name }}</td>
                         <td>{{ $user->last_name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
                         <td class="project-actions">
-                            <a class="btn btn-primary btn-sm" href="{{ route('admin.users.show',['user'=>$user->id]) }}">
-                                <i class="fas fa-folder">
-                                </i>
+                            <a class="btn btn-primary btn-sm"  title="View user info"
+                               href="{{ route('admin.users.show',['user'=>$user->id]) }}">
+                                <i class="fas fa-folder"> </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="{{ route('admin.users.edit',['user'=>$user->id]) }}">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-{{--                            <a class="btn btn-danger btn-sm" href="#">--}}
-{{--                                <i class="fas fa-trash">--}}
-{{--                                </i>--}}
-{{--                                Delete--}}
-{{--                            </a>--}}
                         </td>
                     </tr>
                 @endforeach

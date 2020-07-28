@@ -3,28 +3,9 @@
 @push('push_css')
     <link rel="stylesheet" href="{{ asset('css/post-history.css') }}">
     <link rel="stylesheet" href="{{ asset('css/our_lawyers.css') }}">
-
 @endpush
 
-@push('push_css')
-    {{--    <link rel="stylesheet" href="{{ asset('css/post-history.css') }}">--}}
-@endpush
 @section('content')
-    {{--    <div class="container">
-            @forelse ($users as $user)
-                <div class="card">
-                    <h5 class="card-header">{{ $user->first_name }} {{ $user->last_name }}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $user->profile->country->name }}</h5>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            @empty
-                <div class="result-not-found">
-                    <div>Result not found</div>
-                </div>
-            @endforelse
-        </div>--}}
 
     <div class="container">
         <div class="row no-gutters w-100">
@@ -36,8 +17,8 @@
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT BILLING METHOD</p>
                             <select name="bt" class="browser-default custom-select-lg">
                                 <option value="">All</option>
-                                <option value="1">Per Hour</option>
-                                <option value="2">Fixed</option>
+                                <option {{ PaymentType::hour == request()->bt? 'selected':'' }} value="{{ PaymentType::hour }}">Per Hour</option>
+                                <option {{ PaymentType::fixed == request()->bt? 'selected':'' }} value="{{ PaymentType::fixed }}">Fixed</option>
                             </select>
                         </div>
 
@@ -45,9 +26,12 @@
                             <p class="mb-0 text-uppercase find-job-select-title">SELECT SPECIALIZATION</p>
                             <select name="s" class="browser-default custom-select-lg dropdown-items-wrap">
                                 <option value="">All</option>
-                                <option value="2">Admiralty Law</option>
-                                <option value="1">Animal Law</option>
-                                <option value="4">Banking and Finance Law</option>
+                                @if(count($specializations)>0)
+                                    @foreach($specializations as $specialization)
+                                        <option {{ request()->s == $specialization->id?'selected':'' }}
+                                                value="{{ $specialization->id }}">{{ $specialization->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
@@ -56,19 +40,21 @@
                             <select name="c" class="browser-default custom-select-lg dropdown-items-wrap">
                                 <option value="">All</option>
 
-                                <option value="1">Afghanistan</option>
-                                <option value="2">Albania</option>
-                                <option value="3">Algeria</option>
-                            </select></div>
+                                @if(count($countries)>0)
+                                    @foreach($countries as $county)
+                                        <option {{ request()->c == $county->id?'selected':'' }}
+                                                value="{{ $county->id }}">{{ $county->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
                     </div>
 
                     <div class="btn-group">
-                        <button type="submit" class="find-job-search-btn"><i class="fa fa-search"
-                                                                             aria-hidden="true"></i></button>
+                        <button type="submit" class="find-job-search-btn"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
             </div>
-
         </div>
         <div class="row no-gutters">
 
@@ -158,86 +144,87 @@
                 </form>
             </div>
         </div>
-
-        <div class="row no-gutters mb-2">
-            <div class="card d-flex">
-                <div class="card-body d-flex flex-row justify-content-between p-5">
-                    <div class="card-col card-img-wrap w-10">
-                        <img src="{{asset('img/lawyer-avatar.png')}}" class="card-img" alt="lawyer-avatar"/>
-                    </div>
-                    <div class="card-col w-70">
-                        <div class="card-row d-flex align-items-center">
-                            <h5 class="card-title">Courtney Jones</h5>
-                            <div class="status">
-                                <span class="badge badge-pill badge-purple">Pro</span>
+        @forelse ($users as $user)
+            <div class="row no-gutters mb-2">
+                <div class="card d-flex">
+                    <div class="card-body d-flex flex-row justify-content-between p-5">
+                        <div class="card-col card-img-wrap w-10">
+                            <img src="{{asset('img/lawyer-avatar.png')}}" class="card-img" alt="lawyer-avatar"/>
+                        </div>
+                        <div class="card-col w-70">
+                            <div class="card-row d-flex align-items-center">
+                                <h5 class="card-title">{{ $user->first_name.' '.$user->last_name }}</h5>
+                                <div class="status">
+                                    <span class="badge badge-pill badge-purple">Pro</span>
+                                </div>
+                                <div class="verified">
+                                    <img src="{{asset('img/verified.png')}}" alt="">
+                                </div>
                             </div>
-                            <div class="verified">
-                                <img src="{{asset('img/verified.png')}}" alt="">
+                            <div class="card-row d-flex">
+                                <div class="reviews-counnt-block d-flex align-items-center flex-wrap">
+                                    <i class="fas fa-star"></i>
+                                    <h6 class="h6 mb-0">4.95</h6>
+                                    <span class="reviews-count">(237 reviews)</span>
+                                    <span class="dot">.</span>
+                                </div>
+
+                                <div class="price-block d-flex align-items-center flex-wrap">
+                                    <h6 class="h6 mb-0">$ {{ $user->profile->rate }}</h6>
+                                    <span class="slash">/</span>
+                                    <span class="time">{{ $user->profile->rate_type==1?'hour':'fixed' }}</span>
+                                    <span class="dot">.</span>
+                                </div>
+
+                                <div class="location-block d-flex align-items-center flex-wrap">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span
+                                        class="state">{{ $user->profile->country->name }}, {{$user->profile->state }}, {{$user->profile->city }}</span>
+                                </div>
+                            </div>
+                            <div class="card-row d-flex">
+                                <div class="lang-block d-flex flex-wrap">
+                                    <h6 class="title">Language:</h6>
+                                    @forelse($user->languageLevel as $item)
+                                        {{ $item->language->name }} {{ !$loop->last?', ':'' }}
+                                    @empty
+                                        Not specialization
+                                    @endforelse
+                                </div>
+                            </div>
+                            <div class="card-row d-flex">
+                                <div class="spec-block d-flex flex-wrap">
+                                    <h6 class="title">Specializations:</h6>
+                                    @forelse($user->specializations as $item)
+                                        {{ $item->name }} {{ !$loop->last?', ':'' }}
+                                    @empty
+                                        Not specialization
+                                    @endforelse
+                                </div>
+                            </div>
+                            <div class="card-row d-flex">
+                                <p class="card-text lawyer-text show-read-more comment more">{{ $user->profile->biography }}</p>
                             </div>
                         </div>
-                        <div class="card-row d-flex">
-                            <div class="reviews-counnt-block d-flex align-items-center flex-wrap">
-                                <i class="fas fa-star"></i>
-                                <h6 class="h6 mb-0">4.95</h6>
-                                <span class="reviews-count">(237 reviews)</span>
-                                <span class="dot">.</span>
-                            </div>
-
-                            <div class="price-block d-flex align-items-center flex-wrap">
-                                <h6 class="h6 mb-0">$ 10</h6>
-                                <span class="slash">/</span>
-                                <span class="time">per hour</span>
-                                <span class="dot">.</span>
-
-                            </div>
-
-                            <div class="location-block d-flex align-items-center flex-wrap">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span class="state">California, United States</span>
-                                <span class="country">United States</span>
-                            </div>
-                        </div>
-                        <div class="card-row d-flex">
-                            <div class="lang-block d-flex flex-wrap">
-                                <h6 class="title">Language:</h6>
-                                English, Russian, Arabic, French
-                            </div>
-                        </div>
-                        <div class="card-row d-flex">
-                            <div class="spec-block d-flex flex-wrap">
-                                <h6 class="title">Specializations:</h6>
-                                Business, Localization
-                            </div>
-                        </div>
-                        <div class="card-row d-flex">
-                            {{--card-text post-item-text show-read-more comment more--}}
-                            <p class="card-text lawyer-text show-read-more comment more">Dignissim tellus in vitae arcu,
-                                ornare neque. Pretium elementum turpis fames eu pharetra maecenas dictum proin ut. Sit
-                                porta proin aliquam sit eget vitae. Vitae eget morbi velit urna, id turpis. Viverra
-                                gravida in tortor vitae, enim purus legal needs in a few sentence to enable us identify
-                                the best attorney for your job.Job Description
-                                Please describe your legal needs in a few sentence to enable us identify the best
-                                attorney for your job.Job Description
-                                Please describe your legal needs in a few sentence to enable us identify the best
-                                attorney for your job</p>
-                        </div>
-                    </div>
-
-                    <div class="card-col w-20 ">
-                        <div class="card-row">
-                            <div class="btn-group d-block m-auto">
-                                <button class="quote-btn">Get a quote</button>
-                                <button class="share-btn">
-                                    <i class="far fa-heart"></i>
-                                    Share
-                                </button>
+                        <div class="card-col w-20 ">
+                            <div class="card-row">
+                                <div class="btn-group d-block m-auto">
+                                    <button class="quote-btn">Get a quote</button>
+                                    <button class="share-btn">
+                                        <i class="far fa-heart"></i>
+                                        Share
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
+        @empty
+            <div class="result-not-found">
+                <div>Result not found</div>
+            </div>
+        @endforelse
     </div>
 @endsection
 

@@ -18,15 +18,14 @@
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false">
-
-{{--                <li class="nav-item {{ $routeName=='admin.users.index'?'menu-open':'' }}">--}}
-{{--                    <a href="{{ route('admin.users.index') }}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-users"></i>--}}
-{{--                        <p>--}}
-{{--                            Users--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item {{ $routeName=='users'?'menu-open':'' }}">
+                    <a href="{{ route('admin.users.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item {{ $routeName=='terms'?'menu-open':'' }}">
                     <a href="{{ route('admin.terms.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>

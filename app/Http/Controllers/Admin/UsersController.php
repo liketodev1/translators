@@ -49,16 +49,14 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return Factory|View
      */
-    public function show($id)
+    public function show(User $user)
     {
-
-
         return  view('admin.pages.user.view',
             array(
-                'user' => User::find($id)
+                'user' => $user->load(['specializations'])
             )
         );
     }

@@ -138,7 +138,6 @@
                         <div class="posts-spec-block d-flex flex-wrap">
                             <h6 class="title">Language:</h6>
                             @forelse($job->languageLevel as $item)
-
                                 <h6>{{ $item->language->name }}{{ !$loop->last?',':'' }}</h6>
                             @empty
                                 Not selected

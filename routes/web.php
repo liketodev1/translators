@@ -90,6 +90,7 @@ Route::get('/key-features','PagesController@keyFeatures')->name('key_features');
 Route::get('/clear-cache', function() {
    Artisan::call('cache:clear');
    Artisan::call('route:clear');
+   Artisan::call('config:cache');
    Artisan::call('config:clear');
    Artisan::call('view:clear');
    Artisan::call('optimize:clear');

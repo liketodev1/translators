@@ -29,6 +29,7 @@ class UserPost extends Model
 
     public function languageLevel()
     {
-        return $this->hasMany(PostLanguageLevel::class,'post_id','id');
+        return $this->hasMany(PostLanguageLevel::class,'post_id','id')
+            ->with('language');
     }
 }

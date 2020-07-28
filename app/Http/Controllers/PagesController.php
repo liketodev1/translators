@@ -17,6 +17,7 @@ use ConstUserRole;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class PagesController extends BaseController
@@ -62,9 +63,15 @@ class PagesController extends BaseController
      */
     public function findAJob(Request $request)
     {
-        $specializations = Specializations::orderBy('name', 'asc')->get();
-        $countries = Country::orderBy('name', 'asc')->get();
-        $legal_areas = LegalAreas::orderBy('name', 'asc')->get();
+        $specializations = Cache::remember('specializations', null, function () {
+            return Specializations::orderBy('name', 'asc')->get();
+        });
+        $countries = Cache::remember('countries', null, function () {
+            return Country::orderBy('name', 'asc')->get();
+        });
+        $legal_areas = Cache::remember('legal_areas', null, function () {
+            return LegalAreas::orderBy('position', 'asc')->get();
+        });
         $ratings = [
             '4.5-5',
             '3.5-4',
@@ -85,11 +92,13 @@ class PagesController extends BaseController
         }
         $jobs = $query->paginate(15);
 
+        $jobs->load(['country', 'specialization', 'languageLevel']);
+
         $cities = $query->select(['user_posts.city'])->groupBy('user_posts.city')->get();
 
         return view('pages.find_a_job',
             compact('jobs',
-              'specializations',
+                'specializations',
                 'countries',
                 'legal_areas',
                 'ratings',
@@ -104,19 +113,23 @@ class PagesController extends BaseController
      */
     public function ourLawyers(Request $request)
     {
+
+        $specializations = Cache::remember('specializations', null, function () {
+            return Specializations::orderBy('name', 'asc')->get();
+        });
+        $countries = Cache::remember('countries', null, function () {
+            return Country::orderBy('name', 'asc')->get();
+        });
+        $legal_areas = Cache::remember('legal_areas', null, function () {
+            return LegalAreas::orderBy('position', 'asc')->get();
+        });
+
         $query = User::where('role', ConstUserRole::ROLE_LAWYER)
-            ->join('specialization_user as su', function ($join) use ($request) {
-                $join->on('su.user_id', '=', 'users.id');
-                if ($request->s) {
-                    $join->where('su.specialization_id', '=', $request->s);
-                }
-            })
             ->join('lawyer_profiles as lp', function ($join) use ($request) {
                 $join->on('lp.user_id', '=', 'users.id');
                 if ($request->bt) {
                     $join->where('lp.rate_type', '=', $request->bt);
                 }
-
             })
             ->join('countries as c', function ($join) use ($request) {
                 $join->on('c.id', '=', 'lp.country_id');
@@ -124,11 +137,30 @@ class PagesController extends BaseController
                     $join->where('c.id', '=', $request->c);
                 }
             })
-            ->select(['users.*']);
+        ;
 
-        $users = $query->get();
+        if ($request->s) {
+            $query
+                ->join('specializations as s', function ($join) use ($request) {
+                    $join->where('s.id', '=', "$request->s");
+                })
+                ->join('specialization_user as su', function ($join) {
+                    $join->on('su.specialization_id', '=', 's.id');
+                    $join->on('su.user_id', '=', 'users.id');
+                })
+            ;
+        }
+        $query->select(['users.*']);
 
-        return view('pages.our_lawyers', compact('users'));
+        $users = $query->paginate(15);
+        $users->load(['specializations', 'profile', 'languageLevel', 'profile.country']);
+
+        return view('pages.our_lawyers', compact(
+            'users',
+            'specializations',
+            'countries',
+            'legal_areas'
+        ));
     }
 
     public function contactUs()
@@ -143,19 +175,19 @@ class PagesController extends BaseController
     public function createContactMessage(Request $request)
     {
         $validated = $request->validate([
-            'subject'=> 'required',
-            'email'=> 'required|email',
-            'message'=> 'required|min:10',
+            'subject' => 'required',
+            'email' => 'required|email',
+            'message' => 'required|min:10',
         ]);
 
         ContactUs::create($validated);
-        return redirect()->route('contact_us')->with('success','Message send');
+        return redirect()->route('contact_us')->with('success', 'Message send');
     }
 
     public function keyFeatures()
     {
-        $features = KeyFeatures::orderBy('title','asc')->get();
+        $features = KeyFeatures::orderBy('title', 'asc')->get();
 
-        return view('pages.key_features',compact('features'));
+        return view('pages.key_features', compact('features'));
     }
 }

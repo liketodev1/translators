@@ -7,19 +7,10 @@ use App\Models\LegalAreas;
 use App\Models\Specializations;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-//        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -27,9 +18,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $specializations = Specializations::orderBy('name','asc')->get();
-        $countries = Country::orderBy('name','asc')->get();
-        $legal_areas = LegalAreas::orderBy('position','asc')->get();
+        $specializations = Cache::remember('specializations', null, function () {
+            return Specializations::orderBy('name','asc')->get();
+        });
+        $countries = Cache::remember('countries', null, function () {
+            return Country::orderBy('name','asc')->get();
+        });
+        $legal_areas = Cache::remember('legal_areas', null, function () {
+            return LegalAreas::orderBy('position','asc')->get();
+        });
+//        $specializations = Specializations::orderBy('name','asc')->get();
+//        $countries = Country::orderBy('name','asc')->get();
+//        $legal_areas = LegalAreas::orderBy('position','asc')->get();
 
         return view('home',
             array(

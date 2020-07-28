@@ -103,12 +103,19 @@ class User extends Authenticatable
 
     public function specializations()
     {
-       return  $this->belongsToMany(Specializations::class,'specialization_user','user_id','specialization_id')->withTimestamps();
+       return  $this->belongsToMany(Specializations::class,
+           'specialization_user',
+           'user_id',
+           'specialization_id')
+           ->withTimestamps();
     }
 
     public function languageLevel()
     {
-        return $this->hasMany(LanguageLevelUser::class,'user_id','id');
+        return $this->hasMany(LanguageLevelUser::class,
+            'user_id',
+            'id')
+            ->with('language');
     }
 
 }
